@@ -8,6 +8,7 @@
 
 #include "TouchSurface.h"
 #include "Point2D.h"
+#include "Touch.h"
 
 namespace Zep {
     void TouchSurface::cleanUp() {

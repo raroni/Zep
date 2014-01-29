@@ -16,17 +16,19 @@
 		3A7BEF991897F97E004BFA7F /* Touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF971897F97E004BFA7F /* Touch.cpp */; };
 		3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED611898E457003EA707 /* TouchIDHelper.cpp */; };
 		3A94ED661898E74B003EA707 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
+		3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF961897F978004BFA7F /* TouchSurface.cpp */; };
 		3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD1EF91897D69F000803D6 /* Game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3A7044821897D4760076E9C2 /* CopyFiles */ = {
+		3A7044821897D4760076E9C2 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -229,8 +231,7 @@
 			buildPhases = (
 				3A7044801897D4760076E9C2 /* Sources */,
 				3A7044811897D4760076E9C2 /* Frameworks */,
-				3A7044821897D4760076E9C2 /* CopyFiles */,
-				3A2A46E11897DA5B00BFE8F0 /* ShellScript */,
+				3A7044821897D4760076E9C2 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -267,22 +268,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3A2A46E11897DA5B00BFE8F0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#rsync -r -u $SRCROOT/../../Library/Include $TARGET_BUILD_DIR\n#rsync -r -u $SRCROOT/../../Platforms/iOS/Include $TARGET_BUILD_DIR";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		3A7044801897D4760076E9C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -292,6 +277,7 @@
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */,
 				3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */,
+				3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */,
 				3A94ED661898E74B003EA707 /* Exception.cpp in Sources */,
 				3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */,
 				3A7BEF991897F97E004BFA7F /* Touch.cpp in Sources */,

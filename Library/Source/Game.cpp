@@ -12,4 +12,8 @@ namespace Zep {
     Screen& Game::getScreen() {
         return screen;
     }
+    
+    TouchSurface& Game::getTouchSurface() {
+        return touchSurface;
+    }
 }
