@@ -10,6 +10,7 @@
 #define __Zep__Simulation__
 
 #include <vector>
+#include "Zep/Simulation/Database.h"
 
 namespace Zep {
     class Processor;
@@ -17,6 +18,7 @@ namespace Zep {
     class Simulation {
         std::vector<Processor*> processors;
         bool initialized = false;
+        Database database;
     public:
         void initialize();
         void update(int timeDelta);
