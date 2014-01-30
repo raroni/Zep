@@ -10,10 +10,18 @@
 #define __Zep__Processor__
 
 namespace Zep {
+    class EventManager;
+    class Database;
+    
     class Processor {
+    protected:
+        EventManager *eventManager = nullptr;
+        Database *database = nullptr;
     public:
         virtual void initialize() { }
         virtual void update(int timeDelta) = 0;
+        void setEventManager(EventManager &eventManager);
+        void setDatabase(Database &database);
     };
 }
 

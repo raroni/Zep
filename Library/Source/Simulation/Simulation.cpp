@@ -7,17 +7,23 @@
 //
 
 #include "Zep/Simulation/Processor.h"
+#include "Zep/Exception.h"
 #include "Zep/Simulation/Simulation.h"
 
 namespace Zep {
-    Simulation::Simulation(EventManager &eventManager) : database(Database(eventManager)) { }
+    Simulation::Simulation(EventManager &eventManager) : database(Database(eventManager)) {
+        this->eventManager = &eventManager;
+    }
     
     void Simulation::add(Processor *processor) {
         if(initialized) throw Exception("You cannot add systems after initialization.");
+        processor->setEventManager(*eventManager);
+        processor->setDatabase(database);
         processors.push_back(processor);
     }
     
     void Simulation::initialize() {
+        database.initialize();
         for(Processor *processor : processors) {
             processor->initialize();
         }
@@ -32,7 +38,6 @@ namespace Zep {
     }
     
     EntityID Simulation::createEntityID() {
-        if(!initialized) throw Exception("You must initialize to create entity IDs");
         return database.createEntityID();
     }
 }

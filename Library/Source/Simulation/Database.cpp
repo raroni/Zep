@@ -11,11 +11,16 @@
 #include "Zep/Simulation/Database.h"
 
 namespace Zep {
-    Database::Database(EventManager &eventManager) : eventManager(eventManager) {
+    Database::Database(EventManager &eventManager) : eventManager(eventManager) { }
+    
+    void Database::initialize() {
         components.resize(Component::familyMaxCount, nullptr);
+        initialized = true;
     }
     
     EntityID Database::createEntityID() {
+        if(!initialized) throw Exception("You must initialize database before creating entity IDs.");
+        
         EntityID id;
         if(freedIDs.empty()) {
             id = nextUnusedID++;
@@ -37,7 +42,6 @@ namespace Zep {
     
     void Database::update() {
         for(EntityID id : newCreations) {
-            eventManager.emit<EntityIDAddition>(id);
             eventManager.emit<EntityIDAddition>(id);
         }
         newCreations.clear();

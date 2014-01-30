@@ -11,7 +11,6 @@
 
 #include <vector>
 #include "Zep/Simulation/Database.h"
-#include "Zep/Exception.h"
 
 namespace Zep {
     class Processor;
@@ -20,6 +19,7 @@ namespace Zep {
     class Simulation {
         std::vector<Processor*> processors;
         bool initialized = false;
+        EventManager* eventManager = nullptr;
         Database database;
     public:
         Simulation(EventManager &eventManager);
@@ -29,7 +29,6 @@ namespace Zep {
         EntityID createEntityID();
         template <class T>
         T& createComponent(EntityID entityID) {
-            if(!initialized) throw Exception("You must initialize to create components.");
             return database.createComponent<T>(entityID);
         }
     };

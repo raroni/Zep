@@ -11,6 +11,7 @@
 
 #include <bitset>
 #include <vector>
+#include "Zep/Exception.h"
 #include "Zep/Simulation/EntityID.h"
 #include "Zep/Simulation/Component.h"
 #include "Zep/Simulation/ComponentList.h"
@@ -27,11 +28,14 @@ namespace Zep {
         std::vector<EntityID> newCreations;
         void allocate(int newSize);
         EventManager &eventManager;
+        bool initialized = false;
     public:
         Database(EventManager &eventManager);
         EntityID createEntityID();
         template <class T>
         T& createComponent(EntityID entityID) {
+            if(!initialized) throw Exception("You must initialize database before creating components.");
+            
             Component::FamilyID familyID = Component::getFamilyID<T>();
             ComponentList<T> *componentList;
             
@@ -52,6 +56,7 @@ namespace Zep {
             auto& componentList = static_cast<ComponentList<T>&>(*components[familyID]);
             return componentList[entityID];
         }
+        void initialize();
         void update();
     };
 }

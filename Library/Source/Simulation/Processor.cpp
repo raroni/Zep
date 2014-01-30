@@ -7,3 +7,13 @@
 //
 
 #include "Processor.h"
+
+namespace Zep {
+    void Processor::setEventManager(EventManager &eventManager) {
+        this->eventManager = &eventManager;
+    }
+    
+    void Processor::setDatabase(Database &database) {
+        this->database = &database;
+    }
+}

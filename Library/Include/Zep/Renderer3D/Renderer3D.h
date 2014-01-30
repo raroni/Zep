@@ -16,11 +16,10 @@ namespace Zep {
     class EntityIDAddition;
     
     class Renderer3D : public Processor {
-        EventManager &eventManager;
     public:
-        Renderer3D(EventManager &eventManager);
         void update(int timeDelta);
         void receive(const EntityIDAddition &addition);
+        void initialize();
     };
 }
 

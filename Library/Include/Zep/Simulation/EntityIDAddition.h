@@ -17,6 +17,7 @@ namespace Zep {
         EntityID id;
     public:
         EntityIDAddition(EntityID id) : id(id) { }
+        EntityID getID() const;
     };
 }
 

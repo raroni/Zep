@@ -7,3 +7,9 @@
 //
 
 #include "EntityIDAddition.h"
+
+namespace Zep {
+    EntityID EntityIDAddition::getID() const {
+        return id;
+    }
+}
