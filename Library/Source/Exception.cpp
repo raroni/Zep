@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include "Exception.h"
+#include "Zep/Exception.h"
 
 namespace Zep {
-    Exception::Exception(std::string message) : runtime_error(message) { }
+    Exception::Exception(std::string const &message) : runtime_error(message) { }
 }

@@ -9,12 +9,12 @@
 #ifndef __Zep__Database__
 #define __Zep__Database__
 
+#include <bitset>
+#include <vector>
 #include "Zep/Simulation/EntityID.h"
 #include "Zep/Simulation/Component.h"
 #include "Zep/Simulation/ComponentList.h"
 #include "Zep/Simulation/ComponentListInterface.h"
-#include <bitset>
-#include <vector>
 
 namespace Zep {
     class Database {

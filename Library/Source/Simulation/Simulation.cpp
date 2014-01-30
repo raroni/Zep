@@ -6,12 +6,11 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include "Zep/Exception.h"
 #include "Zep/Simulation/Processor.h"
 #include "Zep/Simulation/Simulation.h"
 
 namespace Zep {
-    void Simulation::add(Zep::Processor *processor) {
+    void Simulation::add(Processor *processor) {
         if(initialized) throw Exception("You cannot add systems after initialization.");
         processors.push_back(processor);
     }
@@ -27,5 +26,10 @@ namespace Zep {
         for(Processor *processor : processors) {
             processor->update(timeDelta);
         }
+    }
+    
+    EntityID Simulation::createEntityID() {
+        if(!initialized) throw Exception("You must initialize to create entity IDs");
+        return database.createEntityID();
     }
 }

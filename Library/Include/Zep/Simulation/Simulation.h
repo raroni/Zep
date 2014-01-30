@@ -11,6 +11,7 @@
 
 #include <vector>
 #include "Zep/Simulation/Database.h"
+#include "Zep/Exception.h"
 
 namespace Zep {
     class Processor;
@@ -23,6 +24,12 @@ namespace Zep {
         void initialize();
         void update(int timeDelta);
         void add(Processor *processor);
+        EntityID createEntityID();
+        template <class T>
+        T& createComponent(EntityID entityID) {
+            if(!initialized) throw Exception("You must initialize to create components.");
+            return database.createComponent<T>(entityID);
+        }
     };
 }
 

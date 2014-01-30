@@ -15,7 +15,7 @@
 namespace Zep {
     class Exception : public std::runtime_error {
     public:
-        Exception(std::string message);
+        Exception(std::string const &message);
     };
 }
 

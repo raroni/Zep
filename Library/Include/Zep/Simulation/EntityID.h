@@ -11,6 +11,8 @@
 
 #include <stdint.h>
 
-typedef uint32_t EntityID;
+namespace Zep {
+    typedef uint32_t EntityID;
+}
 
 #endif
