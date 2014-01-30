@@ -15,12 +15,14 @@
 
 namespace Zep {
     class Processor;
+    class EventManager;
     
     class Simulation {
         std::vector<Processor*> processors;
         bool initialized = false;
         Database database;
     public:
+        Simulation(EventManager &eventManager);
         void initialize();
         void update(int timeDelta);
         void add(Processor *processor);

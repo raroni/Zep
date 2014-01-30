@@ -17,14 +17,18 @@
 #include "Zep/Simulation/ComponentListInterface.h"
 
 namespace Zep {
+    class EventManager;
+    
     class Database {
         std::vector<EntityID> freedIDs;
         EntityID nextUnusedID = 0;
         std::vector<ComponentListInterface*> components;
         std::vector<std::bitset<Component::familyMaxCount>> relationships;
+        std::vector<EntityID> newCreations;
         void allocate(int newSize);
+        EventManager &eventManager;
     public:
-        Database();
+        Database(EventManager &eventManager);
         EntityID createEntityID();
         template <class T>
         T& createComponent(EntityID entityID) {

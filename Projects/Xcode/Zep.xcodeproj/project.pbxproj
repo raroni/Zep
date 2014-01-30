@@ -22,6 +22,9 @@
 		3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED611898E457003EA707 /* TouchIDHelper.cpp */; };
 		3A94ED661898E74B003EA707 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
 		3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF961897F978004BFA7F /* TouchSurface.cpp */; };
+		3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
+		3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
+		3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA77189A71EB0050DF44 /* Event.cpp */; };
 		3ADE227E189940480000D976 /* ComponentList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE227C189940480000D976 /* ComponentList.cpp */; };
 		3ADE2281189941B70000D976 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE227F189941B70000D976 /* Component.cpp */; };
 		3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD1EF91897D69F000803D6 /* Game.cpp */; };
@@ -73,6 +76,15 @@
 		3A94ED611898E457003EA707 /* TouchIDHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchIDHelper.cpp; sourceTree = "<group>"; };
 		3A94ED641898E74B003EA707 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
 		3A94ED681898E754003EA707 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventManager.cpp; sourceTree = "<group>"; };
+		3AD0DA6F189A6B750050DF44 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityIDAddition.h; sourceTree = "<group>"; };
+		3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIDAddition.cpp; sourceTree = "<group>"; };
+		3AD0DA77189A71EB0050DF44 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
+		3AD0DA7B189A71F70050DF44 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		3AD0DA7E189A80E60050DF44 /* Signal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Signal.h; sourceTree = "<group>"; };
+		3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignalCallback.h; sourceTree = "<group>"; };
+		3AD0DA87189A84CA0050DF44 /* EventSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignal.h; sourceTree = "<group>"; };
 		3ADE227818993FF70000D976 /* ComponentListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentListInterface.h; sourceTree = "<group>"; };
 		3ADE227A189940140000D976 /* ComponentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentList.h; sourceTree = "<group>"; };
 		3ADE227C189940480000D976 /* ComponentList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentList.cpp; sourceTree = "<group>"; };
@@ -96,6 +108,7 @@
 		3A2A46D61897D99C00BFE8F0 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				3AD0DA69189A6B5B0050DF44 /* Events */,
 				3A3A6EDA189931B9006AB24E /* Renderer3D */,
 				3A3A6ECF18992F22006AB24E /* Simulation */,
 				3A7BEF931897F96D004BFA7F /* Input */,
@@ -145,6 +158,7 @@
 				3A3A6EED189937C6006AB24E /* Database.cpp */,
 				3ADE227C189940480000D976 /* ComponentList.cpp */,
 				3ADE227F189941B70000D976 /* Component.cpp */,
+				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 				3ADE227818993FF70000D976 /* ComponentListInterface.h */,
 				3ADE227A189940140000D976 /* ComponentList.h */,
 				3ADE2283189941BF0000D976 /* Component.h */,
+				3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -268,6 +283,27 @@
 			path = "Include/Zep-iOS";
 			sourceTree = "<group>";
 		};
+		3AD0DA69189A6B5B0050DF44 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0DA6F189A6B750050DF44 /* EventManager.h */,
+				3AD0DA7B189A71F70050DF44 /* Event.h */,
+				3AD0DA7E189A80E60050DF44 /* Signal.h */,
+				3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */,
+				3AD0DA87189A84CA0050DF44 /* EventSignal.h */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		3AD0DA6A189A6B650050DF44 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */,
+				3AD0DA77189A71EB0050DF44 /* Event.cpp */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		3AFD1EE91897D60D000803D6 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +317,7 @@
 		3AFD1EEB1897D60D000803D6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3AD0DA6A189A6B650050DF44 /* Events */,
 				3A3A6ED618993195006AB24E /* Renderer3D */,
 				3A3A6ECE18992EFD006AB24E /* Simulation */,
 				3A7BEF951897F978004BFA7F /* Input */,
@@ -344,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
 				3A2A46EC1897DCB000BFE8F0 /* ViewController.mm in Sources */,
 				3ADE2281189941B70000D976 /* Component.cpp in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
@@ -355,6 +393,8 @@
 				3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */,
 				3A7BEF991897F97E004BFA7F /* Touch.cpp in Sources */,
 				3A3A6EEF189937C6006AB24E /* Database.cpp in Sources */,
+				3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */,
+				3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */,
 				3A7BEF731897E487004BFA7F /* View.mm in Sources */,
 				3A3A6EE9189932ED006AB24E /* Processor.cpp in Sources */,
 				3A3A6EE0189932BB006AB24E /* Renderer3D.cpp in Sources */,

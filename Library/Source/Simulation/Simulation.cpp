@@ -10,6 +10,8 @@
 #include "Zep/Simulation/Simulation.h"
 
 namespace Zep {
+    Simulation::Simulation(EventManager &eventManager) : database(Database(eventManager)) { }
+    
     void Simulation::add(Processor *processor) {
         if(initialized) throw Exception("You cannot add systems after initialization.");
         processors.push_back(processor);
@@ -23,6 +25,7 @@ namespace Zep {
     }
     
     void Simulation::update(int timeDelta) {
+        database.update();
         for(Processor *processor : processors) {
             processor->update(timeDelta);
         }

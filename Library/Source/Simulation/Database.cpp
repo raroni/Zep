@@ -6,10 +6,12 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
+#include "Zep/Events/EventManager.h"
+#include "Zep/Simulation/EntityIDAddition.h"
 #include "Zep/Simulation/Database.h"
 
 namespace Zep {
-    Database::Database() {
+    Database::Database(EventManager &eventManager) : eventManager(eventManager) {
         components.resize(Component::familyMaxCount, nullptr);
     }
     
@@ -22,6 +24,7 @@ namespace Zep {
             id = freedIDs.back();
             freedIDs.pop_back();
         }
+        newCreations.push_back(id);
         return id;
     }
     
@@ -32,7 +35,11 @@ namespace Zep {
         }
     }
     
-    void update() {
-        
+    void Database::update() {
+        for(EntityID id : newCreations) {
+            eventManager.emit<EntityIDAddition>(id);
+            eventManager.emit<EntityIDAddition>(id);
+        }
+        newCreations.clear();
     }
 }

@@ -6,10 +6,20 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include "Renderer3D.h"
+#include "Zep/Events/EventManager.h"
+#include "Zep/Simulation/EntityIDAddition.h"
+#include "Zep/Renderer3D/Renderer3D.h"
 
 namespace Zep {
+    Renderer3D::Renderer3D(EventManager &eventManager) : eventManager(eventManager) {
+        eventManager.subscribe<EntityIDAddition>(*this);
+    }
+    
     void Renderer3D::update(int timeDelta) {
+        
+    }
+    
+    void Renderer3D::receive(const EntityIDAddition &addition) {
         
     }
 }
