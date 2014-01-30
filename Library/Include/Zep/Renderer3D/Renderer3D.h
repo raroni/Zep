@@ -9,6 +9,8 @@
 #ifndef __Zep__Renderer3D__
 #define __Zep__Renderer3D__
 
+#include "Zep/Simulation/ComponentMask.h"
+#include "Zep/Simulation/EntityID.h"
 #include "Zep/Simulation/Processor.h"
 
 namespace Zep {
@@ -16,10 +18,12 @@ namespace Zep {
     class EntityIDAddition;
     
     class Renderer3D : public Processor {
+        ComponentMask componentMask;
     public:
         void update(int timeDelta);
         void receive(const EntityIDAddition &addition);
         void initialize();
+        void onEntityAdded(EntityID entityID);
     };
 }
 

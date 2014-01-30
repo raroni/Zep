@@ -46,4 +46,8 @@ namespace Zep {
         }
         newCreations.clear();
     }
+    
+    bool Database::hasComponents(EntityID entityID, ComponentMask mask) {
+        return (relationships[entityID] & mask).any();
+    }
 }

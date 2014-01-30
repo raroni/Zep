@@ -11,11 +11,11 @@
 
 #include <map>
 #include <typeindex>
+#include "Zep/Simulation/FamilyID.h"
 
 namespace Zep {
     class Component {
     public:
-        typedef int FamilyID;
         const static int familyMaxCount = 32;
     private:
         static FamilyID nextUnusedFamilyID;

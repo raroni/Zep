@@ -9,11 +9,12 @@
 #ifndef __Zep__Database__
 #define __Zep__Database__
 
-#include <bitset>
 #include <vector>
 #include "Zep/Exception.h"
 #include "Zep/Simulation/EntityID.h"
+#include "ZEp/Simulation/FamilyID.h"
 #include "Zep/Simulation/Component.h"
+#include "Zep/Simulation/ComponentMask.h"
 #include "Zep/Simulation/ComponentList.h"
 #include "Zep/Simulation/ComponentListInterface.h"
 
@@ -24,7 +25,7 @@ namespace Zep {
         std::vector<EntityID> freedIDs;
         EntityID nextUnusedID = 0;
         std::vector<ComponentListInterface*> components;
-        std::vector<std::bitset<Component::familyMaxCount>> relationships;
+        std::vector<ComponentMask> relationships;
         std::vector<EntityID> newCreations;
         void allocate(int newSize);
         EventManager &eventManager;
@@ -36,7 +37,7 @@ namespace Zep {
         T& createComponent(EntityID entityID) {
             if(!initialized) throw Exception("You must initialize database before creating components.");
             
-            Component::FamilyID familyID = Component::getFamilyID<T>();
+            FamilyID familyID = Component::getFamilyID<T>();
             ComponentList<T> *componentList;
             
             if(components[familyID] == nullptr) {
@@ -48,16 +49,26 @@ namespace Zep {
             }
             
             (*componentList)[entityID] = T();
+            relationships[entityID].set(familyID, 1);
+            
             return (*componentList)[entityID];
         }
         template <class T>
         T& getComponent(EntityID entityID) {
-            Component::FamilyID familyID = Component::getFamilyID<T>();
+            FamilyID familyID = Component::getFamilyID<T>();
             auto& componentList = static_cast<ComponentList<T>&>(*components[familyID]);
             return componentList[entityID];
         }
         void initialize();
         void update();
+        template <class T>
+        ComponentMask getComponentMask() {
+            FamilyID familyID = Component::getFamilyID<T>();
+            ComponentMask mask;
+            mask.set(familyID, 1);
+            return mask;
+        }
+        bool hasComponents(EntityID, ComponentMask mask);
     };
 }
 

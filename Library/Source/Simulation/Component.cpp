@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include "Component.h"
+#include "Zep/Simulation/Component.h"
 
 namespace Zep {
     std::map<std::type_index, int> Component::familyIDs;
-    Component::FamilyID Component::nextUnusedFamilyID = 0;
+    FamilyID Component::nextUnusedFamilyID = 0;
 }
