@@ -23,3 +23,6 @@ build/
 *~
 *.dat
 *.dep
+
+/Projects/Make/tmp
+/Dependencies/vincent
