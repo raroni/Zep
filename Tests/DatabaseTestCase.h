@@ -1,5 +1,6 @@
 #include "vincent/test_case.h"
 #include "vincent/test.h"
+#include "Zep/Simulation/EntityIDAddition.h"
 #include "Zep/Simulation/Database.h"
 #include "Zep/Events/EventManager.h"
 
@@ -7,7 +8,7 @@ namespace DatabaseTestCase {
     struct Jetpack : public Zep::Component {
         int thrust = 1234;
     };
-
+    
     class CreateEntityIDTest : public Vincent::Test {
     public:
         CreateEntityIDTest() {
@@ -25,7 +26,7 @@ namespace DatabaseTestCase {
             assertEqual(1, database.createEntityID());
         }
     };
-
+    
     class CreateComponentTest : public Vincent::Test {
     public:
         CreateComponentTest() {
@@ -44,13 +45,44 @@ namespace DatabaseTestCase {
             assertEqual(1234, jetpack.thrust);
         }
     };
-
+    
+    class AdditionEventTest : public Vincent::Test {
+        class DummyReceiver {
+        public:
+            int lastReceivedID = -1;
+            void receive(const Zep::EntityIDAddition &addition) {
+                lastReceivedID = addition.getID();
+            }
+        };
+    public:
+        AdditionEventTest() {
+            name = "AdditionEvent";
+        }
+        void run() {
+            DummyReceiver dummyReceiver;
+            Zep::EventManager eventManager;
+            eventManager.subscribe<Zep::EntityIDAddition>(dummyReceiver);
+            Zep::Database database(eventManager);
+            database.initialize();
+            Zep::EntityID entityID1 = database.createEntityID();
+            assertEqual(-1, dummyReceiver.lastReceivedID);
+            database.update();
+            assertEqual(entityID1, dummyReceiver.lastReceivedID);
+            database.createEntityID();
+            Zep::EntityID entityID3 = database.createEntityID();
+            assertEqual(entityID1, dummyReceiver.lastReceivedID);
+            database.update();
+            assertEqual(entityID3, dummyReceiver.lastReceivedID);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
             name = "Database";
             add(new CreateEntityIDTest());
             add(new CreateComponentTest());
+            add(new AdditionEventTest());
         }
     };
 }

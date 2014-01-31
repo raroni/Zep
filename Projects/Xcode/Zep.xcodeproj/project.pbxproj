@@ -19,6 +19,7 @@
 		3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
 		3A66109F189BB0090085D6F7 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109D189BAFEB0085D6F7 /* test.cpp */; };
 		3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109E189BAFEB0085D6F7 /* test_result.cpp */; };
+		3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3A7044881897D4760076E9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7044871897D4760076E9C2 /* Foundation.framework */; };
 		3A7BEF731897E487004BFA7F /* View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF721897E487004BFA7F /* View.mm */; };
 		3A7BEF7C1897EC25004BFA7F /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF7A1897EC25004BFA7F /* Screen.cpp */; };
@@ -89,7 +90,7 @@
 		3A66109B189BAFEB0085D6F7 /* text_presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_presentation.h; sourceTree = "<group>"; };
 		3A66109D189BAFEB0085D6F7 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		3A66109E189BAFEB0085D6F7 /* test_result.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_result.cpp; sourceTree = "<group>"; };
-		3A7044841897D4760076E9C2 /* libZep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZep.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7044841897D4760076E9C2 /* libZep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libZep.a; path = libiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7044871897D4760076E9C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A7BEF721897E487004BFA7F /* View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = View.mm; sourceTree = "<group>"; };
 		3A7BEF781897EC17004BFA7F /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
@@ -507,6 +508,7 @@
 				3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */,
 				3A66109F189BB0090085D6F7 /* test.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
+				3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */,
 				3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */,
 				3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */,
 			);
@@ -673,6 +675,7 @@
 				3A661084189BAF3D0085D6F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A70447F1897D4760076E9C2 /* Build configuration list for PBXProject "Zep" */ = {
 			isa = XCConfigurationList;
