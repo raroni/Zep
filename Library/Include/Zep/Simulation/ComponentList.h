@@ -16,7 +16,7 @@ namespace Zep {
     template <class T>
     class ComponentList : public ComponentListInterface {
         T* data;
-        int size = 0;
+        size_t size = 0;
     public:
         ComponentList() {
             data = new T[size];
@@ -24,7 +24,7 @@ namespace Zep {
         T& operator[](int index) {
             return data[index];
         }
-        void resize(int newSize) {
+        void resize(size_t newSize) {
             T* newData = new T[newSize];
             std::memcpy(newData, data, size);
             delete[] data;

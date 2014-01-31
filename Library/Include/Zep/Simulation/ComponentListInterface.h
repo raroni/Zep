@@ -12,7 +12,7 @@
 namespace Zep {
     class ComponentListInterface {
     public:
-        virtual void resize(int newSize) = 0;
+        virtual void resize(size_t newSize) = 0;
     };
 }
 

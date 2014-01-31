@@ -31,7 +31,6 @@
 		3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
 		3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA77189A71EB0050DF44 /* Event.cpp */; };
-		3ADE227E189940480000D976 /* ComponentList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE227C189940480000D976 /* ComponentList.cpp */; };
 		3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD1EF91897D69F000803D6 /* Game.cpp */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +119,6 @@
 		3AD0DA87189A84CA0050DF44 /* EventSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignal.h; sourceTree = "<group>"; };
 		3ADE227818993FF70000D976 /* ComponentListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentListInterface.h; sourceTree = "<group>"; };
 		3ADE227A189940140000D976 /* ComponentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentList.h; sourceTree = "<group>"; };
-		3ADE227C189940480000D976 /* ComponentList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentList.cpp; sourceTree = "<group>"; };
 		3ADE2283189941BF0000D976 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		3AFD1EF91897D69F000803D6 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,7 +193,6 @@
 				3A3A6ED018992F27006AB24E /* Simulation.cpp */,
 				3A3A6EE7189932ED006AB24E /* Processor.cpp */,
 				3A3A6EED189937C6006AB24E /* Database.cpp */,
-				3ADE227C189940480000D976 /* ComponentList.cpp */,
 				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
 			);
 			path = Simulation;
@@ -524,7 +521,6 @@
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */,
 				3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */,
-				3ADE227E189940480000D976 /* ComponentList.cpp in Sources */,
 				3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */,
 				3A94ED661898E74B003EA707 /* Exception.cpp in Sources */,
 				3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */,
