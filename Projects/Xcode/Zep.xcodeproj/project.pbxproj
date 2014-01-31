@@ -69,7 +69,6 @@
 		3A3A6EED189937C6006AB24E /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Database.cpp; sourceTree = "<group>"; };
 		3A3A6EF1189937D7006AB24E /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		3A3A6EF31899384A006AB24E /* EntityID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityID.h; sourceTree = "<group>"; };
-		3A5B9310189AA6E100B47541 /* FamilyID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FamilyID.h; sourceTree = "<group>"; };
 		3A5B9311189AABA400B47541 /* ComponentMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentMask.h; sourceTree = "<group>"; };
 		3A6515EF189990BE00D6384E /* MeshRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRendering.h; sourceTree = "<group>"; };
 		3A6515F1189990E700D6384E /* MeshRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRendering.cpp; sourceTree = "<group>"; };
@@ -210,7 +209,6 @@
 				3ADE227A189940140000D976 /* ComponentList.h */,
 				3ADE2283189941BF0000D976 /* Component.h */,
 				3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */,
-				3A5B9310189AA6E100B47541 /* FamilyID.h */,
 				3A5B9311189AABA400B47541 /* ComponentMask.h */,
 			);
 			path = Simulation;
