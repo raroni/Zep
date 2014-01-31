@@ -12,10 +12,11 @@
 #include <vector>
 #include "Zep/Exception.h"
 #include "Zep/Simulation/EntityID.h"
-#include "ZEp/Simulation/FamilyID.h"
 #include "Zep/Simulation/Component.h"
 #include "Zep/Simulation/ComponentMask.h"
 #include "Zep/Simulation/ComponentList.h"
+#include "Zep/Simulation/ComponentTypeRegistry.h"
+#include "Zep/Simulation/SimulationConfig.h"
 #include "Zep/Simulation/ComponentListInterface.h"
 
 namespace Zep {
@@ -30,6 +31,7 @@ namespace Zep {
         void allocate(int newSize);
         EventManager &eventManager;
         bool initialized = false;
+        ComponentTypeRegistry componentTypes;
     public:
         Database(EventManager &eventManager);
         EntityID createEntityID();
@@ -37,35 +39,35 @@ namespace Zep {
         T& createComponent(EntityID entityID) {
             if(!initialized) throw Exception("You must initialize database before creating components.");
             
-            FamilyID familyID = Component::getFamilyID<T>();
+            int componentTypeID = componentTypes.getID<T>();
             ComponentList<T> *componentList;
             
-            if(components[familyID] == nullptr) {
+            if(components[componentTypeID] == nullptr) {
                 componentList = new ComponentList<T>();
                 componentList->resize(relationships.size());
-                components[familyID] = componentList;
+                components[componentTypeID] = componentList;
             } else {
-                componentList = static_cast<ComponentList<T>*>(components[familyID]);
+                componentList = static_cast<ComponentList<T>*>(components[componentTypeID]);
             }
             
             (*componentList)[entityID] = T();
-            relationships[entityID].set(familyID, 1);
+            relationships[entityID].set(componentTypeID, 1);
             
             return (*componentList)[entityID];
         }
         template <class T>
         T& getComponent(EntityID entityID) {
-            FamilyID familyID = Component::getFamilyID<T>();
-            auto& componentList = static_cast<ComponentList<T>&>(*components[familyID]);
+            int componentTypeID = componentTypes.getID<T>();
+            auto& componentList = static_cast<ComponentList<T>&>(*components[componentTypeID]);
             return componentList[entityID];
         }
         void initialize();
         void update();
         template <class T>
         ComponentMask getComponentMask() {
-            FamilyID familyID = Component::getFamilyID<T>();
+            int componentTypeID = componentTypes.getID<T>();
             ComponentMask mask;
-            mask.set(familyID, 1);
+            mask.set(componentTypeID, 1);
             return mask;
         }
         bool hasComponents(EntityID, ComponentMask mask);

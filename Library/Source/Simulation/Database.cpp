@@ -8,13 +8,14 @@
 
 #include "Zep/Events/EventManager.h"
 #include "Zep/Simulation/EntityIDAddition.h"
+#include "Zep/Simulation/SimulationConfig.h"
 #include "Zep/Simulation/Database.h"
 
 namespace Zep {
-    Database::Database(EventManager &eventManager) : eventManager(eventManager) { }
+    Database::Database(EventManager &eventManager) : eventManager(eventManager), componentTypes(ComponentTypeRegistry(SimulationConfig::maxComponentTypes)) { }
     
     void Database::initialize() {
-        components.resize(Component::familyMaxCount, nullptr);
+        components.resize(SimulationConfig::maxComponentTypes, nullptr);
         initialized = true;
     }
     
