@@ -20,6 +20,9 @@
 		3A66109F189BB0090085D6F7 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109D189BAFEB0085D6F7 /* test.cpp */; };
 		3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109E189BAFEB0085D6F7 /* test_result.cpp */; };
 		3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
+		3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
+		3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */; };
+		3A6D4C29189BCD0B00D1065B /* EntityObserverProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */; };
 		3A7044881897D4760076E9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7044871897D4760076E9C2 /* Foundation.framework */; };
 		3A7BEF731897E487004BFA7F /* View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF721897E487004BFA7F /* View.mm */; };
 		3A7BEF7C1897EC25004BFA7F /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF7A1897EC25004BFA7F /* Screen.cpp */; };
@@ -89,6 +92,9 @@
 		3A66109B189BAFEB0085D6F7 /* text_presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_presentation.h; sourceTree = "<group>"; };
 		3A66109D189BAFEB0085D6F7 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		3A66109E189BAFEB0085D6F7 /* test_result.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_result.cpp; sourceTree = "<group>"; };
+		3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessor.h; sourceTree = "<group>"; };
+		3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessorTestCase.h; sourceTree = "<group>"; };
+		3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserverProcessor.cpp; sourceTree = "<group>"; };
 		3A7044841897D4760076E9C2 /* libZep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libZep.a; path = libiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7044871897D4760076E9C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A7BEF721897E487004BFA7F /* View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = View.mm; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				3A3A6EE7189932ED006AB24E /* Processor.cpp */,
 				3A3A6EED189937C6006AB24E /* Database.cpp */,
 				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
+				3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 				3ADE2283189941BF0000D976 /* Component.h */,
 				3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */,
 				3A5B9311189AABA400B47541 /* ComponentMask.h */,
+				3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 				3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */,
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3A661088189BAF5E0085D6F7 /* Runner.cpp */,
+				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
 			);
 			name = Tests;
 			path = ../../Tests;
@@ -505,8 +514,10 @@
 				3A661089189BAF710085D6F7 /* Runner.cpp in Sources */,
 				3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */,
 				3A66109F189BB0090085D6F7 /* test.cpp in Sources */,
+				3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
 				3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */,
+				3A6D4C29189BCD0B00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */,
 				3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */,
 			);
@@ -517,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
+				3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A2A46EC1897DCB000BFE8F0 /* ViewController.mm in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */,
