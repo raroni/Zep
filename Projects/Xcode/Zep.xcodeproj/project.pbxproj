@@ -13,6 +13,12 @@
 		3A3A6EE9189932ED006AB24E /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
 		3A3A6EEF189937C6006AB24E /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
 		3A6515F3189990E700D6384E /* MeshRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6515F1189990E700D6384E /* MeshRendering.cpp */; };
+		3A661089189BAF710085D6F7 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A661088189BAF5E0085D6F7 /* Runner.cpp */; };
+		3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
+		3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
+		3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
+		3A66109F189BB0090085D6F7 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109D189BAFEB0085D6F7 /* test.cpp */; };
+		3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109E189BAFEB0085D6F7 /* test_result.cpp */; };
 		3A7044881897D4760076E9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7044871897D4760076E9C2 /* Foundation.framework */; };
 		3A7BEF731897E487004BFA7F /* View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF721897E487004BFA7F /* View.mm */; };
 		3A7BEF7C1897EC25004BFA7F /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF7A1897EC25004BFA7F /* Screen.cpp */; };
@@ -30,6 +36,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3A66107A189BAF3D0085D6F7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		3A7044821897D4760076E9C2 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,6 +73,23 @@
 		3A5B9311189AABA400B47541 /* ComponentMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentMask.h; sourceTree = "<group>"; };
 		3A6515EF189990BE00D6384E /* MeshRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRendering.h; sourceTree = "<group>"; };
 		3A6515F1189990E700D6384E /* MeshRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRendering.cpp; sourceTree = "<group>"; };
+		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentTypeRegistryTestCase.h; sourceTree = "<group>"; };
+		3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTestCase.h; sourceTree = "<group>"; };
+		3A661088189BAF5E0085D6F7 /* Runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Runner.cpp; sourceTree = "<group>"; };
+		3A661091189BAFEB0085D6F7 /* exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exception.h; sourceTree = "<group>"; };
+		3A661092189BAFEB0085D6F7 /* failed_assertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = failed_assertion.h; sourceTree = "<group>"; };
+		3A661093189BAFEB0085D6F7 /* failed_integer_equal_assertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = failed_integer_equal_assertion.h; sourceTree = "<group>"; };
+		3A661094189BAFEB0085D6F7 /* failed_throws_assertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = failed_throws_assertion.h; sourceTree = "<group>"; };
+		3A661095189BAFEB0085D6F7 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		3A661096189BAFEB0085D6F7 /* test_case.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test_case.h; sourceTree = "<group>"; };
+		3A661097189BAFEB0085D6F7 /* test_case_result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test_case_result.h; sourceTree = "<group>"; };
+		3A661098189BAFEB0085D6F7 /* test_result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test_result.h; sourceTree = "<group>"; };
+		3A661099189BAFEB0085D6F7 /* test_suite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test_suite.h; sourceTree = "<group>"; };
+		3A66109A189BAFEB0085D6F7 /* test_suite_result.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test_suite_result.h; sourceTree = "<group>"; };
+		3A66109B189BAFEB0085D6F7 /* text_presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_presentation.h; sourceTree = "<group>"; };
+		3A66109D189BAFEB0085D6F7 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		3A66109E189BAFEB0085D6F7 /* test_result.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_result.cpp; sourceTree = "<group>"; };
 		3A7044841897D4760076E9C2 /* libZep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZep.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7044871897D4760076E9C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A7BEF721897E487004BFA7F /* View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = View.mm; sourceTree = "<group>"; };
@@ -94,6 +126,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A661079189BAF3D0085D6F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A7044811897D4760076E9C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,12 +236,78 @@
 			path = Renderer3D;
 			sourceTree = "<group>";
 		};
+		3A661085189BAF5E0085D6F7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */,
+				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
+				3A661088189BAF5E0085D6F7 /* Runner.cpp */,
+			);
+			name = Tests;
+			path = ../../Tests;
+			sourceTree = "<group>";
+		};
+		3A66108D189BAFEB0085D6F7 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				3A66108E189BAFEB0085D6F7 /* vincent */,
+			);
+			name = Dependencies;
+			path = ../../Dependencies;
+			sourceTree = "<group>";
+		};
+		3A66108E189BAFEB0085D6F7 /* vincent */ = {
+			isa = PBXGroup;
+			children = (
+				3A66108F189BAFEB0085D6F7 /* include */,
+				3A66109C189BAFEB0085D6F7 /* source */,
+			);
+			path = vincent;
+			sourceTree = "<group>";
+		};
+		3A66108F189BAFEB0085D6F7 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				3A661090189BAFEB0085D6F7 /* vincent */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		3A661090189BAFEB0085D6F7 /* vincent */ = {
+			isa = PBXGroup;
+			children = (
+				3A661091189BAFEB0085D6F7 /* exception.h */,
+				3A661092189BAFEB0085D6F7 /* failed_assertion.h */,
+				3A661093189BAFEB0085D6F7 /* failed_integer_equal_assertion.h */,
+				3A661094189BAFEB0085D6F7 /* failed_throws_assertion.h */,
+				3A661095189BAFEB0085D6F7 /* test.h */,
+				3A661096189BAFEB0085D6F7 /* test_case.h */,
+				3A661097189BAFEB0085D6F7 /* test_case_result.h */,
+				3A661098189BAFEB0085D6F7 /* test_result.h */,
+				3A661099189BAFEB0085D6F7 /* test_suite.h */,
+				3A66109A189BAFEB0085D6F7 /* test_suite_result.h */,
+				3A66109B189BAFEB0085D6F7 /* text_presentation.h */,
+			);
+			path = vincent;
+			sourceTree = "<group>";
+		};
+		3A66109C189BAFEB0085D6F7 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				3A66109D189BAFEB0085D6F7 /* test.cpp */,
+				3A66109E189BAFEB0085D6F7 /* test_result.cpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
 		3A70447B1897D4760076E9C2 = {
 			isa = PBXGroup;
 			children = (
 				3AFD1EE91897D60D000803D6 /* Library */,
 				3A2A46E61897DC7200BFE8F0 /* Platforms */,
 				3A7044861897D4760076E9C2 /* Frameworks */,
+				3A661085189BAF5E0085D6F7 /* Tests */,
+				3A66108D189BAFEB0085D6F7 /* Dependencies */,
 				3A7044851897D4760076E9C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				3A7044841897D4760076E9C2 /* libZep.a */,
+				3A66107C189BAF3D0085D6F7 /* Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,9 +440,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A7044831897D4760076E9C2 /* Zep */ = {
+		3A66107B189BAF3D0085D6F7 /* Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A7044A71897D4760076E9C2 /* Build configuration list for PBXNativeTarget "Zep" */;
+			buildConfigurationList = 3A661082189BAF3D0085D6F7 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				3A661078189BAF3D0085D6F7 /* Sources */,
+				3A661079189BAF3D0085D6F7 /* Frameworks */,
+				3A66107A189BAF3D0085D6F7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Test;
+			productName = Test;
+			productReference = 3A66107C189BAF3D0085D6F7 /* Test */;
+			productType = "com.apple.product-type.tool";
+		};
+		3A7044831897D4760076E9C2 /* iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A7044A71897D4760076E9C2 /* Build configuration list for PBXNativeTarget "iOS" */;
 			buildPhases = (
 				3A7044801897D4760076E9C2 /* Sources */,
 				3A7044811897D4760076E9C2 /* Frameworks */,
@@ -346,7 +469,7 @@
 			);
 			dependencies = (
 			);
-			name = Zep;
+			name = iOS;
 			productName = Ferdinand;
 			productReference = 3A7044841897D4760076E9C2 /* libZep.a */;
 			productType = "com.apple.product-type.library.static";
@@ -372,12 +495,26 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A7044831897D4760076E9C2 /* Zep */,
+				3A7044831897D4760076E9C2 /* iOS */,
+				3A66107B189BAF3D0085D6F7 /* Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A661078189BAF3D0085D6F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A661089189BAF710085D6F7 /* Runner.cpp in Sources */,
+				3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */,
+				3A66109F189BB0090085D6F7 /* test.cpp in Sources */,
+				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
+				3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */,
+				3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A7044801897D4760076E9C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +544,34 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3A661083189BAF3D0085D6F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "../../Library/Include ../../Platforms/iOS/Include ../../Dependencies/vincent/include";
+			};
+			name = Debug;
+		};
+		3A661084189BAF3D0085D6F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "../../Library/Include ../../Platforms/iOS/Include ../../Dependencies/vincent/include";
+			};
+			name = Release;
+		};
 		3A7044A51897D4760076E9C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -505,6 +670,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A661082189BAF3D0085D6F7 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A661083189BAF3D0085D6F7 /* Debug */,
+				3A661084189BAF3D0085D6F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3A70447F1897D4760076E9C2 /* Build configuration list for PBXProject "Zep" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -514,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A7044A71897D4760076E9C2 /* Build configuration list for PBXNativeTarget "Zep" */ = {
+		3A7044A71897D4760076E9C2 /* Build configuration list for PBXNativeTarget "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7044A81897D4760076E9C2 /* Debug */,
