@@ -31,6 +31,9 @@ namespace Zep {
             data = newData;
             size = newSize;
         }
+        ~ComponentList() {
+            delete[] data;
+        }
     };
 }
 
