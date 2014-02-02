@@ -28,6 +28,7 @@ namespace Zep {
         std::vector<ComponentListInterface*> components;
         std::vector<ComponentMask> relationships;
         std::vector<EntityID> newCreations;
+        std::vector<EntityID> pendingDestructions;
         void allocate(int newSize);
         EventManager &eventManager;
         bool initialized = false;
@@ -70,6 +71,7 @@ namespace Zep {
             mask.set(componentTypeID, 1);
             return mask;
         }
+        void destroy(EntityID entityID);
         bool hasComponents(EntityID, ComponentMask mask);
     };
 }

@@ -8,6 +8,7 @@
 
 #include "Zep/Events/EventManager.h"
 #include "Zep/Simulation/EntityIDAddition.h"
+#include "Zep/Simulation/EntityIDDestruction.h"
 #include "Zep/Simulation/SimulationConfig.h"
 #include "Zep/Simulation/Database.h"
 
@@ -34,6 +35,10 @@ namespace Zep {
         return id;
     }
     
+    void Database::destroy(EntityID id) {
+        pendingDestructions.push_back(id);
+    }
+    
     void Database::allocate(int newSize) {
         relationships.resize(newSize);
         for(ComponentListInterface *list : components) {
@@ -46,6 +51,11 @@ namespace Zep {
             eventManager.emit<EntityIDAddition>(id);
         }
         newCreations.clear();
+        for(EntityID id : pendingDestructions) {
+            eventManager.emit<EntityIDDestruction>(id);
+            freedIDs.push_back(id);
+            relationships[id].reset();
+        }
     }
     
     bool Database::hasComponents(EntityID entityID, ComponentMask mask) {

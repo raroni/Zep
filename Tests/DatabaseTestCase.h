@@ -1,6 +1,7 @@
 #include "vincent/test_case.h"
 #include "vincent/test.h"
 #include "Zep/Simulation/EntityIDAddition.h"
+#include "Zep/Simulation/EntityIDDestruction.h"
 #include "Zep/Simulation/Database.h"
 #include "Zep/Events/EventManager.h"
 
@@ -76,6 +77,51 @@ namespace DatabaseTestCase {
         }
     };
     
+    class DestructionEventTest : public Vincent::Test {
+        class DummyReceiver {
+        public:
+            int lastReceivedID = -1;
+            void receive(const Zep::EntityIDDestruction &destruction) {
+                lastReceivedID = destruction.getID();
+            }
+        };
+    public:
+        DestructionEventTest() {
+            name = "DestructionEvent";
+        }
+        void run() {
+            DummyReceiver dummyReceiver;
+            Zep::EventManager eventManager;
+            eventManager.subscribe<Zep::EntityIDDestruction>(dummyReceiver);
+            Zep::Database database(eventManager);
+            database.initialize();
+            Zep::EntityID id = database.createEntityID();
+            database.update();
+            database.destroy(id);
+            assertEqual(-1, dummyReceiver.lastReceivedID);
+            database.update();
+            assertEqual(id, dummyReceiver.lastReceivedID);
+        }
+    };
+    
+    class EntityIDReuseTest : public Vincent::Test {
+    public:
+        EntityIDReuseTest() {
+            name = "EntityIDReuse";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            Zep::EntityID firstID = database.createEntityID();
+            database.update();
+            database.destroy(firstID);
+            database.update();
+            Zep::EntityID secondID = database.createEntityID();
+            assertEqual(firstID, secondID);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -83,6 +129,8 @@ namespace DatabaseTestCase {
             add(new CreateEntityIDTest());
             add(new CreateComponentTest());
             add(new AdditionEventTest());
+            add(new DestructionEventTest());
+            add(new EntityIDReuseTest());
         }
     };
 }
