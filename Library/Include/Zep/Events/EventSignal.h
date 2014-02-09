@@ -17,8 +17,9 @@ namespace Zep {
     
     class EventSignal {
         typedef std::function<void (const Event&)> Function;
-        std::vector<int> disconnectedIDs;
-        std::unordered_map<int, Function> functions;
+        std::unordered_map<int, int> idIndexMap;
+        std::vector<Function> functions;
+        std::vector<int> freedIDs;
     public:
         int connect(Function function);
         void emit(Event &event);

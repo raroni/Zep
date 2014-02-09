@@ -1,3 +1,4 @@
+#include <string>
 #include "vincent/test_case.h"
 #include "vincent/test.h"
 
@@ -47,7 +48,29 @@ namespace EventSignalTestCase {
             
             int connectionID2 = signal.connect(DummyFunction(counter));
             assertEqual(connectionID1, connectionID2);
-            signal.disconnect(connectionID2);
+        }
+    };
+    
+    class OrderMaintenanceTest : public Vincent::Test {
+    public:
+        OrderMaintenanceTest() {
+            name = "OrderMaintenance";
+        }
+        void run() {
+            Zep::EventSignal signal;
+            std::string log;
+            int lambdaID = signal.connect([] (const Zep::Event&) { });
+            int aID = signal.connect([&log] (const Zep::Event&) { log += "a"; });
+            signal.disconnect(lambdaID);
+            int bID = signal.connect([&log] (const Zep::Event&) { log += "b"; });
+            
+            Zep::Event event;
+            signal.emit(event);
+            
+            assertEqual("ab", log);
+            
+            signal.disconnect(aID);
+            signal.disconnect(bID);
         }
     };
     
@@ -57,6 +80,7 @@ namespace EventSignalTestCase {
             name = "EventSignal";
             add(new ConnectDisconnectTest());
             add(new ConnectionIDReuseTest());
+            add(new OrderMaintenanceTest());
         }
     };
 }

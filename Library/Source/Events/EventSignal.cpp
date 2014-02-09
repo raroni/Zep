@@ -6,33 +6,42 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
+#include "Zep/Exception.h"
 #include "Zep/Misc/SafeConversion.h"
 #include "Zep/Events/EventSignal.h"
 
 namespace Zep {
     int EventSignal::connect(EventSignal::Function function) {
+        functions.push_back(function);
+        int index = SafeConversion::toInt(functions.size()-1);
         int id;
-        if(disconnectedIDs.empty()) {
-            id = SafeConversion::toInt(functions.size());
-            functions[id] = function;
+        if(freedIDs.empty()) {
+            id = index;
         } else {
-            id = disconnectedIDs.back();
-            disconnectedIDs.pop_back();
+            id = freedIDs.back();
+            freedIDs.pop_back();
         }
-        functions[id] = function;
+        idIndexMap[id] = index;
         return id;
     }
     
     void EventSignal::emit(Event &event) {
-        for(auto pair : functions) {
-            (pair.second)(event);
+        for(auto &function : functions) {
+            function(event);
         }
     }
     
     void EventSignal::disconnect(int id) {
-        auto iterator = functions.find(id);
-        if(iterator == functions.end()) throw "Not found.";
-        disconnectedIDs.push_back(iterator->first);
-        functions.erase(iterator);
+        auto iterator = idIndexMap.find(id);
+        if(iterator == idIndexMap.end()) throw Exception("ID not found.");
+        int index = idIndexMap[id];
+        idIndexMap.erase(iterator);
+        freedIDs.push_back(id);
+        functions.erase(functions.begin()+index);
+        for(auto &pair : idIndexMap) {
+            if(pair.second > index) {
+                pair.second--;
+            }
+        }
     }
 }
