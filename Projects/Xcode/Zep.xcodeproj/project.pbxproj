@@ -102,6 +102,7 @@
 		3A6C8BB918A771DC009F118E /* EventSignal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSignal.cpp; sourceTree = "<group>"; };
 		3A6C8BBF18A77600009F118E /* SafeConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeConversion.h; sourceTree = "<group>"; };
 		3A6C8BC218A7761E009F118E /* SafeConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafeConversion.cpp; sourceTree = "<group>"; };
+		3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSignalTestCase.h; sourceTree = "<group>"; };
 		3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessor.h; sourceTree = "<group>"; };
 		3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessorTestCase.h; sourceTree = "<group>"; };
 		3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserverProcessor.cpp; sourceTree = "<group>"; };
@@ -260,6 +261,7 @@
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3A661088189BAF5E0085D6F7 /* Runner.cpp */,
 				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
+				3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */,
 			);
 			name = Tests;
 			path = ../../Tests;
