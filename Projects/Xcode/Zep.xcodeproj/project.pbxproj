@@ -19,6 +19,10 @@
 		3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
 		3A66109F189BB0090085D6F7 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109D189BAFEB0085D6F7 /* test.cpp */; };
 		3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109E189BAFEB0085D6F7 /* test_result.cpp */; };
+		3A6C8BBB18A771DC009F118E /* EventSignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BB918A771DC009F118E /* EventSignal.cpp */; };
+		3A6C8BBC18A7730D009F118E /* EventSignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BB918A771DC009F118E /* EventSignal.cpp */; };
+		3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BC218A7761E009F118E /* SafeConversion.cpp */; };
+		3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BC218A7761E009F118E /* SafeConversion.cpp */; };
 		3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
 		3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */; };
@@ -94,6 +98,10 @@
 		3A66109B189BAFEB0085D6F7 /* text_presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = text_presentation.h; sourceTree = "<group>"; };
 		3A66109D189BAFEB0085D6F7 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		3A66109E189BAFEB0085D6F7 /* test_result.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_result.cpp; sourceTree = "<group>"; };
+		3A6C8BB718A771B7009F118E /* EventSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignal.h; sourceTree = "<group>"; };
+		3A6C8BB918A771DC009F118E /* EventSignal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSignal.cpp; sourceTree = "<group>"; };
+		3A6C8BBF18A77600009F118E /* SafeConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeConversion.h; sourceTree = "<group>"; };
+		3A6C8BC218A7761E009F118E /* SafeConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafeConversion.cpp; sourceTree = "<group>"; };
 		3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessor.h; sourceTree = "<group>"; };
 		3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessorTestCase.h; sourceTree = "<group>"; };
 		3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserverProcessor.cpp; sourceTree = "<group>"; };
@@ -124,9 +132,7 @@
 		3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIDAddition.cpp; sourceTree = "<group>"; };
 		3AD0DA77189A71EB0050DF44 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
 		3AD0DA7B189A71F70050DF44 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		3AD0DA7E189A80E60050DF44 /* Signal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Signal.h; sourceTree = "<group>"; };
 		3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignalCallback.h; sourceTree = "<group>"; };
-		3AD0DA87189A84CA0050DF44 /* EventSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignal.h; sourceTree = "<group>"; };
 		3ADE227818993FF70000D976 /* ComponentListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentListInterface.h; sourceTree = "<group>"; };
 		3ADE227A189940140000D976 /* ComponentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentList.h; sourceTree = "<group>"; };
 		3ADE2283189941BF0000D976 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				3A3A6ECF18992F22006AB24E /* Simulation */,
 				3A7BEF931897F96D004BFA7F /* Input */,
 				3A7BEF8B1897F448004BFA7F /* Math */,
+				3A6C8BBD18A775F2009F118E /* Misc */,
 				3A7BEF841897F0C2004BFA7F /* Geometry */,
 				3A2A46D71897D99C00BFE8F0 /* Game.h */,
 				3A7BEF781897EC17004BFA7F /* Screen.h */,
@@ -311,6 +318,22 @@
 			path = source;
 			sourceTree = "<group>";
 		};
+		3A6C8BBD18A775F2009F118E /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C8BBF18A77600009F118E /* SafeConversion.h */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		3A6C8BC118A77613009F118E /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C8BC218A7761E009F118E /* SafeConversion.cpp */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		3A70447B1897D4760076E9C2 = {
 			isa = PBXGroup;
 			children = (
@@ -406,9 +429,8 @@
 			children = (
 				3AD0DA6F189A6B750050DF44 /* EventManager.h */,
 				3AD0DA7B189A71F70050DF44 /* Event.h */,
-				3AD0DA7E189A80E60050DF44 /* Signal.h */,
 				3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */,
-				3AD0DA87189A84CA0050DF44 /* EventSignal.h */,
+				3A6C8BB718A771B7009F118E /* EventSignal.h */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -418,6 +440,7 @@
 			children = (
 				3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */,
 				3AD0DA77189A71EB0050DF44 /* Event.cpp */,
+				3A6C8BB918A771DC009F118E /* EventSignal.cpp */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -435,6 +458,7 @@
 		3AFD1EEB1897D60D000803D6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3A6C8BC118A77613009F118E /* Misc */,
 				3AD0DA6A189A6B650050DF44 /* Events */,
 				3A3A6ED618993195006AB24E /* Renderer3D */,
 				3A3A6ECE18992EFD006AB24E /* Simulation */,
@@ -523,6 +547,8 @@
 				3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
+				3A6C8BBC18A7730D009F118E /* EventSignal.cpp in Sources */,
+				3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */,
 				3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */,
 				3A6D4C29189BCD0B00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */,
@@ -534,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */,
 				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
 				3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
@@ -551,6 +578,7 @@
 				3A7BEF731897E487004BFA7F /* View.mm in Sources */,
 				3A3A6EE9189932ED006AB24E /* Processor.cpp in Sources */,
 				3A3A6EE0189932BB006AB24E /* Renderer3D.cpp in Sources */,
+				3A6C8BBB18A771DC009F118E /* EventSignal.cpp in Sources */,
 				3A7BEF7C1897EC25004BFA7F /* Screen.cpp in Sources */,
 				3A6515F3189990E700D6384E /* MeshRendering.cpp in Sources */,
 				3A3A6ED218992F27006AB24E /* Simulation.cpp in Sources */,
