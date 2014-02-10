@@ -34,7 +34,7 @@ namespace Zep {
             auto index = std::type_index(typeid(T));
             auto& signal = getSignal(index);
             EventSignalCallback<T> callback(std::bind(&R::receive, &receiver, std::placeholders::_1));
-            signal.connect(callback);
+            signal.subscribe(callback);
         }
     };
 }

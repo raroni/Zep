@@ -21,9 +21,9 @@ namespace Zep {
         std::vector<Function> functions;
         std::vector<int> freedIDs;
     public:
-        int connect(Function function);
+        int subscribe(Function function);
         void emit(Event &event);
-        void disconnect(int id);
+        void unsubscribe(int id);
     };
 }
 

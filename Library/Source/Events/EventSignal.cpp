@@ -11,7 +11,7 @@
 #include "Zep/Events/EventSignal.h"
 
 namespace Zep {
-    int EventSignal::connect(EventSignal::Function function) {
+    int EventSignal::subscribe(EventSignal::Function function) {
         functions.push_back(function);
         int index = SafeConversion::toInt(functions.size()-1);
         int id;
@@ -31,7 +31,7 @@ namespace Zep {
         }
     }
     
-    void EventSignal::disconnect(int id) {
+    void EventSignal::unsubscribe(int id) {
         auto iterator = idIndexMap.find(id);
         if(iterator == idIndexMap.end()) throw Exception("ID not found.");
         int index = idIndexMap[id];

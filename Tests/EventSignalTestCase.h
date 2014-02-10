@@ -11,15 +11,15 @@ namespace EventSignalTestCase {
         }
     };
     
-    class ConnectDisconnectTest : public Vincent::Test {
+    class SubscribeUnsubscribeTest : public Vincent::Test {
     public:
-        ConnectDisconnectTest() {
-            name = "ConnectDisconnect";
+        SubscribeUnsubscribeTest() {
+            name = "SubscribeUnsubscribe";
         }
         void run() {
             Zep::EventSignal signal;
             int counter = 0;
-            int connectionID = signal.connect(DummyFunction(counter));
+            int subscriptionID = signal.subscribe(DummyFunction(counter));
             
             Zep::Event event;
             
@@ -29,25 +29,25 @@ namespace EventSignalTestCase {
             signal.emit(event);
             assertEqual(2, counter);
             
-            signal.disconnect(connectionID);
+            signal.unsubscribe(subscriptionID);
             signal.emit(event);
             assertEqual(2, counter);
         }
     };
     
-    class ConnectionIDReuseTest : public Vincent::Test {
+    class SubscriptionIDReuseTest : public Vincent::Test {
     public:
-        ConnectionIDReuseTest() {
-            name = "ConnectionIDReuse";
+        SubscriptionIDReuseTest() {
+            name = "SubscriptionIDReuse";
         }
         void run() {
             Zep::EventSignal signal;
             int counter = 0;
-            int connectionID1 = signal.connect(DummyFunction(counter));
-            signal.disconnect(connectionID1);
+            int subscriptionID1 = signal.subscribe(DummyFunction(counter));
+            signal.unsubscribe(subscriptionID1);
             
-            int connectionID2 = signal.connect(DummyFunction(counter));
-            assertEqual(connectionID1, connectionID2);
+            int subscriptionID2 = signal.subscribe(DummyFunction(counter));
+            assertEqual(subscriptionID1, subscriptionID2);
         }
     };
     
@@ -59,18 +59,15 @@ namespace EventSignalTestCase {
         void run() {
             Zep::EventSignal signal;
             std::string log;
-            int lambdaID = signal.connect([] (const Zep::Event&) { });
-            int aID = signal.connect([&log] (const Zep::Event&) { log += "a"; });
-            signal.disconnect(lambdaID);
-            int bID = signal.connect([&log] (const Zep::Event&) { log += "b"; });
+            int lambdaID = signal.subscribe([] (const Zep::Event&) { });
+            signal.subscribe([&log] (const Zep::Event&) { log += "a"; });
+            signal.unsubscribe(lambdaID);
+            signal.subscribe([&log] (const Zep::Event&) { log += "b"; });
             
             Zep::Event event;
             signal.emit(event);
             
             assertEqual("ab", log);
-            
-            signal.disconnect(aID);
-            signal.disconnect(bID);
         }
     };
     
@@ -78,8 +75,8 @@ namespace EventSignalTestCase {
     public:
         Case() {
             name = "EventSignal";
-            add(new ConnectDisconnectTest());
-            add(new ConnectionIDReuseTest());
+            add(new SubscribeUnsubscribeTest());
+            add(new SubscriptionIDReuseTest());
             add(new OrderMaintenanceTest());
         }
     };
