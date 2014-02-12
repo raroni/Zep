@@ -4,6 +4,7 @@
 #include "ComponentTypeRegistryTestCase.h"
 #include "EntityObserverProcessorTestCase.h"
 #include "EventSignalTestCase.h"
+#include "Events/EventSubscriptionTestCase.h"
 
 int main() {
     Vincent::TestSuiteResult result;
@@ -13,6 +14,7 @@ int main() {
     suite.add(new ComponentTypeRegistryTestCase::Case());
     suite.add(new EntityObserverProcessorTestCase::Case());
     suite.add(new EventSignalTestCase::Case());
+    suite.add(new EventSubscriptionTestCase::Case());
     
     suite.run(result);
     Vincent::TextPresentation presentation(result);

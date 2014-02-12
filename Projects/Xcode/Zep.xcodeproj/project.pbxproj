@@ -12,6 +12,8 @@
 		3A3A6EE0189932BB006AB24E /* Renderer3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EDE189932BB006AB24E /* Renderer3D.cpp */; };
 		3A3A6EE9189932ED006AB24E /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
 		3A3A6EEF189937C6006AB24E /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
+		3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
+		3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
 		3A6515F3189990E700D6384E /* MeshRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6515F1189990E700D6384E /* MeshRendering.cpp */; };
 		3A661089189BAF710085D6F7 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A661088189BAF5E0085D6F7 /* Runner.cpp */; };
 		3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
@@ -79,6 +81,9 @@
 		3A3A6EF1189937D7006AB24E /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		3A3A6EF31899384A006AB24E /* EntityID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityID.h; sourceTree = "<group>"; };
 		3A5B9311189AABA400B47541 /* ComponentMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentMask.h; sourceTree = "<group>"; };
+		3A5D8BAD18ABF52C006B7F44 /* EventSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscription.h; sourceTree = "<group>"; };
+		3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSubscription.cpp; sourceTree = "<group>"; };
+		3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionTestCase.h; sourceTree = "<group>"; };
 		3A6515EF189990BE00D6384E /* MeshRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRendering.h; sourceTree = "<group>"; };
 		3A6515F1189990E700D6384E /* MeshRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRendering.cpp; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,9 +259,18 @@
 			path = Renderer3D;
 			sourceTree = "<group>";
 		};
+		3A5D8BB218ABF576006B7F44 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		3A661085189BAF5E0085D6F7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3A5D8BB218ABF576006B7F44 /* Events */,
 				3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */,
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3A661088189BAF5E0085D6F7 /* Runner.cpp */,
@@ -433,6 +447,7 @@
 				3AD0DA7B189A71F70050DF44 /* Event.h */,
 				3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */,
 				3A6C8BB718A771B7009F118E /* EventSignal.h */,
+				3A5D8BAD18ABF52C006B7F44 /* EventSubscription.h */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -441,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */,
+				3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */,
 				3AD0DA77189A71EB0050DF44 /* Event.cpp */,
 				3A6C8BB918A771DC009F118E /* EventSignal.cpp */,
 			);
@@ -549,6 +565,7 @@
 				3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
+				3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */,
 				3A6C8BBC18A7730D009F118E /* EventSignal.cpp in Sources */,
 				3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */,
 				3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */,
@@ -567,6 +584,7 @@
 				3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A2A46EC1897DCB000BFE8F0 /* ViewController.mm in Sources */,
+				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */,
 				3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */,

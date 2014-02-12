@@ -71,6 +71,24 @@ namespace EventSignalTestCase {
         }
     };
     
+    class SubscriptionsCountTest : public Vincent::Test {
+    public:
+        SubscriptionsCountTest() {
+            name = "SubscriptionsCount";
+        }
+        void run() {
+            Zep::EventSignal signal;
+            int id = signal.subscribe([] (const Zep::Event&) { });
+            assert(1 == signal.getSubscriptionsCount());
+            signal.subscribe([] (const Zep::Event&) { });
+            assert(2 == signal.getSubscriptionsCount());
+            signal.unsubscribe(id);
+            assert(1 == signal.getSubscriptionsCount());
+            signal.subscribe([] (const Zep::Event&) { });
+            assert(2 == signal.getSubscriptionsCount());
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -78,6 +96,7 @@ namespace EventSignalTestCase {
             add(new SubscribeUnsubscribeTest());
             add(new SubscriptionIDReuseTest());
             add(new OrderMaintenanceTest());
+            add(new SubscriptionsCountTest());
         }
     };
 }

@@ -21,6 +21,7 @@ namespace Zep {
         std::vector<Function> functions;
         std::vector<int> freedIDs;
     public:
+        size_t getSubscriptionsCount();
         int subscribe(Function function);
         void emit(Event &event);
         void unsubscribe(int id);

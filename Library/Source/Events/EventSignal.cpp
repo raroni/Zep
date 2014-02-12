@@ -31,6 +31,10 @@ namespace Zep {
         }
     }
     
+    size_t EventSignal::getSubscriptionsCount() {
+        return functions.size();
+    }
+    
     void EventSignal::unsubscribe(int id) {
         auto iterator = idIndexMap.find(id);
         if(iterator == idIndexMap.end()) throw Exception("ID not found.");
