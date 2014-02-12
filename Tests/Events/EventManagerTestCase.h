@@ -3,11 +3,12 @@
 #include "Zep/Events/EventManager.h"
 
 namespace EventManagerTestCase {
-    class DummyEvent : public Zep::Event { };
+    class Explosion : public Zep::Event { };
+    class Collision : public Zep::Event { };
     
     struct DummyObserver {
         int counter;
-        void receive(const DummyEvent &event) {
+        void receive(const Explosion &event) {
             counter++;
         }
     };
@@ -20,14 +21,31 @@ namespace EventManagerTestCase {
         void run() {
             Zep::EventManager manager;
             DummyObserver observer;
-            auto subscription = manager.subscribe<DummyEvent>(observer);
-            manager.emit<DummyEvent>();
+            auto subscription = manager.subscribe<Explosion>(observer);
+            manager.emit<Explosion>();
             assertEqual(1, observer.counter);
-            manager.emit<DummyEvent>();
+            manager.emit<Explosion>();
             assertEqual(2, observer.counter);
             delete subscription;
-            manager.emit<DummyEvent>();
+            manager.emit<Explosion>();
             assertEqual(2, observer.counter);
+        }
+    };
+    
+    class VariousEventTypesTest : public Vincent::Test {
+    public:
+        VariousEventTypesTest() {
+            name = "VariousEventTypes";
+        }
+        void run() {
+            Zep::EventManager manager;
+            DummyObserver observer;
+            auto subscription = manager.subscribe<Explosion>(observer);
+            manager.emit<Explosion>();
+            assertEqual(1, observer.counter);
+            manager.emit<Collision>();
+            assertEqual(1, observer.counter);
+            delete subscription;
         }
     };
     
@@ -36,6 +54,7 @@ namespace EventManagerTestCase {
         Case() {
             name = "EventManager";
             add(new SubscriptionTest());
+            add(new VariousEventTypesTest());
         }
     };
 }
