@@ -6,6 +6,7 @@
 #include "Events/EventSignalTestCase.h"
 #include "Events/EventSubscriptionTestCase.h"
 #include "Events/EventManagerTestCase.h"
+#include "Events/EventSubscriptionManagerTestCase.h"
 
 int main() {
     Vincent::TestSuiteResult result;
@@ -17,6 +18,7 @@ int main() {
     suite.add(new EventSignalTestCase::Case());
     suite.add(new EventSubscriptionTestCase::Case());
     suite.add(new EventManagerTestCase::Case());
+    suite.add(new EventSubscriptionManagerTestCase::Case());
     
     suite.run(result);
     Vincent::TextPresentation presentation(result);

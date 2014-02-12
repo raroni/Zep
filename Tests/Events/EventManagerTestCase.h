@@ -7,7 +7,7 @@ namespace EventManagerTestCase {
     class Collision : public Zep::Event { };
     
     struct DummyObserver {
-        int counter;
+        int counter = 0;
         void receive(const Explosion &event) {
             counter++;
         }

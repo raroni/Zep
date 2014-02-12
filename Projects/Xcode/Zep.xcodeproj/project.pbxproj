@@ -85,6 +85,7 @@
 		3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSubscription.cpp; sourceTree = "<group>"; };
 		3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionTestCase.h; sourceTree = "<group>"; };
 		3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTestCase.h; sourceTree = "<group>"; };
+		3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManagerTestCase.h; sourceTree = "<group>"; };
 		3A6515EF189990BE00D6384E /* MeshRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRendering.h; sourceTree = "<group>"; };
 		3A6515F1189990E700D6384E /* MeshRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRendering.cpp; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +144,7 @@
 		3ADE227818993FF70000D976 /* ComponentListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentListInterface.h; sourceTree = "<group>"; };
 		3ADE227A189940140000D976 /* ComponentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentList.h; sourceTree = "<group>"; };
 		3ADE2283189941BF0000D976 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		3AF9604E18AC205E00172891 /* EventSubscriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManager.h; sourceTree = "<group>"; };
 		3AFD1EF91897D69F000803D6 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 				3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */,
 				3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */,
 				3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */,
+				3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */,
 				3A6C8BB718A771B7009F118E /* EventSignal.h */,
 				3A5D8BAD18ABF52C006B7F44 /* EventSubscription.h */,
+				3AF9604E18AC205E00172891 /* EventSubscriptionManager.h */,
 			);
 			path = Events;
 			sourceTree = "<group>";
