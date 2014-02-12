@@ -84,6 +84,7 @@
 		3A5D8BAD18ABF52C006B7F44 /* EventSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscription.h; sourceTree = "<group>"; };
 		3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSubscription.cpp; sourceTree = "<group>"; };
 		3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionTestCase.h; sourceTree = "<group>"; };
+		3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTestCase.h; sourceTree = "<group>"; };
 		3A6515EF189990BE00D6384E /* MeshRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRendering.h; sourceTree = "<group>"; };
 		3A6515F1189990E700D6384E /* MeshRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRendering.cpp; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,7 +263,9 @@
 		3A5D8BB218ABF576006B7F44 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */,
 				3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */,
+				3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -275,7 +278,6 @@
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3A661088189BAF5E0085D6F7 /* Runner.cpp */,
 				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
-				3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */,
 			);
 			name = Tests;
 			path = ../../Tests;

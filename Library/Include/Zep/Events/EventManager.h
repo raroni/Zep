@@ -14,6 +14,7 @@
 #include <map>
 #include "Zep/Events/EventSignal.h"
 #include "Zep/Events/EventSignalCallback.h"
+#include "Zep/Events/EventSubscription.h"
 #include "Zep/Events/Event.h"
 
 namespace Zep {
@@ -30,11 +31,12 @@ namespace Zep {
             signal.emit(static_cast<Event&>(event));
         }
         template <class T, class R>
-        void subscribe(R &receiver) {
+        EventSubscription* subscribe(R &receiver) {
             auto index = std::type_index(typeid(T));
             auto& signal = getSignal(index);
             EventSignalCallback<T> callback(std::bind(&R::receive, &receiver, std::placeholders::_1));
-            signal.subscribe(callback);
+            int id = signal.subscribe(callback);
+            return new EventSubscription(signal, id);
         }
     };
 }

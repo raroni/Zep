@@ -4,7 +4,7 @@
 
 namespace EventSignalTestCase {
     struct DummyFunction {
-        int& counter;
+        int &counter;
         DummyFunction(int &counter) : counter(counter) { }
         void operator()(const Zep::Event &event) {
             counter++;
