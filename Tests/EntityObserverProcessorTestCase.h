@@ -109,6 +109,33 @@ namespace EntityObserverProcessorTestCase {
         }
     };
     
+    class DestructionMissTest : public Vincent::Test {
+    public:
+        DestructionMissTest() {
+            name = "DestructionMiss";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            
+            DummyProcessor dummy;
+            dummy.setEventManager(eventManager);
+            dummy.setDatabase(database);
+            dummy.initialize();
+            
+            Zep::EntityID entityID1 = database.createEntityID();
+            Zep::EntityID entityID2 = database.createEntityID();
+            database.createComponent<Bouncy>(entityID1);
+            database.update();
+                        
+            database.destroy(entityID2);
+            database.update();
+            
+            assert(1 == dummy.ids.size());
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -116,6 +143,7 @@ namespace EntityObserverProcessorTestCase {
             add(new AdditionMatchTest());
             add(new AdditionMissTest());
             add(new DestructionMatchTest());
+            add(new DestructionMissTest());
         }
     };
 }
