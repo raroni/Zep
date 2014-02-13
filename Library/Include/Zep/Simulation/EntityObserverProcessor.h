@@ -9,6 +9,7 @@
 #ifndef __Zep__EntityObserverProcessor__
 #define __Zep__EntityObserverProcessor__
 
+#include "Zep/Events/EventSubscriptionManager.h"
 #include "Zep/Simulation/Processor.h"
 
 namespace Zep {
@@ -18,6 +19,7 @@ namespace Zep {
         ComponentMask componentMask;
         virtual ComponentMask createComponentMask() = 0;
         virtual void onAdded(EntityID id) = 0;
+        EventSubscriptionManager<EntityObserverProcessor> eventSubscriptionManager;
     public:
         void initialize();
         void receive(const EntityIDAddition &addition);

@@ -13,7 +13,8 @@
 
 namespace Zep {
     void EntityObserverProcessor::initialize() {
-        eventManager->subscribe<EntityIDAddition>(*this);
+        eventSubscriptionManager.initialize(*this, *eventManager);
+        eventSubscriptionManager.add<EntityIDAddition>();
         componentMask = createComponentMask();
     }
     
