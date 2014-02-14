@@ -8,6 +8,7 @@
 
 #include "Zep/Events/EventManager.h"
 #include "Zep/Simulation/EntityIDAddition.h"
+#include "Zep/Simulation/EntityChange.h"
 #include "Zep/Simulation/EntityIDDestruction.h"
 #include "Zep/Simulation/SimulationConfig.h"
 #include "Zep/Simulation/Database.h"
@@ -51,11 +52,18 @@ namespace Zep {
             eventManager.emit<EntityIDAddition>(id);
         }
         newCreations.clear();
+        
+        for(EntityID id : newChanges) {
+            eventManager.emit<EntityChange>(id);
+        }
+        newChanges.clear();
+        
         for(EntityID id : pendingDestructions) {
             eventManager.emit<EntityIDDestruction>(id);
             freedIDs.push_back(id);
             relationships[id].reset();
         }
+        pendingDestructions.clear();
     }
     
     bool Database::hasComponents(EntityID entityID, ComponentMask mask) {

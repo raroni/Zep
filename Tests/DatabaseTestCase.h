@@ -2,6 +2,7 @@
 #include "vincent/test.h"
 #include "Zep/Simulation/EntityIDAddition.h"
 #include "Zep/Simulation/EntityIDDestruction.h"
+#include "Zep/Simulation/EntityChange.h"
 #include "Zep/Simulation/Database.h"
 #include "Zep/Events/EventManager.h"
 
@@ -80,9 +81,11 @@ namespace DatabaseTestCase {
     class DestructionEventTest : public Vincent::Test {
         class DummyReceiver {
         public:
+            int events = 0;
             int lastReceivedID = -1;
             void receive(const Zep::EntityIDDestruction &destruction) {
                 lastReceivedID = destruction.getID();
+                events++;
             }
         };
     public:
@@ -101,6 +104,9 @@ namespace DatabaseTestCase {
             assertEqual(-1, dummyReceiver.lastReceivedID);
             database.update();
             assertEqual(id, dummyReceiver.lastReceivedID);
+            assertEqual(1, dummyReceiver.events);
+            database.update();
+            assertEqual(1, dummyReceiver.events);
         }
     };
     
@@ -122,6 +128,38 @@ namespace DatabaseTestCase {
         }
     };
     
+    class ChangeTest : public Vincent::Test {
+        class DummyReceiver {
+        public:
+            int lastReceivedID = -1;
+            int events = 0;
+            void receive(const Zep::EntityChange &change) {
+                lastReceivedID = change.getID();
+                events++;
+            }
+        };
+    public:
+        ChangeTest() {
+            name = "change";
+        }
+        void run() {
+            DummyReceiver dummy;
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            auto id = database.createEntityID();
+            database.update();
+            
+            eventManager.subscribe<Zep::EntityChange>(dummy);
+            database.createComponent<Jetpack>(id);
+            database.update();
+            assertEqual(id, dummy.lastReceivedID);
+            
+            database.update();
+            assertEqual(1, dummy.events);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -131,6 +169,7 @@ namespace DatabaseTestCase {
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
+            add(new ChangeTest());
         }
     };
 }

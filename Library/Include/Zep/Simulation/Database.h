@@ -10,6 +10,7 @@
 #define __Zep__Database__
 
 #include <vector>
+#include <unordered_set>
 #include "Zep/Exception.h"
 #include "Zep/Simulation/EntityID.h"
 #include "Zep/Simulation/Component.h"
@@ -28,6 +29,7 @@ namespace Zep {
         std::vector<ComponentListInterface*> components;
         std::vector<ComponentMask> relationships;
         std::vector<EntityID> newCreations;
+        std::unordered_set<EntityID> newChanges;
         std::vector<EntityID> pendingDestructions;
         void allocate(int newSize);
         EventManager &eventManager;
@@ -53,6 +55,8 @@ namespace Zep {
             
             (*componentList)[entityID] = T();
             relationships[entityID].set(componentTypeID, 1);
+            
+            newChanges.insert(entityID);
             
             return (*componentList)[entityID];
         }
