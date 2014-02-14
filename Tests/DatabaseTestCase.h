@@ -128,7 +128,7 @@ namespace DatabaseTestCase {
         }
     };
     
-    class ChangeTest : public Vincent::Test {
+    class ChangeEventTest : public Vincent::Test {
         class DummyReceiver {
         public:
             int lastReceivedID = -1;
@@ -139,8 +139,8 @@ namespace DatabaseTestCase {
             }
         };
     public:
-        ChangeTest() {
-            name = "change";
+        ChangeEventTest() {
+            name = "ChangeEvent";
         }
         void run() {
             DummyReceiver dummy;
@@ -169,7 +169,7 @@ namespace DatabaseTestCase {
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
-            add(new ChangeTest());
+            add(new ChangeEventTest());
         }
     };
 }
