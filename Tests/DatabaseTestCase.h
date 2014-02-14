@@ -11,10 +11,10 @@ namespace DatabaseTestCase {
         int thrust = 1234;
     };
     
-    class CreateEntityIDTest : public Vincent::Test {
+    class EntityIDCreationTest : public Vincent::Test {
     public:
-        CreateEntityIDTest() {
-            name = "CreateEntityID";
+        EntityIDCreationTest() {
+            name = "EntityIDCreation";
         }
         void run() {
             Zep::EventManager eventManager;
@@ -29,10 +29,10 @@ namespace DatabaseTestCase {
         }
     };
     
-    class CreateComponentTest : public Vincent::Test {
+    class ComponentCreationTest : public Vincent::Test {
     public:
-        CreateComponentTest() {
-            name = "CreateComponent";
+        ComponentCreationTest() {
+            name = "ComponentCreation";
         }
         void run() {
             Zep::EventManager eventManager;
@@ -164,8 +164,8 @@ namespace DatabaseTestCase {
     public:
         Case() {
             name = "Database";
-            add(new CreateEntityIDTest());
-            add(new CreateComponentTest());
+            add(new EntityIDCreationTest());
+            add(new ComponentCreationTest());
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
