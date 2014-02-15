@@ -149,7 +149,7 @@ namespace DatabaseTestCase {
         }
     };
     
-    class ChangeEventTest : public Vincent::Test {
+    class ChangeEventByComponentCreationTest : public Vincent::Test {
         class DummyReceiver {
         public:
             int lastReceivedID = -1;
@@ -160,8 +160,8 @@ namespace DatabaseTestCase {
             }
         };
     public:
-        ChangeEventTest() {
-            name = "ChangeEvent";
+        ChangeEventByComponentCreationTest() {
+            name = "ChangeEventByComponentCreation";
         }
         void run() {
             DummyReceiver dummy;
@@ -181,6 +181,58 @@ namespace DatabaseTestCase {
         }
     };
     
+    class ChangeEventByComponentDestructionTest : public Vincent::Test {
+        class DummyReceiver {
+        public:
+            int lastReceivedID = -1;
+            int events = 0;
+            void receive(const Zep::EntityChange &change) {
+                lastReceivedID = change.getID();
+                events++;
+            }
+        };
+    public:
+        ChangeEventByComponentDestructionTest() {
+            name = "ChangeEventByComponentDestruction";
+        }
+        void run() {
+            DummyReceiver dummy;
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            auto id = database.createEntityID();
+            database.createComponent<Jetpack>(id);
+            database.update();
+            
+            eventManager.subscribe<Zep::EntityChange>(dummy);
+            database.destroy<Jetpack>(id);
+            database.update();
+            assertEqual(id, dummy.lastReceivedID);
+            
+            database.update();
+            assertEqual(1, dummy.events);
+        }
+    };
+    
+    struct ComponentDestructionTest : public Vincent::Test {
+        ComponentDestructionTest() {
+            name = "ComponentDestruction";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            auto id = database.createEntityID();
+            database.createComponent<Jetpack>(id);
+            database.update();
+            
+            database.destroy<Jetpack>(id);
+            assert(database.hasComponent<Jetpack>(id));
+            database.update();
+            assert(!database.hasComponent<Jetpack>(id));
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -191,7 +243,9 @@ namespace DatabaseTestCase {
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
-            add(new ChangeEventTest());
+            add(new ComponentDestructionTest());
+            add(new ChangeEventByComponentCreationTest());
+            add(new ChangeEventByComponentDestructionTest());
         }
     };
 }

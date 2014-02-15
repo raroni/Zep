@@ -74,6 +74,16 @@ namespace Zep {
         newRelationships.clear();
     }
     
+    ComponentMask& Database::getNewRelationshipComponentMask(EntityID entityID) {
+        auto iterator = newRelationships.find(entityID);
+        if(iterator != newRelationships.end()) {
+            return iterator->second;
+        } else {
+            newRelationships[entityID] = relationships[entityID];
+            return newRelationships[entityID];
+        }
+    }
+    
     bool Database::hasComponents(EntityID entityID, ComponentMask mask) {
         return (relationships[entityID] & mask).any();
     }

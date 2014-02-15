@@ -35,6 +35,7 @@ namespace Zep {
         EventManager &eventManager;
         bool initialized = false;
         ComponentTypeRegistry componentTypes;
+        ComponentMask& getNewRelationshipComponentMask(EntityID id);
     public:
         Database(EventManager &eventManager);
         EntityID createEntityID();
@@ -55,15 +56,8 @@ namespace Zep {
             
             (*componentList)[entityID] = T();
             
-            ComponentMask *mask;
-            auto iterator = newRelationships.find(entityID);
-            if(iterator != newRelationships.end()) {
-                mask = &(iterator->second);
-            } else {
-                newRelationships[entityID] = relationships[entityID];
-                mask = &newRelationships[entityID];
-            }
-            mask->set(componentTypeID, 1);
+            ComponentMask &mask = getNewRelationshipComponentMask(entityID);
+            mask.set(componentTypeID, 1);
             
             return (*componentList)[entityID];
         }
@@ -88,6 +82,12 @@ namespace Zep {
             return hasComponents(id, mask);
         }
         void destroy(EntityID entityID);
+        template <class T>
+        void destroy(EntityID entityID) {
+            int componentTypeID = componentTypes.getID<T>();
+            ComponentMask &mask = getNewRelationshipComponentMask(entityID);
+            mask.set(componentTypeID, 0);
+        }
         bool hasComponents(EntityID, ComponentMask mask);
     };
 }
