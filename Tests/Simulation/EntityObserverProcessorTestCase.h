@@ -136,6 +136,32 @@ namespace EntityObserverProcessorTestCase {
         }
     };
     
+    class ChangeMatchTest : public Vincent::Test {
+    public:
+        ChangeMatchTest() {
+            name = "ChangeMatch";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            
+            DummyProcessor dummy;
+            dummy.setEventManager(eventManager);
+            dummy.setDatabase(database);
+            dummy.initialize();
+            
+            Zep::EntityID entityID1 = database.createEntityID();
+            database.createComponent<Juicy>(entityID1);
+            database.update();
+            assert(0 == dummy.ids.size());
+
+            database.createComponent<Bouncy>(entityID1);
+            database.update();
+            assert(1 == dummy.ids.size());
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -144,6 +170,7 @@ namespace EntityObserverProcessorTestCase {
             add(new AdditionMissTest());
             add(new DestructionMatchTest());
             add(new DestructionMissTest());
+            add(new ChangeMatchTest());
         }
     };
 }
