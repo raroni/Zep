@@ -26,7 +26,7 @@ namespace EventManagerTestCase {
             assertEqual(1, observer.counter);
             manager.emit<Explosion>();
             assertEqual(2, observer.counter);
-            delete subscription;
+            subscription.cancel();
             manager.emit<Explosion>();
             assertEqual(2, observer.counter);
         }
@@ -45,7 +45,7 @@ namespace EventManagerTestCase {
             assertEqual(1, observer.counter);
             manager.emit<Collision>();
             assertEqual(1, observer.counter);
-            delete subscription;
+            subscription.cancel();
         }
     };
     

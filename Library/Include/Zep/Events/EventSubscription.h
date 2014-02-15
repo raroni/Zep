@@ -17,7 +17,7 @@ namespace Zep {
         int id;
     public:
         EventSubscription(EventSignal &signal, int id);
-        ~EventSubscription();
+        void cancel();
     };
 }
 

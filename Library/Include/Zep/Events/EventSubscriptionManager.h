@@ -15,7 +15,7 @@
 namespace Zep {
     template <class ReceiverType>
     class EventSubscriptionManager {
-        std::vector<EventSubscription*> subscriptions;
+        std::vector<EventSubscription> subscriptions;
         ReceiverType *receiver;
         EventManager *eventManager;
     public:
@@ -29,8 +29,8 @@ namespace Zep {
             subscriptions.push_back(subscription);
         }
         ~EventSubscriptionManager() {
-            for(auto subscription : subscriptions) {
-                delete subscription;
+            for(auto &subscription : subscriptions) {
+                subscription.cancel();
             }
         }
     };

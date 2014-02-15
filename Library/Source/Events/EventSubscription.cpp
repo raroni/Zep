@@ -12,7 +12,7 @@
 namespace Zep {
     EventSubscription::EventSubscription(EventSignal &signal, int id) : signal(signal), id(id) { }
     
-    EventSubscription::~EventSubscription() {
+    void EventSubscription::cancel() {
         signal.unsubscribe(id);
     }
 }

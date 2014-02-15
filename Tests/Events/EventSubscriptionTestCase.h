@@ -4,17 +4,17 @@
 #include "Zep/Events/EventSubscription.h"
 
 namespace EventSubscriptionTestCase {
-    class DeleteTest : public Vincent::Test {
+    class CancelTest : public Vincent::Test {
     public:
-        DeleteTest() {
-            name = "Delete";
+        CancelTest() {
+            name = "Cancel";
         }
         void run() {
             Zep::EventSignal signal;
             int id = signal.subscribe([](const Zep::Event&) { });
-            auto subscription = new Zep::EventSubscription(signal, id);
+            auto subscription = Zep::EventSubscription(signal, id);
             assert(1 == signal.getSubscriptionsCount());
-            delete subscription;
+            subscription.cancel();
             assert(0 == signal.getSubscriptionsCount());
         }
     };
@@ -23,7 +23,7 @@ namespace EventSubscriptionTestCase {
     public:
         Case() {
             name = "EventSubscription";
-            add(new DeleteTest());
+            add(new CancelTest());
         }
     };
 }

@@ -31,13 +31,13 @@ namespace Zep {
             signal.emit(static_cast<Event&>(event));
         }
         template <class T, class R>
-        EventSubscription* subscribe(R &receiver) {
+        EventSubscription subscribe(R &receiver) {
             auto index = std::type_index(typeid(T));
             auto& signal = getSignal(index);
             void (R::*receive)(const T&) = &R::receive;
             EventSignalCallback<T> callback(std::bind(receive, &receiver, std::placeholders::_1));
             int id = signal.subscribe(callback);
-            return new EventSubscription(signal, id);
+            return EventSubscription(signal, id);
         }
     };
 }
