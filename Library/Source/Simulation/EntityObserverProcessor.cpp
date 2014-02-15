@@ -43,10 +43,9 @@ namespace Zep {
         bool match = database->hasComponents(id, componentMask);
         bool existing = iterator != ids.end();
         
-        if(match && !existing) {
-            insert(id);
-        }
-        else if(!match && existing) {
+        if(match) {
+            if(!existing) insert(id);
+        } else if(existing) {
             remove(id);
         }
     }
