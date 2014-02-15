@@ -10,7 +10,7 @@
 #define __Zep__Database__
 
 #include <vector>
-#include <unordered_set>
+#include <unordered_map>
 #include "Zep/Exception.h"
 #include "Zep/Simulation/EntityID.h"
 #include "Zep/Simulation/Component.h"
@@ -29,7 +29,7 @@ namespace Zep {
         std::vector<ComponentListInterface*> components;
         std::vector<ComponentMask> relationships;
         std::vector<EntityID> newCreations;
-        std::unordered_set<EntityID> newChanges;
+        std::unordered_map<EntityID, ComponentMask> newRelationships;
         std::vector<EntityID> pendingDestructions;
         void allocate(int newSize);
         EventManager &eventManager;
@@ -54,9 +54,16 @@ namespace Zep {
             }
             
             (*componentList)[entityID] = T();
-            relationships[entityID].set(componentTypeID, 1);
             
-            newChanges.insert(entityID);
+            ComponentMask *mask;
+            auto iterator = newRelationships.find(entityID);
+            if(iterator != newRelationships.end()) {
+                mask = &(iterator->second);
+            } else {
+                newRelationships[entityID] = relationships[entityID];
+                mask = &newRelationships[entityID];
+            }
+            mask->set(componentTypeID, 1);
             
             return (*componentList)[entityID];
         }
@@ -74,6 +81,11 @@ namespace Zep {
             ComponentMask mask;
             mask.set(componentTypeID, 1);
             return mask;
+        }
+        template <class T>
+        bool hasComponent(EntityID id) {
+            ComponentMask mask = getComponentMask<T>();
+            return hasComponents(id, mask);
         }
         void destroy(EntityID entityID);
         bool hasComponents(EntityID, ComponentMask mask);

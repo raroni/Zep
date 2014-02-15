@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
+#include <iostream>
+
 #include "Zep/Events/EventManager.h"
 #include "Zep/Simulation/EntityIDAddition.h"
 #include "Zep/Simulation/EntityChange.h"
@@ -48,22 +50,28 @@ namespace Zep {
     }
     
     void Database::update() {
+        for(auto &pair : newRelationships) {
+            relationships[pair.first] = pair.second;
+        }
+        
         for(EntityID id : newCreations) {
             eventManager.emit<EntityIDAddition>(id);
+            newRelationships.erase(id);
         }
         newCreations.clear();
-        
-        for(EntityID id : newChanges) {
-            eventManager.emit<EntityChange>(id);
-        }
-        newChanges.clear();
         
         for(EntityID id : pendingDestructions) {
             eventManager.emit<EntityIDDestruction>(id);
             freedIDs.push_back(id);
             relationships[id].reset();
+            newRelationships.erase(id);
         }
         pendingDestructions.clear();
+        
+        for(auto &pair : newRelationships) {
+            eventManager.emit<EntityChange>(pair.first);
+        }
+        newRelationships.clear();
     }
     
     bool Database::hasComponents(EntityID entityID, ComponentMask mask) {

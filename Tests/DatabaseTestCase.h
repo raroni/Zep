@@ -48,6 +48,23 @@ namespace DatabaseTestCase {
         }
     };
     
+    class HasComponentTest : public Vincent::Test {
+    public:
+        HasComponentTest() {
+            name = "HasComponent";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            Zep::EntityID id = database.createEntityID();
+            database.createComponent<Jetpack>(id);
+            assert(!database.hasComponent<Jetpack>(id));
+            database.update();
+            assert(database.hasComponent<Jetpack>(id));
+        }
+    };
+    
     class AdditionEventTest : public Vincent::Test {
         class DummyReceiver {
         public:
@@ -66,13 +83,17 @@ namespace DatabaseTestCase {
             eventManager.subscribe<Zep::EntityIDAddition>(dummyReceiver);
             Zep::Database database(eventManager);
             database.initialize();
+            
             Zep::EntityID entityID1 = database.createEntityID();
             assertEqual(-1, dummyReceiver.lastReceivedID);
+            
             database.update();
             assertEqual(entityID1, dummyReceiver.lastReceivedID);
+            
             database.createEntityID();
             Zep::EntityID entityID3 = database.createEntityID();
             assertEqual(entityID1, dummyReceiver.lastReceivedID);
+            
             database.update();
             assertEqual(entityID3, dummyReceiver.lastReceivedID);
         }
@@ -166,6 +187,7 @@ namespace DatabaseTestCase {
             name = "Database";
             add(new EntityIDCreationTest());
             add(new ComponentCreationTest());
+            add(new HasComponentTest());
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
