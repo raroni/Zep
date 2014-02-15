@@ -16,6 +16,7 @@
 namespace Zep {
     class EntityIDAddition;
     class EntityIDDestruction;
+    class EntityChange;
     
     class EntityObserverProcessor : public Processor {
         ComponentMask componentMask;
@@ -24,10 +25,13 @@ namespace Zep {
         virtual void onDestroyed(EntityID id) = 0;
         std::set<EntityID> ids;
         EventSubscriptionManager<EntityObserverProcessor> eventSubscriptionManager;
+        void insert(EntityID id);
+        void remove(EntityID id);
     public:
         void initialize();
         void receive(const EntityIDAddition &addition);
         void receive(const EntityIDDestruction &destruction);
+        void receive(const EntityChange &change);
     };
 }
 

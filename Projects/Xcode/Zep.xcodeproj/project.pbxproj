@@ -282,11 +282,9 @@
 		3A661085189BAF5E0085D6F7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3ADC6F1F18AF81650042B735 /* Simulation */,
 				3A5D8BB218ABF576006B7F44 /* Events */,
-				3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */,
-				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3A661088189BAF5E0085D6F7 /* Runner.cpp */,
-				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
 			);
 			name = Tests;
 			path = ../../Tests;
@@ -473,6 +471,16 @@
 				3A6C8BB918A771DC009F118E /* EventSignal.cpp */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		3ADC6F1F18AF81650042B735 /* Simulation */ = {
+			isa = PBXGroup;
+			children = (
+				3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */,
+				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
+				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
+			);
+			path = Simulation;
 			sourceTree = "<group>";
 		};
 		3AFD1EE91897D60D000803D6 /* Library */ = {

@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include <iostream>
-
 #include "Zep/Events/EventManager.h"
 #include "Zep/Simulation/EntityIDAddition.h"
 #include "Zep/Simulation/EntityChange.h"
