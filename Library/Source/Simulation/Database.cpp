@@ -83,6 +83,6 @@ namespace Zep {
     }
     
     bool Database::hasComponents(EntityID entityID, ComponentMask mask) {
-        return (relationships[entityID] & mask).any();
+        return (relationships[entityID] & mask) == mask;
     }
 }

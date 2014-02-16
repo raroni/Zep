@@ -270,13 +270,39 @@ namespace DatabaseTestCase {
         }
     };
     
+    class HasComponentsTest : public Vincent::Test {
+    public:
+        HasComponentsTest() {
+            name = "HasComponent";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            
+            Zep::ComponentMask mask = database.getComponentMask<Jetpack, Health>();
+            
+            Zep::EntityID id = database.createEntityID();
+            database.createComponent<Jetpack>(id);
+            database.update();
+            assert(!database.hasComponents(id, mask));
+            
+            database.createComponent<Health>(id);
+            database.update();
+            assert(database.hasComponents(id, mask));
+            
+            database.createComponent<Position>(id);
+            database.update();
+            assert(database.hasComponents(id, mask));
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
             name = "Database";
             add	(new EntityIDCreationTest());
             add(new ComponentCreationTest());
-            add(new HasComponentTest());
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
@@ -285,6 +311,8 @@ namespace DatabaseTestCase {
             add(new ChangeEventByComponentDestructionTest());
             add(new SingleComponentMaskGenerationTest());
             add(new MultiComponentMaskGenerationTest());
+            add(new HasComponentTest());
+            add(new HasComponentsTest());
         }
     };
 }
