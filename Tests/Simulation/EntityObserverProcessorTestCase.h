@@ -25,8 +25,8 @@ namespace EntityObserverProcessorTestCase {
         void onRemoved(Zep::EntityID id) {
             ids.erase(id);
         }
-        Zep::ComponentMask createComponentMask() {
-            return database->getComponentMask<Bouncy>();
+        bool match(Zep::EntityID id) {
+            return database->hasComponent<Bouncy>(id);
         }
     public:
         std::unordered_set<Zep::EntityID> ids;

@@ -19,10 +19,9 @@ namespace Zep {
     class EntityChange;
     
     class EntityObserverProcessor : public Processor {
-        ComponentMask componentMask;
-        virtual ComponentMask createComponentMask() = 0;
         virtual void onAdded(EntityID id) = 0;
         virtual void onRemoved(EntityID id) = 0;
+        virtual bool match(EntityID id) = 0;
         std::set<EntityID> ids;
         EventSubscriptionManager<EntityObserverProcessor> eventSubscriptionManager;
         void add(EntityID id);

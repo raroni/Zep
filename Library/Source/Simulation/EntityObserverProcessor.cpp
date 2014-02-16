@@ -19,12 +19,11 @@ namespace Zep {
         eventSubscriptionManager.add<EntityIDAddition>();
         eventSubscriptionManager.add<EntityIDDestruction>();
         eventSubscriptionManager.add<EntityChange>();
-        componentMask = createComponentMask();
     }
     
     void EntityObserverProcessor::receive(const EntityIDAddition &addition) {
         EntityID id = addition.getID();
-        if(database->hasComponents(id, componentMask)) {
+        if(match(id)) {
             add(id);
         }
     }
@@ -40,10 +39,9 @@ namespace Zep {
     void EntityObserverProcessor::receive(const EntityChange &change) {
         EntityID id = change.getID();
         auto iterator = ids.find(id);
-        bool match = database->hasComponents(id, componentMask);
         bool existing = iterator != ids.end();
         
-        if(match) {
+        if(match(id)) {
             if(!existing) add(id);
         } else if(existing) {
             remove(id);
