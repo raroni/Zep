@@ -26,8 +26,10 @@ namespace Zep {
         EventSubscriptionManager<EntityObserverProcessor> eventSubscriptionManager;
         void add(EntityID id);
         void remove(EntityID id);
+    protected:
+        virtual void onInitialize() { }
     public:
-        void initialize();
+        void initialize() final;
         void receive(const EntityIDAddition &addition);
         void receive(const EntityIDDestruction &destruction);
         void receive(const EntityChange &change);

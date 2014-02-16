@@ -19,6 +19,7 @@ namespace Zep {
         eventSubscriptionManager.add<EntityIDAddition>();
         eventSubscriptionManager.add<EntityIDDestruction>();
         eventSubscriptionManager.add<EntityChange>();
+        onInitialize();
     }
     
     void EntityObserverProcessor::receive(const EntityIDAddition &addition) {
