@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
+#include <iostream>
+
 #include "Zep/Simulation/Database.h"
 #include "Zep/Renderer3D/MeshRendering.h"
 #include "Zep/Simulation/Component.h"
@@ -14,22 +16,19 @@
 #include "Zep/Renderer3D/Renderer3D.h"
 
 namespace Zep {
-    void Renderer3D::initialize() {
-        eventManager->subscribe<EntityIDAddition>(*this);
-        componentMask = database->getComponentMask<MeshRendering>();
+    ComponentMask Renderer3D::createComponentMask() {
+        return database->getComponentMask<MeshRendering>();
     }
     
     void Renderer3D::update(int timeDelta) {
         
     }
     
-    void Renderer3D::receive(const EntityIDAddition &addition) {
-        if(database->hasComponents(addition.getID(), componentMask)) {
-            onEntityAdded(addition.getID());
-        }
+    void Renderer3D::onAdded(EntityID id) {
+        std::cout << "ADD!\n";
     }
     
-    void Renderer3D::onEntityAdded(EntityID entityID) {
-        
+    void Renderer3D::onDestroyed(EntityID id) {
+        std::cout << "DESTROY!\n";
     }
 }

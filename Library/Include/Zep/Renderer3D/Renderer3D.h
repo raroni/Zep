@@ -11,19 +11,20 @@
 
 #include "Zep/Simulation/ComponentMask.h"
 #include "Zep/Simulation/EntityID.h"
-#include "Zep/Simulation/Processor.h"
+#include "Zep/Simulation/EntityObserverProcessor.h"
 
 namespace Zep {
     class EventManager;
     class EntityIDAddition;
     
-    class Renderer3D : public Processor {
+    class Renderer3D : public EntityObserverProcessor {
         ComponentMask componentMask;
+        virtual ComponentMask createComponentMask();
+        virtual void onAdded(EntityID id);
+        virtual void onDestroyed(EntityID id);
     public:
         void update(int timeDelta);
         void receive(const EntityIDAddition &addition);
-        void initialize();
-        void onEntityAdded(EntityID entityID);
     };
 }
 
