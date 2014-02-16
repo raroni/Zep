@@ -9,11 +9,11 @@
 #include <iostream>
 
 #include "Zep/Simulation/Database.h"
-#include "Zep/Renderer3D/MeshRendering.h"
+#include "Zep/Rendering/Renderer3D/MeshRendering.h"
 #include "Zep/Simulation/Component.h"
 #include "Zep/Events/EventManager.h"
 #include "Zep/Simulation/EntityIDAddition.h"
-#include "Zep/Renderer3D/Renderer3D.h"
+#include "Zep/Rendering/Renderer3D/Renderer3D.h"
 
 namespace Zep {
     void Renderer3D::onInitialize() {

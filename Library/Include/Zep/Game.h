@@ -11,11 +11,13 @@
 
 #include "Zep/Screen.h"
 #include "Zep/Input/TouchSurface.h"
+#include "Zep/Rendering/ShaderProgramManager.h"
 
 namespace Zep {
     class Game {
         Screen screen;
         TouchSurface touchSurface;
+        ShaderProgramManager shaderProgramManager;
     public:
         virtual void update(int timeDelta) = 0;
         virtual void initialize() { }
