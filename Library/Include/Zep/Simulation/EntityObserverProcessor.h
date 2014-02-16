@@ -22,10 +22,10 @@ namespace Zep {
         ComponentMask componentMask;
         virtual ComponentMask createComponentMask() = 0;
         virtual void onAdded(EntityID id) = 0;
-        virtual void onDestroyed(EntityID id) = 0;
+        virtual void onRemoved(EntityID id) = 0;
         std::set<EntityID> ids;
         EventSubscriptionManager<EntityObserverProcessor> eventSubscriptionManager;
-        void insert(EntityID id);
+        void add(EntityID id);
         void remove(EntityID id);
     public:
         void initialize();

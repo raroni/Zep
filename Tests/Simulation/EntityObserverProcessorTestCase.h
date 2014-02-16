@@ -22,7 +22,7 @@ namespace EntityObserverProcessorTestCase {
         void onAdded(Zep::EntityID id) {
             ids.insert(id);
         }
-        void onDestroyed(Zep::EntityID id) {
+        void onRemoved(Zep::EntityID id) {
             ids.erase(id);
         }
         Zep::ComponentMask createComponentMask() {

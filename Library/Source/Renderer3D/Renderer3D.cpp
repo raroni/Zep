@@ -28,7 +28,7 @@ namespace Zep {
         std::cout << "ADD!\n";
     }
     
-    void Renderer3D::onDestroyed(EntityID id) {
+    void Renderer3D::onRemoved(EntityID id) {
         std::cout << "DESTROY!\n";
     }
 }

@@ -25,7 +25,7 @@ namespace Zep {
     void EntityObserverProcessor::receive(const EntityIDAddition &addition) {
         EntityID id = addition.getID();
         if(database->hasComponents(id, componentMask)) {
-            insert(id);
+            add(id);
         }
     }
     
@@ -44,19 +44,19 @@ namespace Zep {
         bool existing = iterator != ids.end();
         
         if(match) {
-            if(!existing) insert(id);
+            if(!existing) add(id);
         } else if(existing) {
             remove(id);
         }
     }
     
-    void EntityObserverProcessor::insert(EntityID id) {
+    void EntityObserverProcessor::add(EntityID id) {
         ids.insert(id);
         onAdded(id);
     }
     
     void EntityObserverProcessor::remove(EntityID id) {
         ids.erase(id);
-        onDestroyed(id);
+        onRemoved(id);
     }
 }

@@ -21,7 +21,7 @@ namespace Zep {
         ComponentMask componentMask;
         virtual ComponentMask createComponentMask();
         virtual void onAdded(EntityID id);
-        virtual void onDestroyed(EntityID id);
+        virtual void onRemoved(EntityID id);
     public:
         void update(int timeDelta);
         void receive(const EntityIDAddition &addition);
