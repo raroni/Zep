@@ -18,9 +18,12 @@ namespace Zep {
     class EntityIDAddition;
     
     class Renderer3D : public EntityObserverProcessor {
+        ComponentMask meshRenderingMask;
         void onAdded(EntityID id);
         void onRemoved(EntityID id);
         bool match(EntityID id);
+    protected:
+        void onInitialize();
     public:
         void update(int timeDelta);
         void receive(const EntityIDAddition &addition);

@@ -16,12 +16,16 @@
 #include "Zep/Renderer3D/Renderer3D.h"
 
 namespace Zep {
+    void Renderer3D::onInitialize() {
+        meshRenderingMask = database->getComponentMask<MeshRendering>();
+    }
+    
     void Renderer3D::update(int timeDelta) {
         
     }
     
     bool Renderer3D::match(EntityID id) {
-        return database->hasComponent<MeshRendering>(id);
+        return database->hasComponents(id, meshRenderingMask);
     }
     
     void Renderer3D::onAdded(EntityID id) {
