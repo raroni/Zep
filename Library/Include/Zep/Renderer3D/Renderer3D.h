@@ -18,10 +18,9 @@ namespace Zep {
     class EntityIDAddition;
     
     class Renderer3D : public EntityObserverProcessor {
-        ComponentMask componentMask;
-        virtual ComponentMask createComponentMask();
-        virtual void onAdded(EntityID id);
-        virtual void onRemoved(EntityID id);
+        void onAdded(EntityID id);
+        void onRemoved(EntityID id);
+        bool match(EntityID id);
     public:
         void update(int timeDelta);
         void receive(const EntityIDAddition &addition);
