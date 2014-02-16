@@ -7,6 +7,8 @@
 #include "Zep/Events/EventManager.h"
 
 namespace DatabaseTestCase {
+    struct Health : public Zep::Component { };
+    struct Position : public Zep::Component { };
     struct Jetpack : public Zep::Component {
         int thrust = 1234;
     };
@@ -233,11 +235,46 @@ namespace DatabaseTestCase {
         }
     };
     
+    struct SingleComponentMaskGenerationTest : public Vincent::Test {
+        SingleComponentMaskGenerationTest() {
+            name = "SingleComponentMaskGeneration";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            
+            Zep::ComponentMask jetpackMask = database.getComponentMask<Jetpack>();
+            assert(jetpackMask.count() == 1);
+        }
+    };
+    
+    struct MultiComponentMaskGenerationTest : public Vincent::Test {
+        MultiComponentMaskGenerationTest() {
+            name = "MultiComponentMaskGeneration";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            
+            Zep::ComponentMask jetpackMask = database.getComponentMask<Jetpack>();
+            Zep::ComponentMask healthMask = database.getComponentMask<Health>();
+            Zep::ComponentMask positionMask = database.getComponentMask<Position>();
+            
+            Zep::ComponentMask manualCombinedMask = jetpackMask | healthMask | positionMask;
+            
+            Zep::ComponentMask generatedCombinedMask = database.getComponentMask<Jetpack, Health, Position>();
+            
+            assert(manualCombinedMask == generatedCombinedMask);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
             name = "Database";
-            add(new EntityIDCreationTest());
+            add	(new EntityIDCreationTest());
             add(new ComponentCreationTest());
             add(new HasComponentTest());
             add(new AdditionEventTest());
@@ -246,6 +283,8 @@ namespace DatabaseTestCase {
             add(new ComponentDestructionTest());
             add(new ChangeEventByComponentCreationTest());
             add(new ChangeEventByComponentDestructionTest());
+            add(new SingleComponentMaskGenerationTest());
+            add(new MultiComponentMaskGenerationTest());
         }
     };
 }

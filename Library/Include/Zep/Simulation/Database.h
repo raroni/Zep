@@ -76,6 +76,10 @@ namespace Zep {
             mask.set(componentTypeID, 1);
             return mask;
         }
+        template <typename T1, typename T2, typename ... Components>
+        ComponentMask getComponentMask() {
+            return getComponentMask<T1>() | getComponentMask<T2, Components ...>();
+        }
         template <class T>
         bool hasComponent(EntityID id) {
             ComponentMask mask = getComponentMask<T>();
