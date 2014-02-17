@@ -16,8 +16,14 @@ namespace Zep {
     
     class ShaderProgramManager {
         std::unordered_map<std::string, ShaderProgram*> programs;
+        struct ShaderProgramSource {
+            std::string vertex;
+            std::string fragment;
+        };
+        static std::unordered_map<std::string, ShaderProgramSource> bundledShaderProgramSources;
     public:
-        void add(std::string key, ShaderProgram *program);
+        void activate(std::string key, ShaderProgram *program);
+        void activate(std::string key);
         ~ShaderProgramManager();
     };
 }

@@ -7,8 +7,8 @@
 //
 
 #include "Zep/Game.h"
-#import "Zep-iOS/View.h"
-#import "Zep-iOS/ViewController.h"
+#import "Zep/iOS/View.h"
+#import "Zep/iOS/ViewController.h"
 
 @implementation ZepViewController
 

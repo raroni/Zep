@@ -7,7 +7,7 @@
 //
 
 #include "Zep/Exception.h"
-#include "Zep-iOS/TouchIDHelper.h"
+#include "Zep/iOS/TouchIDHelper.h"
 
 namespace Zep {
     int TouchIDHelper::createID(intptr_t touchAddress) {

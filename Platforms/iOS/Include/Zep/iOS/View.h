@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "Zep-iOS/TouchIDHelper.h"
+#include "Zep/iOS/TouchIDHelper.h"
 
 namespace Zep {
     class Screen;

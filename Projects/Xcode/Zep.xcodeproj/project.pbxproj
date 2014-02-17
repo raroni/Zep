@@ -95,6 +95,8 @@
 		3A65685818B13F810010E72B /* ShaderProgramManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgramManager.cpp; sourceTree = "<group>"; };
 		3A65685D18B140890010E72B /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		3A65685F18B140940010E72B /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
+		3A65686318B1441D0010E72B /* Simple.vertex */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.vertex; sourceTree = "<group>"; };
+		3A65686418B1442E0010E72B /* Simple.fragment */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.fragment; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentTypeRegistryTestCase.h; sourceTree = "<group>"; };
 		3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTestCase.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		3A7BEF961897F978004BFA7F /* TouchSurface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchSurface.cpp; sourceTree = "<group>"; };
 		3A7BEF971897F97E004BFA7F /* Touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Touch.cpp; sourceTree = "<group>"; };
 		3A7BEF9B1897F987004BFA7F /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Touch.h; sourceTree = "<group>"; };
+		3A85502718B2ADF30076C90C /* OpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL.h; sourceTree = "<group>"; };
 		3A8CEA2418ADFDE7007CF591 /* EntityChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityChange.h; sourceTree = "<group>"; };
 		3A8CEA2618ADFDF1007CF591 /* EntityChange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityChange.cpp; sourceTree = "<group>"; };
 		3A94ED4E18984BF7003EA707 /* View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
@@ -215,9 +218,7 @@
 		3A2A46E91897DC8300BFE8F0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				3A2A46EB1897DCB000BFE8F0 /* ViewController.mm */,
-				3A7BEF721897E487004BFA7F /* View.mm */,
-				3A94ED611898E457003EA707 /* TouchIDHelper.cpp */,
+				3A85502B18B2B1820076C90C /* iOS */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -288,6 +289,7 @@
 		3A65685118B13F640010E72B /* Rendering */ = {
 			isa = PBXGroup;
 			children = (
+				3A65686218B144120010E72B /* Shaders */,
 				3A65685218B13F640010E72B /* Renderer3D */,
 				3A65685618B13F740010E72B /* ShaderProgramManager.h */,
 				3A65685D18B140890010E72B /* ShaderProgram.h */,
@@ -302,6 +304,15 @@
 				3A65685418B13F640010E72B /* Renderer3D.h */,
 			);
 			path = Renderer3D;
+			sourceTree = "<group>";
+		};
+		3A65686218B144120010E72B /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				3A65686318B1441D0010E72B /* Simple.vertex */,
+				3A65686418B1442E0010E72B /* Simple.fragment */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 		3A661085189BAF5E0085D6F7 /* Tests */ = {
@@ -463,15 +474,42 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		3A94ED4D18984BF7003EA707 /* Include */ = {
+		3A85502918B2B1490076C90C /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				3A85502718B2ADF30076C90C /* OpenGL.h */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		3A85502A18B2B1660076C90C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				3A94ED4E18984BF7003EA707 /* View.h */,
 				3A94ED4F18984BF7003EA707 /* ViewController.h */,
 				3A94ED5F1898E44D003EA707 /* TouchIDHelper.h */,
 			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		3A85502B18B2B1820076C90C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A2A46EB1897DCB000BFE8F0 /* ViewController.mm */,
+				3A7BEF721897E487004BFA7F /* View.mm */,
+				3A94ED611898E457003EA707 /* TouchIDHelper.cpp */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		3A94ED4D18984BF7003EA707 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				3A85502A18B2B1660076C90C /* iOS */,
+				3A85502918B2B1490076C90C /* Rendering */,
+			);
 			name = Include;
-			path = "Include/Zep-iOS";
+			path = Include/Zep;
 			sourceTree = "<group>";
 		};
 		3AD0DA69189A6B5B0050DF44 /* Events */ = {

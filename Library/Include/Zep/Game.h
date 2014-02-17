@@ -23,6 +23,7 @@ namespace Zep {
         virtual void initialize() { }
         Screen& getScreen();
         TouchSurface& getTouchSurface();
+        ShaderProgramManager& getShaderProgramManager();
     };
 }
 

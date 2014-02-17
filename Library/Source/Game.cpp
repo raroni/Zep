@@ -16,4 +16,8 @@ namespace Zep {
     TouchSurface& Game::getTouchSurface() {
         return touchSurface;
     }
+    
+    ShaderProgramManager& Game::getShaderProgramManager() {
+        return shaderProgramManager;
+    }
 }

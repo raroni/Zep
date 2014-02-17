@@ -10,8 +10,8 @@
 #include "Zep/Math/Vector2.h"
 #include "Zep/Screen.h"
 #include "Zep/Input/TouchSurface.h"
-#include "Zep-iOS/TouchIDHelper.h"
-#import "Zep-iOS/View.h"
+#include "Zep/iOS/TouchIDHelper.h"
+#import "Zep/iOS/View.h"
 
 @interface ZepView()
 - (float)pointsToPixels:(float)points;
