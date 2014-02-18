@@ -24,6 +24,7 @@ namespace Zep {
         Screen& getScreen();
         TouchSurface& getTouchSurface();
         ShaderProgramManager& getShaderProgramManager();
+        virtual ~Game() { }
     };
 }
 

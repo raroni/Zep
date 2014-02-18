@@ -44,4 +44,9 @@
     return YES;
 }
 
+-(void)dealloc
+{
+    delete game;
+}
+
 @end
