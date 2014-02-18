@@ -24,7 +24,6 @@
     Zep::Screen& screen = game->getScreen();
     ZepView *view = [[ZepView alloc] initWithZepScreen:screen ZepTouchSurface:touchSurface];
     self.view = view;
-    //game->getScreen()->setView(view);
 }
 
 - (void)run
