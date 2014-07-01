@@ -39,6 +39,8 @@
 		3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED611898E457003EA707 /* TouchIDHelper.cpp */; };
 		3A94ED661898E74B003EA707 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
 		3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF961897F978004BFA7F /* TouchSurface.cpp */; };
+		3ABDD861196303430040E661 /* EntityObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDD85F196303430040E661 /* EntityObserver.cpp */; };
+		3ABDD86319630A910040E661 /* EntityObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDD85F196303430040E661 /* EntityObserver.cpp */; };
 		3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
 		3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA77189A71EB0050DF44 /* Event.cpp */; };
@@ -130,6 +132,10 @@
 		3A94ED641898E74B003EA707 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
 		3A94ED681898E754003EA707 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		3ABDD8571962F56D0040E661 /* AspectTypeRegistry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectTypeRegistry.h; sourceTree = "<group>"; };
+		3ABDD85D196303080040E661 /* EntityObserverDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserverDelegate.h; sourceTree = "<group>"; };
+		3ABDD85F196303430040E661 /* EntityObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserver.cpp; sourceTree = "<group>"; };
+		3ABDD860196303430040E661 /* EntityObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserver.h; sourceTree = "<group>"; };
+		3ABDD862196305790040E661 /* EntityObserverTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityObserverTestCase.h; sourceTree = "<group>"; };
 		3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventManager.cpp; sourceTree = "<group>"; };
 		3AD0DA6F189A6B750050DF44 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
 		3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityIDAddition.h; sourceTree = "<group>"; };
@@ -210,12 +216,13 @@
 		3A3A6ECE18992EFD006AB24E /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				3A3A6EE7189932ED006AB24E /* Processor.cpp */,
 				3A3A6EED189937C6006AB24E /* Database.cpp */,
-				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
-				3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */,
-				3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */,
 				3A8CEA2618ADFDF1007CF591 /* EntityChange.cpp */,
+				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
+				3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */,
+				3ABDD85F196303430040E661 /* EntityObserver.cpp */,
+				3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */,
+				3A3A6EE7189932ED006AB24E /* Processor.cpp */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 				3A3A6EF31899384A006AB24E /* EntityID.h */,
 				3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */,
 				3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */,
+				3ABDD860196303430040E661 /* EntityObserver.h */,
+				3ABDD85D196303080040E661 /* EntityObserverDelegate.h */,
 				3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */,
 				3A3A6EEB18993313006AB24E /* Processor.h */,
 			);
@@ -469,6 +478,7 @@
 				3A661086189BAF5E0085D6F7 /* AspectTypeRegistryTestCase.h */,
 				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
+				3ABDD862196305790040E661 /* EntityObserverTestCase.h */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -574,6 +584,7 @@
 				3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
+				3ABDD86319630A910040E661 /* EntityObserver.cpp in Sources */,
 				3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */,
 				3A6C8BBC18A7730D009F118E /* EventSignal.cpp in Sources */,
 				3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */,
@@ -597,6 +608,7 @@
 				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */,
+				3ABDD861196303430040E661 /* EntityObserver.cpp in Sources */,
 				3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */,
 				3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */,
 				3A94ED661898E74B003EA707 /* Exception.cpp in Sources */,

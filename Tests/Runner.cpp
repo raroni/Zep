@@ -1,8 +1,9 @@
 #include "vincent/test_suite.h"
 #include "vincent/text_presentation.h"
-#include "DatabaseTestCase.h"
-#include "AspectTypeRegistryTestCase.h"
-#include "EntityObserverProcessorTestCase.h"
+#include "Database/DatabaseTestCase.h"
+#include "Database/AspectTypeRegistryTestCase.h"
+#include "Database/EntityObserverProcessorTestCase.h"
+#include "Database/EntityObserverTestCase.h"
 #include "Events/EventSignalTestCase.h"
 #include "Events/EventSubscriptionTestCase.h"
 #include "Events/EventManagerTestCase.h"
@@ -19,6 +20,7 @@ int main() {
     suite.add(new EventSubscriptionTestCase::Case());
     suite.add(new EventManagerTestCase::Case());
     suite.add(new EventSubscriptionManagerTestCase::Case());
+    suite.add(new EntityObserverTestCase::Case());
     
     suite.run(result);
     Vincent::TextPresentation presentation(result);
