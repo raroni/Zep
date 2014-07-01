@@ -1,7 +1,0 @@
-"\
-varying lowp vec4 DestinationColor;\n\
-\n\
-void main(void) {\n\
-gl_FragColor = DestinationColor;\n\
-}\n\
-"

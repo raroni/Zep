@@ -13,9 +13,6 @@
 		3A3A6EEF189937C6006AB24E /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
 		3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
 		3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
-		3A65685A18B13F810010E72B /* ShaderProgramManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A65685818B13F810010E72B /* ShaderProgramManager.cpp */; };
-		3A65685B18B13FC90010E72B /* Renderer3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A65685018B13F5B0010E72B /* Renderer3D.cpp */; };
-		3A65686118B140940010E72B /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A65685F18B140940010E72B /* ShaderProgram.cpp */; };
 		3A661089189BAF710085D6F7 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A661088189BAF5E0085D6F7 /* Runner.cpp */; };
 		3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
 		3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
@@ -87,16 +84,6 @@
 		3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionTestCase.h; sourceTree = "<group>"; };
 		3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTestCase.h; sourceTree = "<group>"; };
 		3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManagerTestCase.h; sourceTree = "<group>"; };
-		3A65684F18B13F5B0010E72B /* MeshRendering.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MeshRendering.cpp; sourceTree = "<group>"; };
-		3A65685018B13F5B0010E72B /* Renderer3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer3D.cpp; sourceTree = "<group>"; };
-		3A65685318B13F640010E72B /* MeshRendering.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshRendering.h; sourceTree = "<group>"; };
-		3A65685418B13F640010E72B /* Renderer3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer3D.h; sourceTree = "<group>"; };
-		3A65685618B13F740010E72B /* ShaderProgramManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgramManager.h; sourceTree = "<group>"; };
-		3A65685818B13F810010E72B /* ShaderProgramManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgramManager.cpp; sourceTree = "<group>"; };
-		3A65685D18B140890010E72B /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
-		3A65685F18B140940010E72B /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
-		3A65686318B1441D0010E72B /* Simple.vertex */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.vertex; sourceTree = "<group>"; };
-		3A65686418B1442E0010E72B /* Simple.fragment */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Simple.fragment; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentTypeRegistryTestCase.h; sourceTree = "<group>"; };
 		3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTestCase.h; sourceTree = "<group>"; };
@@ -182,7 +169,6 @@
 		3A2A46D61897D99C00BFE8F0 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				3A65685118B13F640010E72B /* Rendering */,
 				3AD0DA69189A6B5B0050DF44 /* Events */,
 				3A3A6ECF18992F22006AB24E /* Simulation */,
 				3A7BEF931897F96D004BFA7F /* Input */,
@@ -265,54 +251,6 @@
 				3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */,
 			);
 			path = Events;
-			sourceTree = "<group>";
-		};
-		3A65684D18B13F5B0010E72B /* Rendering */ = {
-			isa = PBXGroup;
-			children = (
-				3A65684E18B13F5B0010E72B /* Renderer3D */,
-				3A65685818B13F810010E72B /* ShaderProgramManager.cpp */,
-				3A65685F18B140940010E72B /* ShaderProgram.cpp */,
-			);
-			path = Rendering;
-			sourceTree = "<group>";
-		};
-		3A65684E18B13F5B0010E72B /* Renderer3D */ = {
-			isa = PBXGroup;
-			children = (
-				3A65684F18B13F5B0010E72B /* MeshRendering.cpp */,
-				3A65685018B13F5B0010E72B /* Renderer3D.cpp */,
-			);
-			path = Renderer3D;
-			sourceTree = "<group>";
-		};
-		3A65685118B13F640010E72B /* Rendering */ = {
-			isa = PBXGroup;
-			children = (
-				3A65686218B144120010E72B /* Shaders */,
-				3A65685218B13F640010E72B /* Renderer3D */,
-				3A65685618B13F740010E72B /* ShaderProgramManager.h */,
-				3A65685D18B140890010E72B /* ShaderProgram.h */,
-			);
-			path = Rendering;
-			sourceTree = "<group>";
-		};
-		3A65685218B13F640010E72B /* Renderer3D */ = {
-			isa = PBXGroup;
-			children = (
-				3A65685318B13F640010E72B /* MeshRendering.h */,
-				3A65685418B13F640010E72B /* Renderer3D.h */,
-			);
-			path = Renderer3D;
-			sourceTree = "<group>";
-		};
-		3A65686218B144120010E72B /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				3A65686318B1441D0010E72B /* Simple.vertex */,
-				3A65686418B1442E0010E72B /* Simple.fragment */,
-			);
-			path = Shaders;
 			sourceTree = "<group>";
 		};
 		3A661085189BAF5E0085D6F7 /* Tests */ = {
@@ -559,7 +497,6 @@
 		3AFD1EEB1897D60D000803D6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				3A65684D18B13F5B0010E72B /* Rendering */,
 				3A6C8BC118A77613009F118E /* Misc */,
 				3AD0DA6A189A6B650050DF44 /* Events */,
 				3A3A6ECE18992EFD006AB24E /* Simulation */,
@@ -664,15 +601,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */,
-				3A65686118B140940010E72B /* ShaderProgram.cpp in Sources */,
 				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
 				3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A2A46EC1897DCB000BFE8F0 /* ViewController.mm in Sources */,
 				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
-				3A65685B18B13FC90010E72B /* Renderer3D.cpp in Sources */,
-				3A65685A18B13F810010E72B /* ShaderProgramManager.cpp in Sources */,
 				3A94ED631898E457003EA707 /* TouchIDHelper.cpp in Sources */,
 				3AFD1EFB1897D69F000803D6 /* Game.cpp in Sources */,
 				3A94ED6B1898F060003EA707 /* TouchSurface.cpp in Sources */,
