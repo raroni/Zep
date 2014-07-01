@@ -15,17 +15,21 @@
 #include "Zep/Database/EntityObserverDelegate.h"
 #include "Zep/Database/EntityIDAddition.h"
 #include "Zep/Database/EntityIDDestruction.h"
+#include "Zep/Database/EntityChange.h"
 
 namespace Zep {
     class EntityObserver {
         EventSubscriptionManager<EntityObserver> eventSubscriptionManager;
         EntityObserverDelegate &delegate;
-        std::set<EntityID> entityIDs;
+        std::set<EntityID> ids;
+        void add(EntityID id);
+        void remove(EntityID id);
     public:
         EntityObserver(EventManager &eventManager, EntityObserverDelegate &delegate);
         void initialize();
         void receive(const EntityIDAddition &addition);
         void receive(const EntityIDDestruction &destruction);
+        void receive(const EntityChange &change);
     };
 }
 

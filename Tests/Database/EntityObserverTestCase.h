@@ -79,7 +79,7 @@ namespace EntityObserverTestCase {
             eventManager.emit<Zep::EntityIDAddition>(42);
             delegate.nextMatch = false;
             eventManager.emit<Zep::EntityIDDestruction>(42);
-            eventManager.emit<Zep::EntityIDDestruction>(43);
+            eventManager.emit<Zep::EntityIDDestruction>(42);
             
             assert(delegate.entityIDs.size() == 0);
             assertEqual(delegate.additions, 1);
@@ -103,6 +103,32 @@ namespace EntityObserverTestCase {
         }
     };
     
+    class ChangeTest : public Vincent::Test {
+    public:
+        ChangeTest() {
+            name = "ChangeTest";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            DummyDelegate delegate;
+            delegate.nextMatch = true;
+            Zep::EntityObserver entityObserver(eventManager, delegate);
+            entityObserver.initialize();
+            eventManager.emit<Zep::EntityIDAddition>(43);
+            eventManager.emit<Zep::EntityChange>(43);
+            
+            assertEqual(delegate.additions, 1);
+            assertEqual(delegate.removals, 0);
+            
+            delegate.nextMatch = false;
+            eventManager.emit<Zep::EntityChange>(43);
+            eventManager.emit<Zep::EntityChange>(43);
+            
+            assertEqual(delegate.additions, 1);
+            assertEqual(delegate.removals, 1);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -111,6 +137,7 @@ namespace EntityObserverTestCase {
             add(new AdditionMissTest());
             add(new DestructionTest());
             add(new DestructionMissTest());
+            add(new ChangeTest());
         }
     };
 }

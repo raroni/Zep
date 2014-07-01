@@ -16,21 +16,43 @@ namespace Zep {
     void EntityObserver::initialize() {
         eventSubscriptionManager.add<EntityIDAddition>();
         eventSubscriptionManager.add<EntityIDDestruction>();
+        eventSubscriptionManager.add<EntityChange>();
     }
     
     void EntityObserver::receive(const EntityIDAddition &addition) {
         auto id = addition.getID();
         if(delegate.match(id)) {
-            entityIDs.insert(id);
-            delegate.handleAddition(id);
+            add(id);
         }
+    }
+    
+    void EntityObserver::add(EntityID id) {
+        ids.insert(id);
+        delegate.handleAddition(id);
+    }
+    
+    void EntityObserver::remove(EntityID id) {
+        delegate.handleRemoval(id);
+        ids.erase(id);
     }
     
     void EntityObserver::receive(const EntityIDDestruction &destruction) {
         auto id = destruction.getID();
-        auto iterator = entityIDs.find(id);
-        if(iterator != entityIDs.end()) {
-            delegate.handleRemoval(id);
+        auto iterator = ids.find(id);
+        if(iterator != ids.end()) {
+            remove(id);
+        }
+    }
+    
+    void EntityObserver::receive(const EntityChange &change) {
+        EntityID id = change.getID();
+        auto iterator = ids.find(id);
+        bool existing = iterator != ids.end();
+        
+        if(delegate.match(id)) {
+            if(!existing) add(id);
+        } else if(existing) {
+            remove(id);
         }
     }
 }
