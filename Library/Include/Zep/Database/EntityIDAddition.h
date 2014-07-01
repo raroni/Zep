@@ -10,7 +10,7 @@
 #define __Zep__EntityIDAddition__
 
 #include "Zep/Events/Event.h"
-#include "Zep/Simulation/EntityID.h"
+#include "Zep/Database/EntityID.h"
 
 namespace Zep {
     class EntityIDAddition : public Event {

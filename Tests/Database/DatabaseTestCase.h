@@ -1,9 +1,9 @@
 #include "vincent/test_case.h"
 #include "vincent/test.h"
-#include "Zep/Simulation/EntityIDAddition.h"
-#include "Zep/Simulation/EntityIDDestruction.h"
-#include "Zep/Simulation/EntityChange.h"
-#include "Zep/Simulation/Database.h"
+#include "Zep/Database/EntityIDAddition.h"
+#include "Zep/Database/EntityIDDestruction.h"
+#include "Zep/Database/EntityChange.h"
+#include "Zep/Database/Database.h"
 #include "Zep/Events/EventManager.h"
 
 namespace DatabaseTestCase {

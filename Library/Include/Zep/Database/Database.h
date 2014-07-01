@@ -12,13 +12,13 @@
 #include <vector>
 #include <unordered_map>
 #include "Zep/Exception.h"
-#include "Zep/Simulation/EntityID.h"
-#include "Zep/Simulation/Component.h"
-#include "Zep/Simulation/ComponentMask.h"
-#include "Zep/Simulation/ComponentList.h"
-#include "Zep/Simulation/ComponentTypeRegistry.h"
-#include "Zep/Simulation/SimulationConfig.h"
-#include "Zep/Simulation/ComponentListInterface.h"
+#include "Zep/Database/EntityID.h"
+#include "Zep/Database/Component.h"
+#include "Zep/Database/ComponentMask.h"
+#include "Zep/Database/ComponentList.h"
+#include "Zep/Database/ComponentTypeRegistry.h"
+#include "Zep/Database/DatabaseConfig.h"
+#include "Zep/Database/ComponentListInterface.h"
 
 namespace Zep {
     class EventManager;

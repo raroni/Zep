@@ -7,17 +7,17 @@
 //
 
 #include "Zep/Events/EventManager.h"
-#include "Zep/Simulation/EntityIDAddition.h"
-#include "Zep/Simulation/EntityChange.h"
-#include "Zep/Simulation/EntityIDDestruction.h"
-#include "Zep/Simulation/SimulationConfig.h"
-#include "Zep/Simulation/Database.h"
+#include "Zep/Database/EntityIDAddition.h"
+#include "Zep/Database/EntityChange.h"
+#include "Zep/Database/EntityIDDestruction.h"
+#include "Zep/Database/DatabaseConfig.h"
+#include "Zep/Database/Database.h"
 
 namespace Zep {
-    Database::Database(EventManager &eventManager) : eventManager(eventManager), componentTypes(ComponentTypeRegistry(SimulationConfig::maxComponentTypes)) { }
+    Database::Database(EventManager &eventManager) : eventManager(eventManager), componentTypes(ComponentTypeRegistry(DatabaseConfig::maxComponentTypes)) { }
     
     void Database::initialize() {
-        components.resize(SimulationConfig::maxComponentTypes, nullptr);
+        components.resize(DatabaseConfig::maxComponentTypes, nullptr);
         initialized = true;
     }
     

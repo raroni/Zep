@@ -10,10 +10,10 @@
 #define Zep_ComponentMask_h
 
 #include <bitset>
-#include "Zep/Simulation/SimulationConfig.h"
+#include "Zep/Database/DatabaseConfig.h"
 
 namespace Zep {
-    typedef std::bitset<SimulationConfig::maxComponentTypes> ComponentMask;
+    typedef std::bitset<DatabaseConfig::maxComponentTypes> ComponentMask;
 }
 
 #endif

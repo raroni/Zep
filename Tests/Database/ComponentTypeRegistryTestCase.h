@@ -1,6 +1,6 @@
 #include "vincent/test_case.h"
 #include "vincent/test.h"
-#include "Zep/Simulation/ComponentTypeRegistry.h"
+#include "Zep/Database/ComponentTypeRegistry.h"
 
 namespace ComponentTypeRegistryTestCase {
     struct Jetpack : public Zep::Component { };

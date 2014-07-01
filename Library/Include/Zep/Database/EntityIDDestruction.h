@@ -9,7 +9,7 @@
 #ifndef __Zep__EntityIDDestruction__
 #define __Zep__EntityIDDestruction__
 
-#include "Zep/Simulation/EntityID.h"
+#include "Zep/Database/EntityID.h"
 #include "Zep/Events/Event.h"
 
 namespace Zep {

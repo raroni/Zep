@@ -12,7 +12,7 @@
 #include <unordered_set>
 #include "vincent/test_case.h"
 #include "vincent/test.h"
-#include "Zep/Simulation/EntityObserverProcessor.h"
+#include "Zep/Database/EntityObserverProcessor.h"
 
 namespace EntityObserverProcessorTestCase {
     class Bouncy : public Zep::Component { };

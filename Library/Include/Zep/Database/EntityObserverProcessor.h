@@ -11,7 +11,7 @@
 
 #include <set>
 #include "Zep/Events/EventSubscriptionManager.h"
-#include "Zep/Simulation/Processor.h"
+#include "Zep/Database/Processor.h"
 
 namespace Zep {
     class EntityIDAddition;

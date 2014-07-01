@@ -10,7 +10,7 @@
 #define __Zep__ComponentList__
 
 #include <cstring>
-#include "Zep/Simulation/ComponentListInterface.h"
+#include "Zep/Database/ComponentListInterface.h"
 
 namespace Zep {
     template <class T>
