@@ -22,8 +22,7 @@ namespace EventSubscriptionManagerTestCase {
         void run() {
             DummyObserver observer;
             Zep::EventManager eventManager;
-            auto subscriptionManager = new Zep::EventSubscriptionManager<DummyObserver>();
-            subscriptionManager->initialize(observer, eventManager);
+            auto subscriptionManager = new Zep::EventSubscriptionManager<DummyObserver>(observer, eventManager);
             subscriptionManager->add<Explosion>();
             eventManager.emit<Explosion>();
             assertEqual(1, observer.counter);

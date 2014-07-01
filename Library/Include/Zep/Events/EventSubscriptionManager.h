@@ -16,16 +16,13 @@ namespace Zep {
     template <class ReceiverType>
     class EventSubscriptionManager {
         std::vector<EventSubscription> subscriptions;
-        ReceiverType *receiver;
-        EventManager *eventManager;
+        ReceiverType &receiver;
+        EventManager &eventManager;
     public:
-        void initialize(ReceiverType &receiver, EventManager &eventManager) {
-            this->receiver = &receiver;
-            this->eventManager = &eventManager;
-        }
+        EventSubscriptionManager(ReceiverType &receiver, EventManager &eventManager) : receiver(receiver), eventManager(eventManager) { }
         template <class EventType>
         void add() {
-            auto subscription = eventManager->subscribe<EventType>(*receiver);
+            auto subscription = eventManager.subscribe<EventType>(receiver);
             subscriptions.push_back(subscription);
         }
         ~EventSubscriptionManager() {
