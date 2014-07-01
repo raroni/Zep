@@ -24,8 +24,6 @@
 		3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BC218A7761E009F118E /* SafeConversion.cpp */; };
 		3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
-		3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */; };
-		3A6D4C29189BCD0B00D1065B /* EntityObserverProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */; };
 		3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */; };
 		3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */; };
 		3A7044881897D4760076E9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7044871897D4760076E9C2 /* Foundation.framework */; };
@@ -105,9 +103,6 @@
 		3A6C8BBF18A77600009F118E /* SafeConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeConversion.h; sourceTree = "<group>"; };
 		3A6C8BC218A7761E009F118E /* SafeConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafeConversion.cpp; sourceTree = "<group>"; };
 		3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSignalTestCase.h; sourceTree = "<group>"; };
-		3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessor.h; sourceTree = "<group>"; };
-		3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityObserverProcessorTestCase.h; sourceTree = "<group>"; };
-		3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserverProcessor.cpp; sourceTree = "<group>"; };
 		3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityIDDestruction.h; sourceTree = "<group>"; };
 		3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIDDestruction.cpp; sourceTree = "<group>"; };
 		3A7044841897D4760076E9C2 /* libZep-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libZep-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +216,6 @@
 				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
 				3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */,
 				3ABDD85F196303430040E661 /* EntityObserver.cpp */,
-				3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */,
 				3A3A6EE7189932ED006AB24E /* Processor.cpp */,
 			);
 			path = Database;
@@ -243,7 +237,6 @@
 				3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */,
 				3ABDD860196303430040E661 /* EntityObserver.h */,
 				3ABDD85D196303080040E661 /* EntityObserverDelegate.h */,
-				3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */,
 				3A3A6EEB18993313006AB24E /* Processor.h */,
 			);
 			path = Database;
@@ -476,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				3A661086189BAF5E0085D6F7 /* AspectTypeRegistryTestCase.h */,
-				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3ABDD862196305790040E661 /* EntityObserverTestCase.h */,
 			);
@@ -590,7 +582,6 @@
 				3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */,
 				3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */,
 				3A8CEA2918ADFE69007CF591 /* EntityChange.cpp in Sources */,
-				3A6D4C29189BCD0B00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */,
 				3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */,
 			);
@@ -602,7 +593,6 @@
 			files = (
 				3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */,
 				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
-				3A6D4C28189BCCED00D1065B /* EntityObserverProcessor.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A2A46EC1897DCB000BFE8F0 /* ViewController.mm in Sources */,
 				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
