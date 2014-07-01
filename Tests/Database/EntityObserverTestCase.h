@@ -48,6 +48,23 @@ namespace EntityObserverTestCase {
         }
     };
     
+    class AdditionMissTest : public Vincent::Test {
+    public:
+        AdditionMissTest() {
+            name = "AdditionMiss";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            DummyDelegate delegate;
+            delegate.nextMatch = false;
+            Zep::EntityObserver entityObserver(eventManager, delegate);
+            entityObserver.initialize();
+            eventManager.emit<Zep::EntityIDAddition>(17);
+            
+            assertEqual(delegate.additions, 0);
+        }
+    };
+    
     class DestructionTest : public Vincent::Test {
     public:
         DestructionTest() {
@@ -70,12 +87,30 @@ namespace EntityObserverTestCase {
         }
     };
     
+    class DestructionMissTest : public Vincent::Test {
+    public:
+        DestructionMissTest() {
+            name = "DestructionMiss";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            DummyDelegate delegate;
+            Zep::EntityObserver entityObserver(eventManager, delegate);
+            entityObserver.initialize();
+            eventManager.emit<Zep::EntityIDDestruction>(43);
+            
+            assertEqual(delegate.removals, 0);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
             name = "EntityObserver";
             add(new AdditionTest());
+            add(new AdditionMissTest());
             add(new DestructionTest());
+            add(new DestructionMissTest());
         }
     };
 }
