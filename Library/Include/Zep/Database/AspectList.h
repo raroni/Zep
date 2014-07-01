@@ -1,24 +1,24 @@
 //
-//  ComponentList.h
+//  AspectList.h
 //  Zep
 //
 //  Created by Rasmus Rønn Nielsen on 29/01/14.
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#ifndef __Zep__ComponentList__
-#define __Zep__ComponentList__
+#ifndef __Zep__AspectList__
+#define __Zep__AspectList__
 
 #include <cstring>
-#include "Zep/Database/ComponentListInterface.h"
+#include "Zep/Database/AspectListInterface.h"
 
 namespace Zep {
     template <class T>
-    class ComponentList : public ComponentListInterface {
+    class AspectList : public AspectListInterface {
         T* data;
         size_t size = 0;
     public:
-        ComponentList() {
+        AspectList() {
             data = new T[size];
         }
         T& operator[](int index) {
@@ -31,7 +31,7 @@ namespace Zep {
             data = newData;
             size = newSize;
         }
-        ~ComponentList() {
+        ~AspectList() {
             delete[] data;
         }
     };

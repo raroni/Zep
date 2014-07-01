@@ -1,16 +1,16 @@
 //
-//  Component.h
+//  Aspect.h
 //  Zep
 //
 //  Created by Rasmus Rønn Nielsen on 29/01/14.
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#ifndef __Zep__Component__
-#define __Zep__Component__
+#ifndef __Zep__Aspect__
+#define __Zep__Aspect__
 
 namespace Zep {
-    class Component { };
+    class Aspect { };
 }
 
 #endif

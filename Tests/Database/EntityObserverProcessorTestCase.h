@@ -15,8 +15,8 @@
 #include "Zep/Database/EntityObserverProcessor.h"
 
 namespace EntityObserverProcessorTestCase {
-    class Bouncy : public Zep::Component { };
-    class Juicy : public Zep::Component { };
+    class Bouncy : public Zep::Aspect { };
+    class Juicy : public Zep::Aspect { };
     
     class DummyProcessor : public Zep::EntityObserverProcessor {
         void onAdded(Zep::EntityID id) {
@@ -26,7 +26,7 @@ namespace EntityObserverProcessorTestCase {
             ids.erase(id);
         }
         bool match(Zep::EntityID id) {
-            return database->hasComponent<Bouncy>(id);
+            return database->hasAspect<Bouncy>(id);
         }
     public:
         std::unordered_set<Zep::EntityID> ids;
@@ -49,7 +49,7 @@ namespace EntityObserverProcessorTestCase {
             dummy.initialize();
             
             Zep::EntityID id = database.createEntityID();
-            database.createComponent<Bouncy>(id);
+            database.createAspect<Bouncy>(id);
             database.update();
             
             assert(1 == dummy.ids.size());
@@ -73,7 +73,7 @@ namespace EntityObserverProcessorTestCase {
             dummy.initialize();
             
             Zep::EntityID id = database.createEntityID();
-            database.createComponent<Juicy>(id);
+            database.createAspect<Juicy>(id);
             database.update();
             
             assert(0 == dummy.ids.size());
@@ -96,7 +96,7 @@ namespace EntityObserverProcessorTestCase {
             dummy.initialize();
             
             Zep::EntityID id = database.createEntityID();
-            database.createComponent<Bouncy>(id);
+            database.createAspect<Bouncy>(id);
             database.update();
             
             assert(1 == dummy.ids.size());
@@ -126,7 +126,7 @@ namespace EntityObserverProcessorTestCase {
             
             Zep::EntityID entityID1 = database.createEntityID();
             Zep::EntityID entityID2 = database.createEntityID();
-            database.createComponent<Bouncy>(entityID1);
+            database.createAspect<Bouncy>(entityID1);
             database.update();
                         
             database.destroy(entityID2);
@@ -152,11 +152,11 @@ namespace EntityObserverProcessorTestCase {
             dummy.initialize();
             
             Zep::EntityID entityID1 = database.createEntityID();
-            database.createComponent<Juicy>(entityID1);
+            database.createAspect<Juicy>(entityID1);
             database.update();
             assert(0 == dummy.ids.size());
 
-            database.createComponent<Bouncy>(entityID1);
+            database.createAspect<Bouncy>(entityID1);
             database.update();
             assert(1 == dummy.ids.size());
         }

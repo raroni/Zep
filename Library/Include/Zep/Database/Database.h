@@ -13,12 +13,12 @@
 #include <unordered_map>
 #include "Zep/Exception.h"
 #include "Zep/Database/EntityID.h"
-#include "Zep/Database/Component.h"
-#include "Zep/Database/ComponentMask.h"
-#include "Zep/Database/ComponentList.h"
-#include "Zep/Database/ComponentTypeRegistry.h"
+#include "Zep/Database/Aspect.h"
+#include "Zep/Database/AspectMask.h"
+#include "Zep/Database/AspectList.h"
+#include "Zep/Database/AspectTypeRegistry.h"
 #include "Zep/Database/DatabaseConfig.h"
-#include "Zep/Database/ComponentListInterface.h"
+#include "Zep/Database/AspectListInterface.h"
 
 namespace Zep {
     class EventManager;
@@ -26,73 +26,73 @@ namespace Zep {
     class Database {
         std::vector<EntityID> freedIDs;
         EntityID nextUnusedID = 0;
-        std::vector<ComponentListInterface*> components;
-        std::vector<ComponentMask> relationships;
+        std::vector<AspectListInterface*> aspects;
+        std::vector<AspectMask> relationships;
         std::vector<EntityID> newCreations;
-        std::unordered_map<EntityID, ComponentMask> newRelationships;
+        std::unordered_map<EntityID, AspectMask> newRelationships;
         std::vector<EntityID> pendingDestructions;
         void allocate(int newSize);
         EventManager &eventManager;
         bool initialized = false;
-        ComponentTypeRegistry componentTypes;
-        ComponentMask& getNewRelationshipComponentMask(EntityID id);
+        AspectTypeRegistry aspectTypes;
+        AspectMask& getNewRelationshipAspectMask(EntityID id);
     public:
         Database(EventManager &eventManager);
         EntityID createEntityID();
         template <class T>
-        T& createComponent(EntityID entityID) {
-            if(!initialized) throw Exception("You must initialize database before creating components.");
+        T& createAspect(EntityID entityID) {
+            if(!initialized) throw Exception("You must initialize database before creating aspects.");
             
-            int componentTypeID = componentTypes.getID<T>();
-            ComponentList<T> *componentList;
+            int aspectTypeID = aspectTypes.getID<T>();
+            AspectList<T> *aspectList;
             
-            if(components[componentTypeID] == nullptr) {
-                componentList = new ComponentList<T>();
-                componentList->resize(relationships.size());
-                components[componentTypeID] = componentList;
+            if(aspects[aspectTypeID] == nullptr) {
+                aspectList = new AspectList<T>();
+                aspectList->resize(relationships.size());
+                aspects[aspectTypeID] = aspectList;
             } else {
-                componentList = static_cast<ComponentList<T>*>(components[componentTypeID]);
+                aspectList = static_cast<AspectList<T>*>(aspects[aspectTypeID]);
             }
             
-            (*componentList)[entityID] = T();
+            (*aspectList)[entityID] = T();
             
-            ComponentMask &mask = getNewRelationshipComponentMask(entityID);
-            mask.set(componentTypeID, 1);
+            AspectMask &mask = getNewRelationshipAspectMask(entityID);
+            mask.set(aspectTypeID, 1);
             
-            return (*componentList)[entityID];
+            return (*aspectList)[entityID];
         }
         template <class T>
-        T& getComponent(EntityID entityID) {
-            int componentTypeID = componentTypes.getID<T>();
-            auto& componentList = static_cast<ComponentList<T>&>(*components[componentTypeID]);
-            return componentList[entityID];
+        T& getaspect(EntityID entityID) {
+            int aspectTypeID = aspectTypes.getID<T>();
+            auto& aspectList = static_cast<AspectList<T>&>(*aspects[aspectTypeID]);
+            return aspectList[entityID];
         }
         void initialize();
         void update();
         template <class T>
-        ComponentMask getComponentMask() {
-            int componentTypeID = componentTypes.getID<T>();
-            ComponentMask mask;
-            mask.set(componentTypeID, 1);
+        AspectMask getAspectMask() {
+            int aspectTypeID = aspectTypes.getID<T>();
+            AspectMask mask;
+            mask.set(aspectTypeID, 1);
             return mask;
         }
-        template <typename T1, typename T2, typename ... Components>
-        ComponentMask getComponentMask() {
-            return getComponentMask<T1>() | getComponentMask<T2, Components ...>();
+        template <typename T1, typename T2, typename ... aspects>
+        AspectMask getAspectMask() {
+            return getAspectMask<T1>() | getAspectMask<T2, aspects ...>();
         }
         template <class T>
-        bool hasComponent(EntityID id) {
-            ComponentMask mask = getComponentMask<T>();
-            return hasComponents(id, mask);
+        bool hasAspect(EntityID id) {
+            AspectMask mask = getAspectMask<T>();
+            return hasAspects(id, mask);
         }
         void destroy(EntityID entityID);
         template <class T>
         void destroy(EntityID entityID) {
-            int componentTypeID = componentTypes.getID<T>();
-            ComponentMask &mask = getNewRelationshipComponentMask(entityID);
-            mask.set(componentTypeID, 0);
+            int aspectTypeID = aspectTypes.getID<T>();
+            AspectMask &mask = getNewRelationshipAspectMask(entityID);
+            mask.set(aspectTypeID, 0);
         }
-        bool hasComponents(EntityID, ComponentMask mask);
+        bool hasAspects(EntityID, AspectMask mask);
     };
 }
 

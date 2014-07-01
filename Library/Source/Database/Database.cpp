@@ -14,10 +14,10 @@
 #include "Zep/Database/Database.h"
 
 namespace Zep {
-    Database::Database(EventManager &eventManager) : eventManager(eventManager), componentTypes(ComponentTypeRegistry(DatabaseConfig::maxComponentTypes)) { }
+    Database::Database(EventManager &eventManager) : eventManager(eventManager), aspectTypes(AspectTypeRegistry(DatabaseConfig::maxAspectTypes)) { }
     
     void Database::initialize() {
-        components.resize(DatabaseConfig::maxComponentTypes, nullptr);
+        aspects.resize(DatabaseConfig::maxAspectTypes, nullptr);
         initialized = true;
     }
     
@@ -42,7 +42,7 @@ namespace Zep {
     
     void Database::allocate(int newSize) {
         relationships.resize(newSize);
-        for(ComponentListInterface *list : components) {
+        for(AspectListInterface *list : aspects) {
             if(list != nullptr) list->resize(newSize);
         }
     }
@@ -72,7 +72,7 @@ namespace Zep {
         newRelationships.clear();
     }
     
-    ComponentMask& Database::getNewRelationshipComponentMask(EntityID entityID) {
+    AspectMask& Database::getNewRelationshipAspectMask(EntityID entityID) {
         auto iterator = newRelationships.find(entityID);
         if(iterator != newRelationships.end()) {
             return iterator->second;
@@ -82,7 +82,7 @@ namespace Zep {
         }
     }
     
-    bool Database::hasComponents(EntityID entityID, ComponentMask mask) {
+    bool Database::hasAspects(EntityID entityID, AspectMask mask) {
         return (relationships[entityID] & mask) == mask;
     }
 }

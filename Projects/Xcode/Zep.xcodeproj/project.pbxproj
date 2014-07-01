@@ -75,14 +75,14 @@
 		3A3A6EED189937C6006AB24E /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Database.cpp; sourceTree = "<group>"; };
 		3A3A6EF1189937D7006AB24E /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		3A3A6EF31899384A006AB24E /* EntityID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityID.h; sourceTree = "<group>"; };
-		3A5B9311189AABA400B47541 /* ComponentMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentMask.h; sourceTree = "<group>"; };
+		3A5B9311189AABA400B47541 /* AspectMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectMask.h; sourceTree = "<group>"; };
 		3A5D8BAD18ABF52C006B7F44 /* EventSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscription.h; sourceTree = "<group>"; };
 		3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSubscription.cpp; sourceTree = "<group>"; };
 		3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionTestCase.h; sourceTree = "<group>"; };
 		3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTestCase.h; sourceTree = "<group>"; };
 		3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManagerTestCase.h; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentTypeRegistryTestCase.h; sourceTree = "<group>"; };
+		3A661086189BAF5E0085D6F7 /* AspectTypeRegistryTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectTypeRegistryTestCase.h; sourceTree = "<group>"; };
 		3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTestCase.h; sourceTree = "<group>"; };
 		3A661088189BAF5E0085D6F7 /* Runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Runner.cpp; sourceTree = "<group>"; };
 		3A661091189BAFEB0085D6F7 /* exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exception.h; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 		3A94ED611898E457003EA707 /* TouchIDHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchIDHelper.cpp; sourceTree = "<group>"; };
 		3A94ED641898E74B003EA707 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
 		3A94ED681898E754003EA707 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		3ABDD8571962F56D0040E661 /* AspectTypeRegistry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectTypeRegistry.h; sourceTree = "<group>"; };
 		3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventManager.cpp; sourceTree = "<group>"; };
 		3AD0DA6F189A6B750050DF44 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
 		3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityIDAddition.h; sourceTree = "<group>"; };
@@ -136,9 +137,9 @@
 		3AD0DA77189A71EB0050DF44 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
 		3AD0DA7B189A71F70050DF44 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignalCallback.h; sourceTree = "<group>"; };
-		3ADE227818993FF70000D976 /* ComponentListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComponentListInterface.h; sourceTree = "<group>"; };
-		3ADE227A189940140000D976 /* ComponentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentList.h; sourceTree = "<group>"; };
-		3ADE2283189941BF0000D976 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		3ADE227818993FF70000D976 /* AspectListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectListInterface.h; sourceTree = "<group>"; };
+		3ADE227A189940140000D976 /* AspectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AspectList.h; sourceTree = "<group>"; };
+		3ADE2283189941BF0000D976 /* Aspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspect.h; sourceTree = "<group>"; };
 		3AF9604E18AC205E00172891 /* EventSubscriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManager.h; sourceTree = "<group>"; };
 		3AFC591A1962D851000E0600 /* DatabaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseConfig.h; sourceTree = "<group>"; };
 		3AFD1EF91897D69F000803D6 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
@@ -222,18 +223,19 @@
 		3A3A6ECF18992F22006AB24E /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				3A3A6EEB18993313006AB24E /* Processor.h */,
+				3ADE2283189941BF0000D976 /* Aspect.h */,
+				3ADE227A189940140000D976 /* AspectList.h */,
+				3ADE227818993FF70000D976 /* AspectListInterface.h */,
+				3A5B9311189AABA400B47541 /* AspectMask.h */,
+				3ABDD8571962F56D0040E661 /* AspectTypeRegistry.h */,
 				3A3A6EF1189937D7006AB24E /* Database.h */,
 				3AFC591A1962D851000E0600 /* DatabaseConfig.h */,
-				3A3A6EF31899384A006AB24E /* EntityID.h */,
-				3ADE227818993FF70000D976 /* ComponentListInterface.h */,
-				3ADE227A189940140000D976 /* ComponentList.h */,
-				3ADE2283189941BF0000D976 /* Component.h */,
-				3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */,
-				3A5B9311189AABA400B47541 /* ComponentMask.h */,
-				3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */,
-				3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */,
 				3A8CEA2418ADFDE7007CF591 /* EntityChange.h */,
+				3A3A6EF31899384A006AB24E /* EntityID.h */,
+				3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */,
+				3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */,
+				3A6D4C22189BC97400D1065B /* EntityObserverProcessor.h */,
+				3A3A6EEB18993313006AB24E /* Processor.h */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -464,7 +466,7 @@
 		3ADC6F1F18AF81650042B735 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				3A661086189BAF5E0085D6F7 /* ComponentTypeRegistryTestCase.h */,
+				3A661086189BAF5E0085D6F7 /* AspectTypeRegistryTestCase.h */,
 				3A6D4C24189BC9A500D1065B /* EntityObserverProcessorTestCase.h */,
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 			);

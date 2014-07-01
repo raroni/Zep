@@ -7,9 +7,9 @@
 #include "Zep/Events/EventManager.h"
 
 namespace DatabaseTestCase {
-    struct Health : public Zep::Component { };
-    struct Position : public Zep::Component { };
-    struct Jetpack : public Zep::Component {
+    struct Health : public Zep::Aspect { };
+    struct Position : public Zep::Aspect { };
+    struct Jetpack : public Zep::Aspect {
         int thrust = 1234;
     };
     
@@ -31,39 +31,39 @@ namespace DatabaseTestCase {
         }
     };
     
-    class ComponentCreationTest : public Vincent::Test {
+    class AspectCreationTest : public Vincent::Test {
     public:
-        ComponentCreationTest() {
-            name = "ComponentCreation";
+        AspectCreationTest() {
+            name = "AspectCreation";
         }
         void run() {
             Zep::EventManager eventManager;
             Zep::Database database(eventManager);
             auto func = [&database] () {
-              database.createComponent<Jetpack>(0);
+              database.createAspect<Jetpack>(0);
             };
             assertThrows<Zep::Exception>(func);
             database.initialize();
             Zep::EntityID entityID = database.createEntityID();
-            Jetpack &jetpack = database.createComponent<Jetpack>(entityID);
+            Jetpack &jetpack = database.createAspect<Jetpack>(entityID);
             assertEqual(1234, jetpack.thrust);
         }
     };
     
-    class HasComponentTest : public Vincent::Test {
+    class HasAspectTest : public Vincent::Test {
     public:
-        HasComponentTest() {
-            name = "HasComponent";
+        HasAspectTest() {
+            name = "HasAspect";
         }
         void run() {
             Zep::EventManager eventManager;
             Zep::Database database(eventManager);
             database.initialize();
             Zep::EntityID id = database.createEntityID();
-            database.createComponent<Jetpack>(id);
-            assert(!database.hasComponent<Jetpack>(id));
+            database.createAspect<Jetpack>(id);
+            assert(!database.hasAspect<Jetpack>(id));
             database.update();
-            assert(database.hasComponent<Jetpack>(id));
+            assert(database.hasAspect<Jetpack>(id));
         }
     };
     
@@ -151,7 +151,7 @@ namespace DatabaseTestCase {
         }
     };
     
-    class ChangeEventByComponentCreationTest : public Vincent::Test {
+    class ChangeEventByAspectCreationTest : public Vincent::Test {
         class DummyReceiver {
         public:
             int lastReceivedID = -1;
@@ -162,8 +162,8 @@ namespace DatabaseTestCase {
             }
         };
     public:
-        ChangeEventByComponentCreationTest() {
-            name = "ChangeEventByComponentCreation";
+        ChangeEventByAspectCreationTest() {
+            name = "ChangeEventByAspectCreation";
         }
         void run() {
             DummyReceiver dummy;
@@ -174,7 +174,7 @@ namespace DatabaseTestCase {
             database.update();
             
             eventManager.subscribe<Zep::EntityChange>(dummy);
-            database.createComponent<Jetpack>(id);
+            database.createAspect<Jetpack>(id);
             database.update();
             assertEqual(id, dummy.lastReceivedID);
             
@@ -183,7 +183,7 @@ namespace DatabaseTestCase {
         }
     };
     
-    class ChangeEventByComponentDestructionTest : public Vincent::Test {
+    class ChangeEventByAspectDestructionTest : public Vincent::Test {
         class DummyReceiver {
         public:
             int lastReceivedID = -1;
@@ -194,8 +194,8 @@ namespace DatabaseTestCase {
             }
         };
     public:
-        ChangeEventByComponentDestructionTest() {
-            name = "ChangeEventByComponentDestruction";
+        ChangeEventByAspectDestructionTest() {
+            name = "ChangeEventByAspectDestruction";
         }
         void run() {
             DummyReceiver dummy;
@@ -203,7 +203,7 @@ namespace DatabaseTestCase {
             Zep::Database database(eventManager);
             database.initialize();
             auto id = database.createEntityID();
-            database.createComponent<Jetpack>(id);
+            database.createAspect<Jetpack>(id);
             database.update();
             
             eventManager.subscribe<Zep::EntityChange>(dummy);
@@ -216,84 +216,84 @@ namespace DatabaseTestCase {
         }
     };
     
-    struct ComponentDestructionTest : public Vincent::Test {
-        ComponentDestructionTest() {
-            name = "ComponentDestruction";
+    struct AspectDestructionTest : public Vincent::Test {
+        AspectDestructionTest() {
+            name = "AspectDestruction";
         }
         void run() {
             Zep::EventManager eventManager;
             Zep::Database database(eventManager);
             database.initialize();
             auto id = database.createEntityID();
-            database.createComponent<Jetpack>(id);
+            database.createAspect<Jetpack>(id);
             database.update();
             
             database.destroy<Jetpack>(id);
-            assert(database.hasComponent<Jetpack>(id));
+            assert(database.hasAspect<Jetpack>(id));
             database.update();
-            assert(!database.hasComponent<Jetpack>(id));
+            assert(!database.hasAspect<Jetpack>(id));
         }
     };
     
-    struct SingleComponentMaskGenerationTest : public Vincent::Test {
-        SingleComponentMaskGenerationTest() {
-            name = "SingleComponentMaskGeneration";
+    struct SingleAspectMaskGenerationTest : public Vincent::Test {
+        SingleAspectMaskGenerationTest() {
+            name = "SingleAspectMaskGeneration";
         }
         void run() {
             Zep::EventManager eventManager;
             Zep::Database database(eventManager);
             database.initialize();
             
-            Zep::ComponentMask jetpackMask = database.getComponentMask<Jetpack>();
+            Zep::AspectMask jetpackMask = database.getAspectMask<Jetpack>();
             assert(jetpackMask.count() == 1);
         }
     };
     
-    struct MultiComponentMaskGenerationTest : public Vincent::Test {
-        MultiComponentMaskGenerationTest() {
-            name = "MultiComponentMaskGeneration";
+    struct MultiAspectMaskGenerationTest : public Vincent::Test {
+        MultiAspectMaskGenerationTest() {
+            name = "MultiAspectMaskGeneration";
         }
         void run() {
             Zep::EventManager eventManager;
             Zep::Database database(eventManager);
             database.initialize();
             
-            Zep::ComponentMask jetpackMask = database.getComponentMask<Jetpack>();
-            Zep::ComponentMask healthMask = database.getComponentMask<Health>();
-            Zep::ComponentMask positionMask = database.getComponentMask<Position>();
+            Zep::AspectMask jetpackMask = database.getAspectMask<Jetpack>();
+            Zep::AspectMask healthMask = database.getAspectMask<Health>();
+            Zep::AspectMask positionMask = database.getAspectMask<Position>();
             
-            Zep::ComponentMask manualCombinedMask = jetpackMask | healthMask | positionMask;
+            Zep::AspectMask manualCombinedMask = jetpackMask | healthMask | positionMask;
             
-            Zep::ComponentMask generatedCombinedMask = database.getComponentMask<Jetpack, Health, Position>();
+            Zep::AspectMask generatedCombinedMask = database.getAspectMask<Jetpack, Health, Position>();
             
             assert(manualCombinedMask == generatedCombinedMask);
         }
     };
     
-    class HasComponentsTest : public Vincent::Test {
+    class HasAspectsTest : public Vincent::Test {
     public:
-        HasComponentsTest() {
-            name = "HasComponent";
+        HasAspectsTest() {
+            name = "HasAspect";
         }
         void run() {
             Zep::EventManager eventManager;
             Zep::Database database(eventManager);
             database.initialize();
             
-            Zep::ComponentMask mask = database.getComponentMask<Jetpack, Health>();
+            Zep::AspectMask mask = database.getAspectMask<Jetpack, Health>();
             
             Zep::EntityID id = database.createEntityID();
-            database.createComponent<Jetpack>(id);
+            database.createAspect<Jetpack>(id);
             database.update();
-            assert(!database.hasComponents(id, mask));
+            assert(!database.hasAspects(id, mask));
             
-            database.createComponent<Health>(id);
+            database.createAspect<Health>(id);
             database.update();
-            assert(database.hasComponents(id, mask));
+            assert(database.hasAspects(id, mask));
             
-            database.createComponent<Position>(id);
+            database.createAspect<Position>(id);
             database.update();
-            assert(database.hasComponents(id, mask));
+            assert(database.hasAspects(id, mask));
         }
     };
     
@@ -302,17 +302,17 @@ namespace DatabaseTestCase {
         Case() {
             name = "Database";
             add	(new EntityIDCreationTest());
-            add(new ComponentCreationTest());
+            add(new AspectCreationTest());
             add(new AdditionEventTest());
             add(new DestructionEventTest());
             add(new EntityIDReuseTest());
-            add(new ComponentDestructionTest());
-            add(new ChangeEventByComponentCreationTest());
-            add(new ChangeEventByComponentDestructionTest());
-            add(new SingleComponentMaskGenerationTest());
-            add(new MultiComponentMaskGenerationTest());
-            add(new HasComponentTest());
-            add(new HasComponentsTest());
+            add(new AspectDestructionTest());
+            add(new ChangeEventByAspectCreationTest());
+            add(new ChangeEventByAspectDestructionTest());
+            add(new SingleAspectMaskGenerationTest());
+            add(new MultiAspectMaskGenerationTest());
+            add(new HasAspectTest());
+            add(new HasAspectsTest());
         }
     };
 }

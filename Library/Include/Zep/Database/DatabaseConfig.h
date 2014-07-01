@@ -11,7 +11,7 @@
 
 namespace Zep {
     namespace DatabaseConfig {
-        const int maxComponentTypes = 32;
+        const int maxAspectTypes = 32;
     }
 }
 
