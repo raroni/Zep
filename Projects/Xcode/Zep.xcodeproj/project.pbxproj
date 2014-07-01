@@ -121,7 +121,6 @@
 		3A7BEF961897F978004BFA7F /* TouchSurface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchSurface.cpp; sourceTree = "<group>"; };
 		3A7BEF971897F97E004BFA7F /* Touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Touch.cpp; sourceTree = "<group>"; };
 		3A7BEF9B1897F987004BFA7F /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Touch.h; sourceTree = "<group>"; };
-		3A85502718B2ADF30076C90C /* OpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL.h; sourceTree = "<group>"; };
 		3A8CEA2418ADFDE7007CF591 /* EntityChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityChange.h; sourceTree = "<group>"; };
 		3A8CEA2618ADFDF1007CF591 /* EntityChange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityChange.cpp; sourceTree = "<group>"; };
 		3A94ED4E18984BF7003EA707 /* View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
@@ -409,14 +408,6 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		3A85502918B2B1490076C90C /* Rendering */ = {
-			isa = PBXGroup;
-			children = (
-				3A85502718B2ADF30076C90C /* OpenGL.h */,
-			);
-			path = Rendering;
-			sourceTree = "<group>";
-		};
 		3A85502A18B2B1660076C90C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,7 +432,6 @@
 			isa = PBXGroup;
 			children = (
 				3A85502A18B2B1660076C90C /* iOS */,
-				3A85502918B2B1490076C90C /* Rendering */,
 			);
 			name = Include;
 			path = Include/Zep;
