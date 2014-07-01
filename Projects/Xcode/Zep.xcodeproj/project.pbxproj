@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A2A46EC1897DCB000BFE8F0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A46EB1897DCB000BFE8F0 /* ViewController.mm */; };
-		3A3A6EE9189932ED006AB24E /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
 		3A3A6EEF189937C6006AB24E /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
 		3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
 		3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
@@ -23,7 +22,6 @@
 		3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BC218A7761E009F118E /* SafeConversion.cpp */; };
 		3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C8BC218A7761E009F118E /* SafeConversion.cpp */; };
 		3A6D4C20189BC8CE00D1065B /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
-		3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EE7189932ED006AB24E /* Processor.cpp */; };
 		3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */; };
 		3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */; };
 		3A7044881897D4760076E9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7044871897D4760076E9C2 /* Foundation.framework */; };
@@ -70,8 +68,6 @@
 /* Begin PBXFileReference section */
 		3A2A46D71897D99C00BFE8F0 /* Game.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		3A2A46EB1897DCB000BFE8F0 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		3A3A6EE7189932ED006AB24E /* Processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Processor.cpp; sourceTree = "<group>"; };
-		3A3A6EEB18993313006AB24E /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
 		3A3A6EED189937C6006AB24E /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Database.cpp; sourceTree = "<group>"; };
 		3A3A6EF1189937D7006AB24E /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		3A3A6EF31899384A006AB24E /* EntityID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityID.h; sourceTree = "<group>"; };
@@ -216,7 +212,6 @@
 				3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */,
 				3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */,
 				3ABDD85F196303430040E661 /* EntityObserver.cpp */,
-				3A3A6EE7189932ED006AB24E /* Processor.cpp */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -237,7 +232,6 @@
 				3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */,
 				3ABDD860196303430040E661 /* EntityObserver.h */,
 				3ABDD85D196303080040E661 /* EntityObserverDelegate.h */,
-				3A3A6EEB18993313006AB24E /* Processor.h */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -574,7 +568,6 @@
 				3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */,
 				3A66109F189BB0090085D6F7 /* test.cpp in Sources */,
 				3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */,
-				3A6D4C25189BCCB900D1065B /* Processor.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
 				3ABDD86319630A910040E661 /* EntityObserver.cpp in Sources */,
 				3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */,
@@ -608,7 +601,6 @@
 				3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */,
 				3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */,
 				3A7BEF731897E487004BFA7F /* View.mm in Sources */,
-				3A3A6EE9189932ED006AB24E /* Processor.cpp in Sources */,
 				3A6C8BBB18A771DC009F118E /* EventSignal.cpp in Sources */,
 				3A8CEA2818ADFDF1007CF591 /* EntityChange.cpp in Sources */,
 				3A7BEF7C1897EC25004BFA7F /* Screen.cpp in Sources */,
