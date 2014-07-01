@@ -124,7 +124,7 @@
 		3A6D4C26189BCCED00D1065B /* EntityObserverProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserverProcessor.cpp; sourceTree = "<group>"; };
 		3A6D4C2B189BD40B00D1065B /* EntityIDDestruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityIDDestruction.h; sourceTree = "<group>"; };
 		3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIDDestruction.cpp; sourceTree = "<group>"; };
-		3A7044841897D4760076E9C2 /* libiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7044841897D4760076E9C2 /* libZep-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libZep-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7044871897D4760076E9C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A7BEF721897E487004BFA7F /* View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = View.mm; sourceTree = "<group>"; };
 		3A7BEF781897EC17004BFA7F /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 		3A7044851897D4760076E9C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A7044841897D4760076E9C2 /* libiOS.a */,
+				3A7044841897D4760076E9C2 /* libZep-iOS.a */,
 				3A66107C189BAF3D0085D6F7 /* Test */,
 			);
 			name = Products;
@@ -607,7 +607,7 @@
 			);
 			name = iOS;
 			productName = Ferdinand;
-			productReference = 3A7044841897D4760076E9C2 /* libiOS.a */;
+			productReference = 3A7044841897D4760076E9C2 /* libZep-iOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -756,6 +756,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Zep-$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../../Library/Include ../../Platforms/iOS/Include";
 			};
@@ -789,6 +790,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "Zep-$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../../Library/Include ../../Platforms/iOS/Include";
 				VALIDATE_PRODUCT = YES;
@@ -801,7 +803,7 @@
 				DSTROOT = /tmp/Zep.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -812,7 +814,7 @@
 				DSTROOT = /tmp/Zep.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
