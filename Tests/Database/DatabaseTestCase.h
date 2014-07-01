@@ -71,7 +71,7 @@ namespace DatabaseTestCase {
         class DummyReceiver {
         public:
             int lastReceivedID = -1;
-            void receive(const Zep::EntityIDAddition &addition) {
+            void handle(const Zep::EntityIDAddition &addition) {
                 lastReceivedID = addition.getID();
             }
         };
@@ -106,7 +106,7 @@ namespace DatabaseTestCase {
         public:
             int events = 0;
             int lastReceivedID = -1;
-            void receive(const Zep::EntityIDDestruction &destruction) {
+            void handle(const Zep::EntityIDDestruction &destruction) {
                 lastReceivedID = destruction.getID();
                 events++;
             }
@@ -156,7 +156,7 @@ namespace DatabaseTestCase {
         public:
             int lastReceivedID = -1;
             int events = 0;
-            void receive(const Zep::EntityChange &change) {
+            void handle(const Zep::EntityChange &change) {
                 lastReceivedID = change.getID();
                 events++;
             }
@@ -188,7 +188,7 @@ namespace DatabaseTestCase {
         public:
             int lastReceivedID = -1;
             int events = 0;
-            void receive(const Zep::EntityChange &change) {
+            void handle(const Zep::EntityChange &change) {
                 lastReceivedID = change.getID();
                 events++;
             }

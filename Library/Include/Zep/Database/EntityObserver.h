@@ -27,9 +27,9 @@ namespace Zep {
     public:
         EntityObserver(EventManager &eventManager, EntityObserverDelegate &delegate);
         void initialize();
-        void receive(const EntityIDAddition &addition);
-        void receive(const EntityIDDestruction &destruction);
-        void receive(const EntityChange &change);
+        void handle(const EntityIDAddition &addition);
+        void handle(const EntityIDDestruction &destruction);
+        void handle(const EntityChange &change);
     };
 }
 

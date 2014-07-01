@@ -34,8 +34,8 @@ namespace Zep {
         EventSubscription subscribe(R &receiver) {
             auto index = std::type_index(typeid(T));
             auto& signal = getSignal(index);
-            void (R::*receive)(const T&) = &R::receive;
-            EventSignalCallback<T> callback(std::bind(receive, &receiver, std::placeholders::_1));
+            void (R::*handle)(const T&) = &R::handle;
+            EventSignalCallback<T> callback(std::bind(handle, &receiver, std::placeholders::_1));
             int id = signal.subscribe(callback);
             return EventSubscription(signal, id);
         }

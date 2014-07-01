@@ -8,7 +8,7 @@ namespace EventManagerTestCase {
     
     struct DummyObserver {
         int counter = 0;
-        void receive(const Explosion &event) {
+        void handle(const Explosion &event) {
             counter++;
         }
     };
