@@ -3,6 +3,7 @@
 #include "Database/DatabaseTestCase.h"
 #include "Database/AspectTypeRegistryTestCase.h"
 #include "Database/EntityObserverTestCase.h"
+#include "Database/AspectListTestCase.h"
 #include "Events/EventSignalTestCase.h"
 #include "Events/EventSubscriptionTestCase.h"
 #include "Events/EventManagerTestCase.h"
@@ -12,6 +13,7 @@ int main() {
     Vincent::TestSuiteResult result;
     Vincent::TestSuite suite;
     
+    suite.add(new AspectListTestCase::Case());
     suite.add(new DatabaseTestCase::Case());
     suite.add(new AspectTypeRegistryTestCase::Case());
     suite.add(new EventSignalTestCase::Case());

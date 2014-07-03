@@ -301,7 +301,7 @@ namespace DatabaseTestCase {
     public:
         Case() {
             name = "Database";
-            add	(new EntityIDCreationTest());
+            add(new EntityIDCreationTest());
             add(new AspectCreationTest());
             add(new AdditionEventTest());
             add(new DestructionEventTest());

@@ -128,6 +128,7 @@
 		3AD0DA77189A71EB0050DF44 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
 		3AD0DA7B189A71F70050DF44 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignalCallback.h; sourceTree = "<group>"; };
+		3AD4F4721965929F009C80FF /* AspectListTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectListTestCase.h; sourceTree = "<group>"; };
 		3ADE227818993FF70000D976 /* AspectListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectListInterface.h; sourceTree = "<group>"; };
 		3ADE227A189940140000D976 /* AspectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AspectList.h; sourceTree = "<group>"; };
 		3ADE2283189941BF0000D976 /* Aspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspect.h; sourceTree = "<group>"; };
@@ -416,6 +417,7 @@
 				3A661086189BAF5E0085D6F7 /* AspectTypeRegistryTestCase.h */,
 				3A661087189BAF5E0085D6F7 /* DatabaseTestCase.h */,
 				3ABDD862196305790040E661 /* EntityObserverTestCase.h */,
+				3AD4F4721965929F009C80FF /* AspectListTestCase.h */,
 			);
 			path = Database;
 			sourceTree = "<group>";

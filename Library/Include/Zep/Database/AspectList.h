@@ -15,7 +15,7 @@
 namespace Zep {
     template <class T>
     class AspectList : public AspectListInterface {
-        T* data;
+        T *data;
         size_t size = 0;
     public:
         AspectList() {
@@ -26,7 +26,7 @@ namespace Zep {
         }
         void resize(size_t newSize) {
             T* newData = new T[newSize];
-            std::memcpy(newData, data, size);
+            std::memcpy(newData, data, sizeof(T)*size);
             delete[] data;
             data = newData;
             size = newSize;

@@ -64,7 +64,7 @@ namespace Zep {
         template <class T>
         T& getAspect(EntityID entityID) {
             int aspectTypeID = aspectTypes.getID<T>();
-            auto& aspectList = static_cast<AspectList<T>&>(*aspects[aspectTypeID]);
+            auto &aspectList = static_cast<AspectList<T>&>(*aspects[aspectTypeID]);
             return aspectList[entityID];
         }
         void initialize();

@@ -43,7 +43,7 @@ namespace AspectTypeRegistryTestCase {
     class Case : public Vincent::TestCase {
     public:
         Case() {
-            name = "ComponentTypeRegistry";
+            name = "AspectTypeRegistry";
             add(new GetTest());
             add(new OverflowTest());
         }
