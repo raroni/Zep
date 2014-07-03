@@ -31,6 +31,12 @@ namespace Zep {
         return negated;
     }
     
+    Vector3 Vector3::operator*(float factor) {
+        Vector3 result = *this;
+        result *= factor;
+        return result;
+    }
+    
     Vector3& Vector3::operator*=(float factor) {
         components[0] *= factor;
         components[1] *= factor;
@@ -44,5 +50,32 @@ namespace Zep {
     
     const float& Vector3::operator[](const int index) const {
         return components[index];
+    }
+    
+    float Vector3::dot(Vector3 operand1, Vector3 operand2) {
+        return operand1[0]*operand2[0] + operand1[1]*operand2[1] + operand1[2]*operand2[2];
+    }
+    
+    Vector3 Vector3::operator+(Vector3 vector) {
+        Vector3 result = *this;
+        result += vector;
+        return result;
+    }
+    
+    Vector3& Vector3::operator+=(Vector3 other) {
+        components[0] += other[0];
+        components[1] += other[1];
+        components[2] += other[2];
+        return *this;
+    }
+    
+    Vector3 Vector3::cross(Vector3 operand1, Vector3 operand2) {
+        Vector3 result;
+        
+        result[0] = operand1[1]*operand2[2] - operand1[2]*operand2[1];
+        result[1] = operand1[2]*operand2[0] - operand1[0]*operand2[2];
+        result[2] = operand1[0]*operand2[1] - operand1[1]*operand2[0];
+        
+        return result;
     }
 }

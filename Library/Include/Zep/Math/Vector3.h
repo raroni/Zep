@@ -20,6 +20,11 @@ namespace Zep {
         Vector3 getNegated();
         Vector3& operator*=(float factor);
         void negate();
+        Vector3 operator*(float factor);
+        static float dot(Vector3 operand1, Vector3 operand2);
+        static Vector3 cross(Vector3 operand1, Vector3 operand2);
+        Vector3 operator+(Vector3 other);
+        Vector3& operator+=(Vector3 other);
     };
 }
 
