@@ -38,6 +38,12 @@
 		3AF4ECFD19654F91001A1F4A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECFB19654F91001A1F4A /* Vector3.cpp */; };
 		3AF4ED0019654F9B001A1F4A /* Point3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECFE19654F9B001A1F4A /* Point3D.cpp */; };
 		3AF4ED0319655A32001A1F4A /* TransformationFactory3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ED0119655A32001A1F4A /* TransformationFactory3D.cpp */; };
+		3AF4ED0519656063001A1F4A /* TransformationFactory3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ED0119655A32001A1F4A /* TransformationFactory3D.cpp */; };
+		3AF4ED06196560F1001A1F4A /* Point2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF881897F1A5004BFA7F /* Point2D.cpp */; };
+		3AF4ED07196560F2001A1F4A /* Point3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECFE19654F9B001A1F4A /* Point3D.cpp */; };
+		3AF4ED08196560F3001A1F4A /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF901897F4DC004BFA7F /* Vector2.cpp */; };
+		3AF4ED09196560F4001A1F4A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECFB19654F91001A1F4A /* Vector3.cpp */; };
+		3AF4ED0A196560F5001A1F4A /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECF419654D60001A1F4A /* Matrix4.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -511,8 +517,14 @@
 				3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */,
 				3A66109F189BB0090085D6F7 /* test.cpp in Sources */,
 				3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */,
+				3AF4ED09196560F4001A1F4A /* Vector3.cpp in Sources */,
+				3AF4ED0A196560F5001A1F4A /* Matrix4.cpp in Sources */,
 				3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */,
+				3AF4ED08196560F3001A1F4A /* Vector2.cpp in Sources */,
+				3AF4ED0519656063001A1F4A /* TransformationFactory3D.cpp in Sources */,
+				3AF4ED07196560F2001A1F4A /* Point3D.cpp in Sources */,
 				3ABDD86319630A910040E661 /* EntityObserver.cpp in Sources */,
+				3AF4ED06196560F1001A1F4A /* Point2D.cpp in Sources */,
 				3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */,
 				3A6C8BBC18A7730D009F118E /* EventSignal.cpp in Sources */,
 				3A6C8BC518A7774C009F118E /* SafeConversion.cpp in Sources */,
@@ -528,22 +540,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */,
-				3AF4ECFD19654F91001A1F4A /* Vector3.cpp in Sources */,
 				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
+				3AF4ECF619654D60001A1F4A /* Matrix4.cpp in Sources */,
+				3AF4ECFD19654F91001A1F4A /* Vector3.cpp in Sources */,
+				3AF4ED0019654F9B001A1F4A /* Point3D.cpp in Sources */,
+				3AF4ED0319655A32001A1F4A /* TransformationFactory3D.cpp in Sources */,
+				3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3ABDD861196303430040E661 /* EntityObserver.cpp in Sources */,
 				3A94ED661898E74B003EA707 /* Exception.cpp in Sources */,
-				3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */,
 				3A3A6EEF189937C6006AB24E /* Database.cpp in Sources */,
 				3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */,
 				3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */,
 				3A6C8BBB18A771DC009F118E /* EventSignal.cpp in Sources */,
-				3AF4ED0319655A32001A1F4A /* TransformationFactory3D.cpp in Sources */,
-				3AF4ED0019654F9B001A1F4A /* Point3D.cpp in Sources */,
 				3A8CEA2818ADFDF1007CF591 /* EntityChange.cpp in Sources */,
-				3AF4ECF619654D60001A1F4A /* Matrix4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

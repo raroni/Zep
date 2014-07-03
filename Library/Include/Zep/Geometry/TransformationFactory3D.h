@@ -14,7 +14,7 @@ namespace Zep {
     class Matrix4;
     
     namespace TransformationFactory3D {
-        Matrix4 translation(Point3D position);
+        Matrix4 translation(Vector3 position);
     }
 }
 

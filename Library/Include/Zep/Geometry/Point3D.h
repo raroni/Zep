@@ -16,6 +16,11 @@ namespace Zep {
         Vector3 vector;
     public:
         Point3D(float x, float y, float z);
+        Point3D();
+        Vector3& getVector();
+        float& operator[](const int index);
+        const float& operator[](const int index) const;
+
     };
 }
 

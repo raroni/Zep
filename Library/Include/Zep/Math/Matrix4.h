@@ -11,8 +11,8 @@
 
 namespace Zep {
     class Matrix4 {
-        float components[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     public:
+        float components[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         static Matrix4 identity();
         float& operator[](const int index);
         const float& operator[](const int index) const;
