@@ -20,6 +20,23 @@ namespace Zep {
         components[1] = y;
         components[2] = z;
     }
+
+    void Vector3::negate() {
+        operator*=(-1);
+    }
+    
+    Vector3 Vector3::getNegated() {
+        Vector3 negated = *this;
+        negated.negate();
+        return negated;
+    }
+    
+    Vector3& Vector3::operator*=(float factor) {
+        components[0] *= factor;
+        components[1] *= factor;
+        components[2] *= factor;
+        return *this;
+    }
     
     float& Vector3::operator[](const int index) {
         return components[index];

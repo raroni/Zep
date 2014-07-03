@@ -17,6 +17,9 @@ namespace Zep {
         Vector3(float x, float y, float z);
         float& operator[](const int index);
         const float& operator[](const int index) const;
+        Vector3 getNegated();
+        Vector3& operator*=(float factor);
+        void negate();
     };
 }
 
