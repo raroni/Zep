@@ -34,6 +34,10 @@
 		3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
 		3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA77189A71EB0050DF44 /* Event.cpp */; };
+		3AF4ECF619654D60001A1F4A /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECF419654D60001A1F4A /* Matrix4.cpp */; };
+		3AF4ECFD19654F91001A1F4A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECFB19654F91001A1F4A /* Vector3.cpp */; };
+		3AF4ED0019654F9B001A1F4A /* Point3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECFE19654F9B001A1F4A /* Point3D.cpp */; };
+		3AF4ED0319655A32001A1F4A /* TransformationFactory3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ED0119655A32001A1F4A /* TransformationFactory3D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +125,14 @@
 		3ADE227818993FF70000D976 /* AspectListInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectListInterface.h; sourceTree = "<group>"; };
 		3ADE227A189940140000D976 /* AspectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AspectList.h; sourceTree = "<group>"; };
 		3ADE2283189941BF0000D976 /* Aspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspect.h; sourceTree = "<group>"; };
+		3AF4ECF419654D60001A1F4A /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = "<group>"; };
+		3AF4ECF519654D60001A1F4A /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
+		3AF4ECFB19654F91001A1F4A /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		3AF4ECFC19654F91001A1F4A /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
+		3AF4ECFE19654F9B001A1F4A /* Point3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point3D.cpp; sourceTree = "<group>"; };
+		3AF4ECFF19654F9B001A1F4A /* Point3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point3D.h; sourceTree = "<group>"; };
+		3AF4ED0119655A32001A1F4A /* TransformationFactory3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformationFactory3D.cpp; sourceTree = "<group>"; };
+		3AF4ED0219655A32001A1F4A /* TransformationFactory3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformationFactory3D.h; sourceTree = "<group>"; };
 		3AF9604E18AC205E00172891 /* EventSubscriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManager.h; sourceTree = "<group>"; };
 		3AFC591A1962D851000E0600 /* DatabaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,6 +325,8 @@
 		3A7BEF831897F0B9004BFA7F /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
+				3AF4ECFE19654F9B001A1F4A /* Point3D.cpp */,
+				3AF4ED0119655A32001A1F4A /* TransformationFactory3D.cpp */,
 				3A7BEF881897F1A5004BFA7F /* Point2D.cpp */,
 			);
 			path = Geometry;
@@ -322,6 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				3A7BEF861897F19B004BFA7F /* Point2D.h */,
+				3AF4ECFF19654F9B001A1F4A /* Point3D.h */,
+				3AF4ED0219655A32001A1F4A /* TransformationFactory3D.h */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -330,6 +346,8 @@
 			isa = PBXGroup;
 			children = (
 				3A7BEF8E1897F4D3004BFA7F /* Vector2.h */,
+				3AF4ECF519654D60001A1F4A /* Matrix4.h */,
+				3AF4ECFC19654F91001A1F4A /* Vector3.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -337,6 +355,8 @@
 		3A7BEF8C1897F452004BFA7F /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				3AF4ECF419654D60001A1F4A /* Matrix4.cpp */,
+				3AF4ECFB19654F91001A1F4A /* Vector3.cpp */,
 				3A7BEF901897F4DC004BFA7F /* Vector2.cpp */,
 			);
 			path = Math;
@@ -508,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */,
+				3AF4ECFD19654F91001A1F4A /* Vector3.cpp in Sources */,
 				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
@@ -519,7 +540,10 @@
 				3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */,
 				3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */,
 				3A6C8BBB18A771DC009F118E /* EventSignal.cpp in Sources */,
+				3AF4ED0319655A32001A1F4A /* TransformationFactory3D.cpp in Sources */,
+				3AF4ED0019654F9B001A1F4A /* Point3D.cpp in Sources */,
 				3A8CEA2818ADFDF1007CF591 /* EntityChange.cpp in Sources */,
+				3AF4ECF619654D60001A1F4A /* Matrix4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
