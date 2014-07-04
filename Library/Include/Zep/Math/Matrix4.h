@@ -16,6 +16,9 @@ namespace Zep {
         static Matrix4 identity();
         float& operator[](const int index);
         const float& operator[](const int index) const;
+        Matrix4 operator*(Matrix4 matrix);
+        Matrix4& operator*=(Matrix4 matrix);
+        void reset();
     };
 }
 

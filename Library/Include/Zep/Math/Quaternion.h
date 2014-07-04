@@ -18,6 +18,8 @@ namespace Zep {
         float real;
         Vector3 imaginaries;
         Quaternion operator*(Quaternion &other);
+        Quaternion& operator*=(Quaternion other);
+        static Quaternion identity();
     };
 }
 
