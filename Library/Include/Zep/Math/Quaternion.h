@@ -12,6 +12,8 @@
 #include "Zep/Math/Vector3.h"
 
 namespace Zep {
+    class Matrix4;
+    
     class Quaternion {
     public:
         Quaternion(float real, Vector3 imaginaries);
@@ -20,6 +22,7 @@ namespace Zep {
         Quaternion operator*(Quaternion &other);
         Quaternion& operator*=(Quaternion other);
         static Quaternion identity();
+        operator Matrix4();
     };
 }
 
