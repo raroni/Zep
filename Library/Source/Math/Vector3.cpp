@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
+#include <cmath>
 #include "Vector3.h"
 
 namespace Zep {
@@ -44,6 +45,13 @@ namespace Zep {
         return *this;
     }
     
+    Vector3& Vector3::operator/=(float factor) {
+        components[0] /= factor;
+        components[1] /= factor;
+        components[2] /= factor;
+        return *this;
+    }
+    
     float& Vector3::operator[](const int index) {
         return components[index];
     }
@@ -77,5 +85,23 @@ namespace Zep {
         result[2] = operand1[0]*operand2[1] - operand1[1]*operand2[0];
         
         return result;
+    }
+    
+    Vector3 Vector3::getNormalized() {
+        Vector3 result = *this;
+        result.normalize();
+        return result;
+    }
+    
+    void Vector3::normalize() {
+        operator/=(getLength());
+    }
+    
+    float Vector3::getLength() {
+        return std::sqrt(getSquaredLength());
+    }
+    
+    float Vector3::getSquaredLength() {
+        return std::pow(components[0], 2) + std::pow(components[1], 2) + std::pow(components[2], 2);
     }
 }
