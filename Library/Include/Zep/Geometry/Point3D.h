@@ -20,7 +20,7 @@ namespace Zep {
         Vector3& getVector();
         float& operator[](const int index);
         const float& operator[](const int index) const;
-
+        Vector3 operator-(Point3D other);
     };
 }
 

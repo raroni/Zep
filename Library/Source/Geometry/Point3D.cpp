@@ -21,6 +21,10 @@ namespace Zep {
         return vector[index];
     }
     
+    Vector3 Point3D::operator-(Point3D other) {
+        return vector-other.getVector();
+    }
+    
     const float& Point3D::operator[](const int index) const {
         return vector[index];
     }

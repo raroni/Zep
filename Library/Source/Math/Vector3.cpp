@@ -77,6 +77,19 @@ namespace Zep {
         return *this;
     }
     
+    Vector3 Vector3::operator-(Vector3 vector) {
+        Vector3 result = *this;
+        result -= vector;
+        return result;
+    }
+    
+    Vector3& Vector3::operator-=(Vector3 other) {
+        components[0] -= other[0];
+        components[1] -= other[1];
+        components[2] -= other[2];
+        return *this;
+    }
+    
     Vector3 Vector3::cross(Vector3 operand1, Vector3 operand2) {
         Vector3 result;
         

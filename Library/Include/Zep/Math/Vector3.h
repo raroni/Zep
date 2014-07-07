@@ -26,6 +26,8 @@ namespace Zep {
         static Vector3 cross(Vector3 operand1, Vector3 operand2);
         Vector3 operator+(Vector3 other);
         Vector3& operator+=(Vector3 other);
+        Vector3 operator-(Vector3 other);
+        Vector3& operator-=(Vector3 other);
         Vector3 getNormalized();
         void normalize();
         float getLength();
