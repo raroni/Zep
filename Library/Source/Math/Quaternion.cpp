@@ -28,6 +28,11 @@ namespace Zep {
         return *this;
     }
     
+    Quaternion Quaternion::getConjugate() {
+        Quaternion conjugate(real, imaginaries.getNegated());
+        return conjugate;
+    }
+    
     Quaternion::operator Matrix4() {
         auto matrix = Matrix4::identity();
         matrix[0] = 2*(std::pow(real, 2.0f) + std::pow(imaginaries[0], 2))-1;

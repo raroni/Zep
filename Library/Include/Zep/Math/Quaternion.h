@@ -23,6 +23,7 @@ namespace Zep {
         Quaternion& operator*=(Quaternion other);
         static Quaternion identity();
         operator Matrix4();
+        Quaternion getConjugate();
     };
 }
 
