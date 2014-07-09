@@ -32,10 +32,10 @@ namespace EventManagerTestCase {
         }
     };
     
-    class VariousEventTypesTest : public Vincent::Test {
+    class TemplateEmissionTest : public Vincent::Test {
     public:
-        VariousEventTypesTest() {
-            name = "VariousEventTypes";
+        TemplateEmissionTest() {
+            name = "TemplateEmission";
         }
         void run() {
             Zep::EventManager manager;
@@ -49,12 +49,32 @@ namespace EventManagerTestCase {
         }
     };
     
+    class InstanceEmissionTest : public Vincent::Test {
+    public:
+        InstanceEmissionTest() {
+            name = "InstanceEmissionTest";
+        }
+        void run() {
+            Zep::EventManager manager;
+            DummyObserver observer;
+            auto subscription = manager.subscribe<Explosion>(observer);
+            Explosion explosion;
+            manager.emit(explosion);
+            assertEqual(1, observer.counter);
+            Collision collision;
+            manager.emit(collision);
+            assertEqual(1, observer.counter);
+            subscription.cancel();
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
             name = "EventManager";
             add(new SubscriptionTest());
-            add(new VariousEventTypesTest());
+            add(new TemplateEmissionTest());
+            add(new InstanceEmissionTest());
         }
     };
 }

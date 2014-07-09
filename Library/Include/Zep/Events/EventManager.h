@@ -27,7 +27,13 @@ namespace Zep {
         void emit(Args && ... args) {
             T event(std::forward<Args>(args) ...);
             auto index = std::type_index(typeid(T));
-            auto& signal = getSignal(index);
+            auto &signal = getSignal(index);
+            signal.emit(static_cast<Event&>(event));
+        }
+        template <class T>
+        void emit(T event) {
+            auto index = std::type_index(typeid(T));
+            auto &signal = getSignal(index);
             signal.emit(static_cast<Event&>(event));
         }
         template <class T, class R>
