@@ -15,8 +15,8 @@ namespace Zep {
     
     Point2D::Point2D(float x, float y) : vector(x, y) { }
     
-    Point2D Point2D::operator-(Point2D other) {
-        return Point2D(vector-other.getVector());
+    Point2D Point2D::operator-(Vector2 displacement) {
+        return Point2D(vector-displacement);
     }
     
     Vector2 Point2D::getVector() {

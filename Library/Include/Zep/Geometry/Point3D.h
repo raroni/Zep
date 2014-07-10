@@ -23,7 +23,7 @@ namespace Zep {
         Vector3& getVector();
         float& operator[](const int index);
         const float& operator[](const int index) const;
-        Point3D operator-(Point3D other);
+        Point3D operator-(Vector3 other);
         operator Vector3();
         Point3D getRotated(Quaternion &rotation);
     };

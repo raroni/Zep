@@ -21,7 +21,7 @@ namespace Zep {
         Point2D(float x, float y);
         float& operator[](const int index);
         const float& operator[](const int index) const;
-        Point2D operator-(Point2D other);
+        Point2D operator-(Vector2 displacement);
         operator Vector2();
     };
 }
