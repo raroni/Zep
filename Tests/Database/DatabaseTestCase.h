@@ -297,6 +297,24 @@ namespace DatabaseTestCase {
         }
     };
     
+    class FastAspectRetrivalTest : public Vincent::Test {
+    public:
+        FastAspectRetrivalTest() {
+            name = "FastAspectRetrival";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            
+            Zep::AspectTypeID typeID = database.getAspectTypeID<Jetpack>();
+            Zep::EntityID id = database.createEntityID();
+            auto &createdJetpack = database.createAspect<Jetpack>(id);
+            auto &retrivedJetpack = database.getAspect<Jetpack>(id, typeID);
+            assert(&createdJetpack == &retrivedJetpack);
+        }
+    };
+    
     class Case : public Vincent::TestCase {
     public:
         Case() {
@@ -313,6 +331,7 @@ namespace DatabaseTestCase {
             add(new MultiAspectMaskGenerationTest());
             add(new HasAspectTest());
             add(new HasAspectsTest());
+            add(new FastAspectRetrivalTest());
         }
     };
 }

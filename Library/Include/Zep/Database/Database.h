@@ -62,10 +62,18 @@ namespace Zep {
             return (*aspectList)[entityID];
         }
         template <class T>
-        T& getAspect(EntityID entityID) {
-            int aspectTypeID = aspectTypes.getID<T>();
+        AspectTypeID getAspectTypeID() {
+            return aspectTypes.getID<T>();
+        }
+        template <class T>
+        T& getAspect(EntityID entityID, AspectTypeID aspectTypeID) {
             auto &aspectList = static_cast<AspectList<T>&>(*aspects[aspectTypeID]);
             return aspectList[entityID];
+        }
+        template <class T>
+        T& getAspect(EntityID entityID) {
+            AspectTypeID aspectTypeID = aspectTypes.getID<T>();
+            return getAspect<T>(entityID, aspectTypeID);
         }
         void initialize();
         void update();

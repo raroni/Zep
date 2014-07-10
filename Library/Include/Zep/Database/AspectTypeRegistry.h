@@ -12,21 +12,22 @@
 #include <map>
 #include <typeindex>
 #include "Zep/Exception.h"
+#include "Zep/Database/AspectTypeID.h"
 
 namespace Zep {
     class AspectTypeRegistry {
         int max;
-        int nextUnusedID = 0;
-        std::map<std::type_index, int> ids;
+        AspectTypeID nextUnusedID = 0;
+        std::map<std::type_index, AspectTypeID> ids;
     public:
         AspectTypeRegistry(int max) : max(max) { }
         template <class T>
-        int getID() {
+        AspectTypeID getID() {
             auto index = std::type_index(typeid(T));
             auto iterator = ids.find(index);
             if(iterator == ids.end()) {
                 if(nextUnusedID == max) throw Exception("Maximum number of Aspect types reached.");
-                int id = nextUnusedID++;
+                AspectTypeID id = nextUnusedID++;
                 ids[index] = id;
                 return id;
             } else {
