@@ -12,6 +12,8 @@
 #include "Zep/Math/Vector3.h"
 
 namespace Zep {
+    class Quaternion;
+    
     class Point3D {
         Vector3 vector;
     public:
@@ -23,6 +25,7 @@ namespace Zep {
         const float& operator[](const int index) const;
         Point3D operator-(Point3D other);
         operator Vector3();
+        Point3D getRotated(Quaternion &rotation);
     };
 }
 

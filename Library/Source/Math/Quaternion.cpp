@@ -50,7 +50,51 @@ namespace Zep {
         return matrix;
     }
     
+    float Quaternion::getLength() {
+        return std::sqrt(real*real + imaginaries[0]*imaginaries[0] + imaginaries[1]*imaginaries[1] + imaginaries[2]*imaginaries[2]);
+    }
+    
     Quaternion Quaternion::identity() {
         return Quaternion(1, Zep::Vector3(0, 0, 0));
+    }
+    
+    Quaternion Quaternion::operator*(float factor) {
+        Quaternion result = *this;
+        result *= factor;
+        return result;
+    }
+    
+    Quaternion& Quaternion::operator*=(float factor) {
+        real *= factor;
+        imaginaries *= factor;
+        return *this;
+    }
+    
+    Quaternion Quaternion::operator+(Quaternion other) {
+        Quaternion result = *this;
+        result += other;
+        return result;
+    }
+    
+    Quaternion& Quaternion::operator+=(Quaternion other) {
+        real += other.real;
+        imaginaries += other.imaginaries;
+        return *this;
+    }
+    
+    Quaternion Quaternion::slerpWithLimit(Quaternion &origin, Quaternion &destination, float angleLimit) {
+        float angle = std::acos(dot(origin, destination));
+        float progress = angleLimit > angle ? 1 : angleLimit/angle;
+        
+        float inverseSine = 1/std::sin(angle);
+        
+        float q1 = std::sin(1-progress)*angle*inverseSine;
+        float q2 = std::sin(progress*angle)*inverseSine;
+        
+        return origin*q1+destination*q2;
+    }
+    
+    float Quaternion::dot(Quaternion &operandA, Quaternion &operandB) {
+        return operandA.real*operandB.real + Vector3::dot(operandA.imaginaries, operandB.imaginaries);
     }
 }

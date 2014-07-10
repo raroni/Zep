@@ -7,6 +7,7 @@
 //
 
 #include "Point3D.h"
+#include "Zep/Math/Quaternion.h"
 
 namespace Zep {
     Point3D::Point3D() { }
@@ -33,5 +34,12 @@ namespace Zep {
     
     const float& Point3D::operator[](const int index) const {
         return vector[index];
+    }
+    
+    Point3D Point3D::getRotated(Quaternion &rotation) {
+        Quaternion quaternionVector(0, vector);
+        auto result = rotation*quaternionVector;
+        result *= rotation.getConjugate();
+        return Point3D(result.imaginaries);
     }
 }

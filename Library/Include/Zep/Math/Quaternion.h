@@ -24,6 +24,13 @@ namespace Zep {
         static Quaternion identity();
         operator Matrix4();
         Quaternion getConjugate();
+        static Quaternion slerpWithLimit(Quaternion &origin, Quaternion &destination, float angleLimit);
+        static float dot(Quaternion &operandA, Quaternion &operandB);
+        Quaternion& operator*=(float factor);
+        Quaternion operator*(float factor);
+        Quaternion& operator+=(Quaternion other);
+        Quaternion operator+(Quaternion other);
+        float getLength();
     };
 }
 
