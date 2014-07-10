@@ -30,4 +30,8 @@ namespace Zep {
     const float& Point2D::operator[](const int index) const {
         return vector[index];
     }
+    
+    Point2D::operator Vector2() {
+        return vector;
+    }
 }
