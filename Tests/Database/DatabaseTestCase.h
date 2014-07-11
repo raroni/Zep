@@ -50,10 +50,10 @@ namespace DatabaseTestCase {
         }
     };
     
-    class HasAspectTest : public Vincent::Test {
+    class HasAspectByTemplateTest : public Vincent::Test {
     public:
-        HasAspectTest() {
-            name = "HasAspect";
+        HasAspectByTemplateTest() {
+            name = "HasAspectByTemplate";
         }
         void run() {
             Zep::EventManager eventManager;
@@ -64,6 +64,25 @@ namespace DatabaseTestCase {
             assert(!database.hasAspect<Jetpack>(id));
             database.update();
             assert(database.hasAspect<Jetpack>(id));
+        }
+    };
+    
+    class HasAspectByIDTest : public Vincent::Test {
+    public:
+        HasAspectByIDTest() {
+            name = "HasAspectByID";
+        }
+        void run() {
+            Zep::EventManager eventManager;
+            Zep::Database database(eventManager);
+            database.initialize();
+            auto aspectID = database.getAspectTypeID<Jetpack>();
+            Zep::EntityID id = database.createEntityID();
+            database.createAspect<Jetpack>(id);
+            assert(!database.hasAspect(id, aspectID));
+            database.update();
+            assert(database.hasAspect(id, aspectID));
+            assert(false);
         }
     };
     
@@ -329,7 +348,8 @@ namespace DatabaseTestCase {
             add(new ChangeEventByAspectDestructionTest());
             add(new SingleAspectMaskGenerationTest());
             add(new MultiAspectMaskGenerationTest());
-            add(new HasAspectTest());
+            add(new HasAspectByTemplateTest());
+            add(new HasAspectByIDTest());
             add(new HasAspectsTest());
             add(new FastAspectRetrivalTest());
         }

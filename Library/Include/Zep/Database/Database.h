@@ -39,6 +39,7 @@ namespace Zep {
     public:
         Database(EventManager &eventManager);
         EntityID createEntityID();
+        bool hasAspect(EntityID entityID, AspectTypeID aspectTypeID);
         template <class T>
         T& createAspect(EntityID entityID) {
             if(!initialized) throw Exception("You must initialize database before creating aspects.");

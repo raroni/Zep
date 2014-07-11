@@ -47,6 +47,10 @@ namespace Zep {
         }
     }
     
+    bool Database::hasAspect(EntityID entityID, AspectTypeID aspectTypeID) {
+        return relationships[entityID].test(aspectTypeID);
+    }
+    
     void Database::update() {
         for(auto &pair : newRelationships) {
             relationships[pair.first] = pair.second;
