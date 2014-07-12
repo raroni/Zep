@@ -32,6 +32,7 @@ namespace Zep {
         void normalize();
         float getLength();
         float getSquaredLength();
+        void reset();
     };
 }
 

@@ -90,6 +90,12 @@ namespace Zep {
         return *this;
     }
     
+    void Vector3::reset() {
+        components[0] = 0;
+        components[1] = 0;
+        components[2] = 0;
+    }
+    
     Vector3 Vector3::cross(Vector3 operand1, Vector3 operand2) {
         Vector3 result;
         

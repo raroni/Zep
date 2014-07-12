@@ -28,6 +28,17 @@ namespace Zep {
         return vector;
     }
     
+    Point3D Point3D::operator+(Vector3 vector) {
+        Point3D result = *this;
+        result += vector;
+        return result;
+    }
+    
+    Point3D& Point3D::operator+=(Vector3 other) {
+        vector += other;
+        return *this;
+    }
+    
     float& Point3D::operator[](const int index) {
         return vector[index];
     }
