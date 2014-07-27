@@ -55,4 +55,13 @@ namespace Zep {
         result *= other;
         return result;
     }
+    
+    std::ostream& operator<<(std::ostream &ostream, Matrix4 &matrix) {
+        ostream << "\n";
+        ostream << "[" << matrix[0] << ", " << matrix[4] << ", " << matrix[8] << ", " << matrix[12] << "]\n";
+        ostream << "[" << matrix[1] << ", " << matrix[5] << ", " << matrix[9] << ", " << matrix[13] << "]\n";
+        ostream << "[" << matrix[2] << ", " << matrix[6] << ", " << matrix[10] << ", " << matrix[14] << "]\n";
+        ostream << "[" << matrix[3] << ", " << matrix[7] << ", " << matrix[11] << ", " << matrix[15] << "]\n";
+        return ostream;
+    }
 }

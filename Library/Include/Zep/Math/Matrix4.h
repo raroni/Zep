@@ -9,6 +9,8 @@
 #ifndef __Zep__Matrix4__
 #define __Zep__Matrix4__
 
+#include <ostream>
+
 namespace Zep {
     class Matrix4 {
     public:
@@ -19,6 +21,7 @@ namespace Zep {
         Matrix4 operator*(Matrix4 matrix);
         Matrix4& operator*=(Matrix4 matrix);
         void reset();
+        friend std::ostream& operator<<(std::ostream &ostream, Matrix4& matrix);
     };
 }
 
