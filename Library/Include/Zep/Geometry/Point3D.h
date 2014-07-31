@@ -24,6 +24,7 @@ namespace Zep {
         float& operator[](const int index);
         const float& operator[](const int index) const;
         Point3D operator-(Vector3 other);
+        Vector3 operator-(Point3D other);
         Point3D operator+(Vector3 other);
         Point3D& operator+=(Vector3 other);
         operator Vector3();

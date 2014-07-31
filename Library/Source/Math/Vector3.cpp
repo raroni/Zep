@@ -26,7 +26,7 @@ namespace Zep {
         operator*=(-1);
     }
     
-    Vector3 Vector3::getNegated() {
+    Vector3 Vector3::getNegated() const {
         Vector3 negated = *this;
         negated.negate();
         return negated;

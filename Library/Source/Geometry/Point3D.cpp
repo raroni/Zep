@@ -24,6 +24,10 @@ namespace Zep {
         return Point3D(vector-displacement);
     }
     
+    Vector3 Point3D::operator-(Point3D point) {
+        return Vector3(vector-point.getVector());
+    }
+    
     Point3D::operator Vector3() {
         return vector;
     }

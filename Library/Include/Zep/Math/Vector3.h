@@ -17,7 +17,7 @@ namespace Zep {
         Vector3(float x, float y, float z);
         float& operator[](const int index);
         const float& operator[](const int index) const;
-        Vector3 getNegated();
+        Vector3 getNegated() const;
         Vector3& operator/=(float divident);
         void negate();
         Vector3& operator*=(float factor);
