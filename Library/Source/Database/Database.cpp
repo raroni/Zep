@@ -76,6 +76,10 @@ namespace Zep {
         newRelationships.clear();
     }
     
+    EventManager& Database::getEventManager() const {
+        return eventManager;
+    }
+    
     AspectMask& Database::getNewRelationshipAspectMask(EntityID entityID) {
         auto iterator = newRelationships.find(entityID);
         if(iterator != newRelationships.end()) {

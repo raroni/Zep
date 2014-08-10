@@ -102,6 +102,7 @@ namespace Zep {
             mask.set(aspectTypeID, 0);
         }
         bool hasAspects(EntityID, AspectMask mask);
+        EventManager& getEventManager() const;
     };
 }
 
