@@ -21,7 +21,7 @@
 #include "Zep/Database/AspectListInterface.h"
 
 namespace Zep {
-    class EventManager;
+    class EventBus;
     
     class Database {
         std::vector<EntityID> freedIDs;
@@ -32,12 +32,12 @@ namespace Zep {
         std::unordered_map<EntityID, AspectMask> newRelationships;
         std::vector<EntityID> pendingDestructions;
         void allocate(int newSize);
-        EventManager &eventManager;
+        EventBus &eventBus;
         bool initialized = false;
         AspectTypeRegistry aspectTypes;
         AspectMask& getNewRelationshipAspectMask(EntityID id);
     public:
-        Database(EventManager &eventManager);
+        Database(EventBus &eventBus);
         EntityID createEntityID();
         bool hasAspect(EntityID entityID, AspectTypeID aspectTypeID);
         template <class T>
@@ -102,7 +102,7 @@ namespace Zep {
             mask.set(aspectTypeID, 0);
         }
         bool hasAspects(EntityID, AspectMask mask);
-        EventManager& getEventManager() const;
+        EventBus& getEventBus() const;
     };
 }
 

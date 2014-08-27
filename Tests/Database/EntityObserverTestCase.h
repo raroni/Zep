@@ -32,15 +32,15 @@ namespace EntityObserverTestCase {
             name = "Addition";
         }
         void run() {
-            Zep::EventManager eventManager;
+            Zep::EventBus eventBus;
             DummyDelegate delegate;
             delegate.nextMatch = true;
-            Zep::EntityObserver entityObserver(eventManager, delegate);
+            Zep::EntityObserver entityObserver(eventBus, delegate);
             entityObserver.initialize();
-            eventManager.emit<Zep::EntityIDAddition>(17);
+            eventBus.emit<Zep::EntityIDAddition>(17);
 
             delegate.nextMatch = false;
-            eventManager.emit<Zep::EntityIDAddition>(18);
+            eventBus.emit<Zep::EntityIDAddition>(18);
             
             assertEqual(delegate.additions, 1);
             assert(delegate.entityIDs.size() == 1);
@@ -54,12 +54,12 @@ namespace EntityObserverTestCase {
             name = "AdditionMiss";
         }
         void run() {
-            Zep::EventManager eventManager;
+            Zep::EventBus eventBus;
             DummyDelegate delegate;
             delegate.nextMatch = false;
-            Zep::EntityObserver entityObserver(eventManager, delegate);
+            Zep::EntityObserver entityObserver(eventBus, delegate);
             entityObserver.initialize();
-            eventManager.emit<Zep::EntityIDAddition>(17);
+            eventBus.emit<Zep::EntityIDAddition>(17);
             
             assertEqual(delegate.additions, 0);
         }
@@ -71,15 +71,15 @@ namespace EntityObserverTestCase {
             name = "Destruction";
         }
         void run() {
-            Zep::EventManager eventManager;
+            Zep::EventBus eventBus;
             DummyDelegate delegate;
             delegate.nextMatch = true;
-            Zep::EntityObserver entityObserver(eventManager, delegate);
+            Zep::EntityObserver entityObserver(eventBus, delegate);
             entityObserver.initialize();
-            eventManager.emit<Zep::EntityIDAddition>(42);
+            eventBus.emit<Zep::EntityIDAddition>(42);
             delegate.nextMatch = false;
-            eventManager.emit<Zep::EntityIDDestruction>(42);
-            eventManager.emit<Zep::EntityIDDestruction>(42);
+            eventBus.emit<Zep::EntityIDDestruction>(42);
+            eventBus.emit<Zep::EntityIDDestruction>(42);
             
             assert(delegate.entityIDs.size() == 0);
             assertEqual(delegate.additions, 1);
@@ -93,11 +93,11 @@ namespace EntityObserverTestCase {
             name = "DestructionMiss";
         }
         void run() {
-            Zep::EventManager eventManager;
+            Zep::EventBus eventBus;
             DummyDelegate delegate;
-            Zep::EntityObserver entityObserver(eventManager, delegate);
+            Zep::EntityObserver entityObserver(eventBus, delegate);
             entityObserver.initialize();
-            eventManager.emit<Zep::EntityIDDestruction>(43);
+            eventBus.emit<Zep::EntityIDDestruction>(43);
             
             assertEqual(delegate.removals, 0);
         }
@@ -109,20 +109,20 @@ namespace EntityObserverTestCase {
             name = "ChangeTest";
         }
         void run() {
-            Zep::EventManager eventManager;
+            Zep::EventBus eventBus;
             DummyDelegate delegate;
             delegate.nextMatch = true;
-            Zep::EntityObserver entityObserver(eventManager, delegate);
+            Zep::EntityObserver entityObserver(eventBus, delegate);
             entityObserver.initialize();
-            eventManager.emit<Zep::EntityIDAddition>(43);
-            eventManager.emit<Zep::EntityChange>(43);
+            eventBus.emit<Zep::EntityIDAddition>(43);
+            eventBus.emit<Zep::EntityChange>(43);
             
             assertEqual(delegate.additions, 1);
             assertEqual(delegate.removals, 0);
             
             delegate.nextMatch = false;
-            eventManager.emit<Zep::EntityChange>(43);
-            eventManager.emit<Zep::EntityChange>(43);
+            eventBus.emit<Zep::EntityChange>(43);
+            eventBus.emit<Zep::EntityChange>(43);
             
             assertEqual(delegate.additions, 1);
             assertEqual(delegate.removals, 1);

@@ -12,7 +12,7 @@
 		3A5D8BB618ABF8C9006B7F44 /* EventSubscription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */; };
 		3A661089189BAF710085D6F7 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A661088189BAF5E0085D6F7 /* Runner.cpp */; };
 		3A66108A189BAFC10085D6F7 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6EED189937C6006AB24E /* Database.cpp */; };
-		3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
+		3A66108B189BAFCF0085D6F7 /* EventBus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventBus.cpp */; };
 		3A66108C189BAFD60085D6F7 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
 		3A66109F189BB0090085D6F7 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109D189BAFEB0085D6F7 /* test.cpp */; };
 		3A6610A0189BB0090085D6F7 /* test_result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A66109E189BAFEB0085D6F7 /* test_result.cpp */; };
@@ -31,7 +31,7 @@
 		3A94ED661898E74B003EA707 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A94ED641898E74B003EA707 /* Exception.cpp */; };
 		3ABDD861196303430040E661 /* EntityObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDD85F196303430040E661 /* EntityObserver.cpp */; };
 		3ABDD86319630A910040E661 /* EntityObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDD85F196303430040E661 /* EntityObserver.cpp */; };
-		3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */; };
+		3AD0DA6D189A6B6A0050DF44 /* EventBus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventBus.cpp */; };
 		3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA77189A71EB0050DF44 /* Event.cpp */; };
 		3AD4F4791965A05F009C80FF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4F4771965A05F009C80FF /* Quaternion.cpp */; };
@@ -78,7 +78,7 @@
 		3A5D8BAD18ABF52C006B7F44 /* EventSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscription.h; sourceTree = "<group>"; };
 		3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventSubscription.cpp; sourceTree = "<group>"; };
 		3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionTestCase.h; sourceTree = "<group>"; };
-		3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTestCase.h; sourceTree = "<group>"; };
+		3A5D8BB818ABFB28006B7F44 /* EventBusTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBusTestCase.h; sourceTree = "<group>"; };
 		3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSubscriptionManagerTestCase.h; sourceTree = "<group>"; };
 		3A66107C189BAF3D0085D6F7 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A661086189BAF5E0085D6F7 /* AspectTypeRegistryTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectTypeRegistryTestCase.h; sourceTree = "<group>"; };
@@ -124,8 +124,8 @@
 		3ABDD85F196303430040E661 /* EntityObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityObserver.cpp; sourceTree = "<group>"; };
 		3ABDD860196303430040E661 /* EntityObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityObserver.h; sourceTree = "<group>"; };
 		3ABDD862196305790040E661 /* EntityObserverTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityObserverTestCase.h; sourceTree = "<group>"; };
-		3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventManager.cpp; sourceTree = "<group>"; };
-		3AD0DA6F189A6B750050DF44 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		3AD0DA6B189A6B6A0050DF44 /* EventBus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventBus.cpp; sourceTree = "<group>"; };
+		3AD0DA6F189A6B750050DF44 /* EventBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBus.h; sourceTree = "<group>"; };
 		3AD0DA72189A71D20050DF44 /* EntityIDAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityIDAddition.h; sourceTree = "<group>"; };
 		3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIDAddition.cpp; sourceTree = "<group>"; };
 		3AD0DA77189A71EB0050DF44 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 			children = (
 				3A6C8BC618A777E4009F118E /* EventSignalTestCase.h */,
 				3A5D8BB418ABF57D006B7F44 /* EventSubscriptionTestCase.h */,
-				3A5D8BB818ABFB28006B7F44 /* EventManagerTestCase.h */,
+				3A5D8BB818ABFB28006B7F44 /* EventBusTestCase.h */,
 				3A5D8BBA18AC03EB006B7F44 /* EventSubscriptionManagerTestCase.h */,
 			);
 			path = Events;
@@ -400,7 +400,7 @@
 		3AD0DA69189A6B5B0050DF44 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				3AD0DA6F189A6B750050DF44 /* EventManager.h */,
+				3AD0DA6F189A6B750050DF44 /* EventBus.h */,
 				3AD0DA7B189A71F70050DF44 /* Event.h */,
 				3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */,
 				3A6C8BB718A771B7009F118E /* EventSignal.h */,
@@ -413,7 +413,7 @@
 		3AD0DA6A189A6B650050DF44 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				3AD0DA6B189A6B6A0050DF44 /* EventManager.cpp */,
+				3AD0DA6B189A6B6A0050DF44 /* EventBus.cpp */,
 				3A5D8BAF18ABF53F006B7F44 /* EventSubscription.cpp */,
 				3AD0DA77189A71EB0050DF44 /* Event.cpp */,
 				3A6C8BB918A771DC009F118E /* EventSignal.cpp */,
@@ -534,7 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A661089189BAF710085D6F7 /* Runner.cpp in Sources */,
-				3A66108B189BAFCF0085D6F7 /* EventManager.cpp in Sources */,
+				3A66108B189BAFCF0085D6F7 /* EventBus.cpp in Sources */,
 				3A66109F189BB0090085D6F7 /* test.cpp in Sources */,
 				3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3AF4ED09196560F4001A1F4A /* Vector3.cpp in Sources */,
@@ -561,7 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6C8BC418A7761E009F118E /* SafeConversion.cpp in Sources */,
-				3AD0DA6D189A6B6A0050DF44 /* EventManager.cpp in Sources */,
+				3AD0DA6D189A6B6A0050DF44 /* EventBus.cpp in Sources */,
 				3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */,
 				3A5D8BB118ABF53F006B7F44 /* EventSubscription.cpp in Sources */,
 				3AF4ECF619654D60001A1F4A /* Matrix4.cpp in Sources */,

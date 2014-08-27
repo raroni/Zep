@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include "Zep/Events/EventManager.h"
+#include "Zep/Events/EventBus.h"
 #include "Zep/Database/EntityIDAddition.h"
 #include "Zep/Database/EntityChange.h"
 #include "Zep/Database/EntityIDDestruction.h"
@@ -14,7 +14,7 @@
 #include "Zep/Database/Database.h"
 
 namespace Zep {
-    Database::Database(EventManager &eventManager) : eventManager(eventManager), aspectTypes(AspectTypeRegistry(DatabaseConfig::maxAspectTypes)) { }
+    Database::Database(EventBus &eventBus) : eventBus(eventBus), aspectTypes(AspectTypeRegistry(DatabaseConfig::maxAspectTypes)) { }
     
     void Database::initialize() {
         aspects.resize(DatabaseConfig::maxAspectTypes, nullptr);
@@ -57,13 +57,13 @@ namespace Zep {
         }
         
         for(EntityID id : newCreations) {
-            eventManager.emit<EntityIDAddition>(id);
+            eventBus.emit<EntityIDAddition>(id);
             newRelationships.erase(id);
         }
         newCreations.clear();
         
         for(EntityID id : pendingDestructions) {
-            eventManager.emit<EntityIDDestruction>(id);
+            eventBus.emit<EntityIDDestruction>(id);
             freedIDs.push_back(id);
             relationships[id].reset();
             newRelationships.erase(id);
@@ -71,13 +71,13 @@ namespace Zep {
         pendingDestructions.clear();
         
         for(auto &pair : newRelationships) {
-            eventManager.emit<EntityChange>(pair.first);
+            eventBus.emit<EntityChange>(pair.first);
         }
         newRelationships.clear();
     }
     
-    EventManager& Database::getEventManager() const {
-        return eventManager;
+    EventBus& Database::getEventBus() const {
+        return eventBus;
     }
     
     AspectMask& Database::getNewRelationshipAspectMask(EntityID entityID) {

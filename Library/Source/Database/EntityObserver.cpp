@@ -9,9 +9,9 @@
 #include "EntityObserver.h"
 
 namespace Zep {
-    EntityObserver::EntityObserver(EventManager &eventManager, EntityObserverDelegate &delegate) :
+    EntityObserver::EntityObserver(EventBus &eventBus, EntityObserverDelegate &delegate) :
     delegate(delegate),
-    eventSubscriptionManager(EventSubscriptionManager<EntityObserver>(*this, eventManager)) { }
+    eventSubscriptionManager(EventSubscriptionManager<EntityObserver>(*this, eventBus)) { }
     
     void EntityObserver::initialize() {
         eventSubscriptionManager.add<EntityIDAddition>();

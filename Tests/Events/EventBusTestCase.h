@@ -1,8 +1,8 @@
 #include "vincent/test_case.h"
 #include "vincent/test.h"
-#include "Zep/Events/EventManager.h"
+#include "Zep/Events/EventBus.h"
 
-namespace EventManagerTestCase {
+namespace EventBusTestCase {
     class Explosion : public Zep::Event { };
     class Collision : public Zep::Event { };
     
@@ -19,15 +19,15 @@ namespace EventManagerTestCase {
             name = "Subscription";
         }
         void run() {
-            Zep::EventManager manager;
+            Zep::EventBus bus;
             DummyObserver observer;
-            auto subscription = manager.subscribe<Explosion>(observer);
-            manager.emit<Explosion>();
+            auto subscription = bus.subscribe<Explosion>(observer);
+            bus.emit<Explosion>();
             assertEqual(1, observer.counter);
-            manager.emit<Explosion>();
+            bus.emit<Explosion>();
             assertEqual(2, observer.counter);
             subscription.cancel();
-            manager.emit<Explosion>();
+            bus.emit<Explosion>();
             assertEqual(2, observer.counter);
         }
     };
@@ -38,12 +38,12 @@ namespace EventManagerTestCase {
             name = "TemplateEmission";
         }
         void run() {
-            Zep::EventManager manager;
+            Zep::EventBus bus;
             DummyObserver observer;
-            auto subscription = manager.subscribe<Explosion>(observer);
-            manager.emit<Explosion>();
+            auto subscription = bus.subscribe<Explosion>(observer);
+            bus.emit<Explosion>();
             assertEqual(1, observer.counter);
-            manager.emit<Collision>();
+            bus.emit<Collision>();
             assertEqual(1, observer.counter);
             subscription.cancel();
         }
@@ -55,14 +55,14 @@ namespace EventManagerTestCase {
             name = "InstanceEmissionTest";
         }
         void run() {
-            Zep::EventManager manager;
+            Zep::EventBus bus;
             DummyObserver observer;
-            auto subscription = manager.subscribe<Explosion>(observer);
+            auto subscription = bus.subscribe<Explosion>(observer);
             Explosion explosion;
-            manager.emit(explosion);
+            bus.emit(explosion);
             assertEqual(1, observer.counter);
             Collision collision;
-            manager.emit(collision);
+            bus.emit(collision);
             assertEqual(1, observer.counter);
             subscription.cancel();
         }
@@ -71,7 +71,7 @@ namespace EventManagerTestCase {
     class Case : public Vincent::TestCase {
     public:
         Case() {
-            name = "EventManager";
+            name = "EventBus";
             add(new SubscriptionTest());
             add(new TemplateEmissionTest());
             add(new InstanceEmissionTest());

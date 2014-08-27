@@ -1,6 +1,6 @@
 #include "vincent/test_case.h"
 #include "vincent/test.h"
-#include "Zep/Events/EventManager.h"
+#include "Zep/Events/EventBus.h"
 #include "Zep/Events/EventSubscriptionManager.h"
 
 namespace EventSubscriptionManagerTestCase {
@@ -21,13 +21,13 @@ namespace EventSubscriptionManagerTestCase {
         }
         void run() {
             DummyObserver observer;
-            Zep::EventManager eventManager;
-            auto subscriptionManager = new Zep::EventSubscriptionManager<DummyObserver>(observer, eventManager);
+            Zep::EventBus eventBus;
+            auto subscriptionManager = new Zep::EventSubscriptionManager<DummyObserver>(observer, eventBus);
             subscriptionManager->add<Explosion>();
-            eventManager.emit<Explosion>();
+            eventBus.emit<Explosion>();
             assertEqual(1, observer.counter);
             delete subscriptionManager;
-            eventManager.emit<Explosion>();
+            eventBus.emit<Explosion>();
             assertEqual(1, observer.counter);
         }
     };

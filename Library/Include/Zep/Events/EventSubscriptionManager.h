@@ -9,7 +9,7 @@
 #ifndef __Zep__EventSubscriptionManager__
 #define __Zep__EventSubscriptionManager__
 
-#include "Zep/Events/EventManager.h"
+#include "Zep/Events/EventBus.h"
 #include "Zep/Events/EventSubscription.h"
 
 namespace Zep {
@@ -17,12 +17,12 @@ namespace Zep {
     class EventSubscriptionManager {
         std::vector<EventSubscription> subscriptions;
         ReceiverType &receiver;
-        EventManager &eventManager;
+        EventBus &eventBus;
     public:
-        EventSubscriptionManager(ReceiverType &receiver, EventManager &eventManager) : receiver(receiver), eventManager(eventManager) { }
+        EventSubscriptionManager(ReceiverType &receiver, EventBus &eventBus) : receiver(receiver), eventBus(eventBus) { }
         template <class EventType>
         void add() {
-            auto subscription = eventManager.subscribe<EventType>(receiver);
+            auto subscription = eventBus.subscribe<EventType>(receiver);
             subscriptions.push_back(subscription);
         }
         ~EventSubscriptionManager() {

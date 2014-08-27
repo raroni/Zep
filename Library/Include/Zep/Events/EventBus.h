@@ -1,13 +1,13 @@
 //
-//  EventManager.h
+//  EventBus.h
 //  Zep
 //
 //  Created by Rasmus Rønn Nielsen on 30/01/14.
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#ifndef __Zep__EventManager__
-#define __Zep__EventManager__
+#ifndef __Zep__EventBus__
+#define __Zep__EventBus__
 
 #include <utility>
 #include <typeindex>
@@ -19,7 +19,7 @@
 
 namespace Zep {
     
-    class EventManager {
+    class EventBus {
         std::map<std::type_index, EventSignal*> signals;
         EventSignal& getSignal(std::type_index typeIndex);
     public:

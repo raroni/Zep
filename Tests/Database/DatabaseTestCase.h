@@ -4,7 +4,7 @@
 #include "Zep/Database/EntityIDDestruction.h"
 #include "Zep/Database/EntityChange.h"
 #include "Zep/Database/Database.h"
-#include "Zep/Events/EventManager.h"
+#include "Zep/Events/EventBus.h"
 
 namespace DatabaseTestCase {
     struct Health : public Zep::Aspect { };
@@ -19,8 +19,8 @@ namespace DatabaseTestCase {
             name = "EntityIDCreation";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             auto func = [&database] () {
               database.createEntityID();
             };
@@ -37,8 +37,8 @@ namespace DatabaseTestCase {
             name = "AspectCreation";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             auto func = [&database] () {
               database.createAspect<Jetpack>(0);
             };
@@ -56,8 +56,8 @@ namespace DatabaseTestCase {
             name = "HasAspectByTemplate";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             Zep::EntityID id = database.createEntityID();
             database.createAspect<Jetpack>(id);
@@ -73,8 +73,8 @@ namespace DatabaseTestCase {
             name = "HasAspectByID";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             auto aspectID = database.getAspectTypeID<Jetpack>();
             Zep::EntityID id = database.createEntityID();
@@ -100,9 +100,9 @@ namespace DatabaseTestCase {
         }
         void run() {
             DummyReceiver dummyReceiver;
-            Zep::EventManager eventManager;
-            eventManager.subscribe<Zep::EntityIDAddition>(dummyReceiver);
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            eventBus.subscribe<Zep::EntityIDAddition>(dummyReceiver);
+            Zep::Database database(eventBus);
             database.initialize();
             
             Zep::EntityID entityID1 = database.createEntityID();
@@ -136,9 +136,9 @@ namespace DatabaseTestCase {
         }
         void run() {
             DummyReceiver dummyReceiver;
-            Zep::EventManager eventManager;
-            eventManager.subscribe<Zep::EntityIDDestruction>(dummyReceiver);
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            eventBus.subscribe<Zep::EntityIDDestruction>(dummyReceiver);
+            Zep::Database database(eventBus);
             database.initialize();
             Zep::EntityID id = database.createEntityID();
             database.update();
@@ -158,8 +158,8 @@ namespace DatabaseTestCase {
             name = "EntityIDReuse";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             Zep::EntityID firstID = database.createEntityID();
             database.update();
@@ -186,13 +186,13 @@ namespace DatabaseTestCase {
         }
         void run() {
             DummyReceiver dummy;
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             auto id = database.createEntityID();
             database.update();
             
-            eventManager.subscribe<Zep::EntityChange>(dummy);
+            eventBus.subscribe<Zep::EntityChange>(dummy);
             database.createAspect<Jetpack>(id);
             database.update();
             assertEqual(id, dummy.lastReceivedID);
@@ -218,14 +218,14 @@ namespace DatabaseTestCase {
         }
         void run() {
             DummyReceiver dummy;
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             auto id = database.createEntityID();
             database.createAspect<Jetpack>(id);
             database.update();
             
-            eventManager.subscribe<Zep::EntityChange>(dummy);
+            eventBus.subscribe<Zep::EntityChange>(dummy);
             database.destroy<Jetpack>(id);
             database.update();
             assertEqual(id, dummy.lastReceivedID);
@@ -240,8 +240,8 @@ namespace DatabaseTestCase {
             name = "AspectDestruction";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             auto id = database.createEntityID();
             database.createAspect<Jetpack>(id);
@@ -259,8 +259,8 @@ namespace DatabaseTestCase {
             name = "SingleAspectMaskGeneration";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             
             Zep::AspectMask jetpackMask = database.getAspectMask<Jetpack>();
@@ -273,8 +273,8 @@ namespace DatabaseTestCase {
             name = "MultiAspectMaskGeneration";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             
             Zep::AspectMask jetpackMask = database.getAspectMask<Jetpack>();
@@ -295,8 +295,8 @@ namespace DatabaseTestCase {
             name = "HasAspect";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             
             Zep::AspectMask mask = database.getAspectMask<Jetpack, Health>();
@@ -322,8 +322,8 @@ namespace DatabaseTestCase {
             name = "FastAspectRetrival";
         }
         void run() {
-            Zep::EventManager eventManager;
-            Zep::Database database(eventManager);
+            Zep::EventBus eventBus;
+            Zep::Database database(eventBus);
             database.initialize();
             
             Zep::AspectTypeID typeID = database.getAspectTypeID<Jetpack>();

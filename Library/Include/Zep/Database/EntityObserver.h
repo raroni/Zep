@@ -10,7 +10,7 @@
 #define __Zep__EntityObserver__
 
 #include <set>
-#include "Zep/Events/EventManager.h"
+#include "Zep/Events/EventBus.h"
 #include "Zep/Events/EventSubscriptionManager.h"
 #include "Zep/Database/EntityObserverDelegate.h"
 #include "Zep/Database/EntityIDAddition.h"
@@ -25,7 +25,7 @@ namespace Zep {
         void add(EntityID id);
         void remove(EntityID id);
     public:
-        EntityObserver(EventManager &eventManager, EntityObserverDelegate &delegate);
+        EntityObserver(EventBus &eventBus, EntityObserverDelegate &delegate);
         void initialize();
         void handle(const EntityIDAddition &addition);
         void handle(const EntityIDDestruction &destruction);

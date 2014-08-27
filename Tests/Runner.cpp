@@ -6,7 +6,7 @@
 #include "Database/AspectListTestCase.h"
 #include "Events/EventSignalTestCase.h"
 #include "Events/EventSubscriptionTestCase.h"
-#include "Events/EventManagerTestCase.h"
+#include "Events/EventBusTestCase.h"
 #include "Events/EventSubscriptionManagerTestCase.h"
 #include "Math/QuaternionTest.h"
 
@@ -19,7 +19,7 @@ int main() {
     suite.add(new AspectTypeRegistryTestCase::Case());
     suite.add(new EventSignalTestCase::Case());
     suite.add(new EventSubscriptionTestCase::Case());
-    suite.add(new EventManagerTestCase::Case());
+    suite.add(new EventBusTestCase::Case());
     suite.add(new EventSubscriptionManagerTestCase::Case());
     suite.add(new EntityObserverTestCase::Case());
     suite.add(new QuaternionTestCase::Case());
