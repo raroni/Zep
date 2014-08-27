@@ -82,7 +82,6 @@ namespace DatabaseTestCase {
             assert(!database.hasAspect(id, aspectID));
             database.update();
             assert(database.hasAspect(id, aspectID));
-            assert(false);
         }
     };
     
