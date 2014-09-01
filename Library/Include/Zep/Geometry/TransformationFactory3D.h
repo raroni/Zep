@@ -9,6 +9,8 @@
 #ifndef __Zep__TransformationFactory3D__
 #define __Zep__TransformationFactory3D__
 
+#include "Zep/Math/Vector3.h"
+
 namespace Zep {
     class Point3D;
     class Matrix4;

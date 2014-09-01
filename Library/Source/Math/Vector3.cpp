@@ -116,6 +116,10 @@ namespace Zep {
         operator/=(getLength());
     }
     
+    Vector3 Vector3::zero() {
+        return Vector3(0, 0, 0);
+    }
+    
     float Vector3::getLength() {
         return std::sqrt(getSquaredLength());
     }

@@ -33,6 +33,7 @@ namespace Zep {
         float getLength();
         float getSquaredLength();
         void reset();
+        static Vector3 zero();
     };
 }
 
