@@ -17,6 +17,35 @@ namespace Zep {
         return components[index];
     }
     
+    void Matrix3::reset() {
+        for(int i=0; 9>i; i++) {
+            components[i] = 0;
+        }
+    }
+    
+    Matrix3& Matrix3::operator*=(Matrix3 other) {
+        Matrix3 original = *this;
+        reset();
+        
+        int resultIndex;
+        for(int row=0; 3>row; row++) {
+            for(int column=0; 3>column; column++) {
+                resultIndex = column*3+row;
+                for(int step=0; 3>step; step++) {
+                    components[resultIndex] += original[row+step*3] * other[column*3+step];
+                }
+            }
+        }
+        
+        return *this;
+    }
+    
+    Matrix3 Matrix3::operator*(Matrix3 other) {
+        Matrix3 result = *this;
+        result *= other;
+        return result;
+    }
+    
     Matrix3 Matrix3::identity() {
         Matrix3 identity;
         identity[0] = 1;
