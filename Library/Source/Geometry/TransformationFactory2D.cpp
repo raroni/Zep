@@ -16,4 +16,8 @@ namespace Zep {
         scaling[4] = y;
         return scaling;
     }
+    
+    Matrix3 TransformationFactory2D::scaling(float factor) {
+        return scaling(factor, factor);
+    }
 }

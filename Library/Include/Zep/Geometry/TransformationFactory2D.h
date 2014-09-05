@@ -15,6 +15,7 @@ namespace Zep {
     
     namespace TransformationFactory2D {
         Matrix3 scaling(float x, float y);
+        Matrix3 scaling(float factor);
     }
 }
 
