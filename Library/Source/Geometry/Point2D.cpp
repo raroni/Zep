@@ -34,4 +34,8 @@ namespace Zep {
     Point2D::operator Vector2() {
         return vector;
     }
+    
+    Point2D Point2D::origin() {
+        return Point2D(0, 0);
+    }
 }

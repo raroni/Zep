@@ -23,6 +23,7 @@ namespace Zep {
         const float& operator[](const int index) const;
         Point2D operator-(Vector2 displacement);
         operator Vector2();
+        static Point2D origin();
     };
 }
 
