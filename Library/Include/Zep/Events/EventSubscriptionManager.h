@@ -25,10 +25,13 @@ namespace Zep {
             auto subscription = eventBus.subscribe<EventType>(receiver);
             subscriptions.push_back(subscription);
         }
-        ~EventSubscriptionManager() {
+        void cancelAll() {
             for(auto &subscription : subscriptions) {
                 subscription.cancel();
             }
+        }
+        ~EventSubscriptionManager() {
+            cancelAll();
         }
     };
 }
