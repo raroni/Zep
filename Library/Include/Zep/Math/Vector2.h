@@ -30,6 +30,7 @@ namespace Zep {
         Vector2& operator/=(float factor);
         float& operator[](const int index);
         const float& operator[](const int index) const;
+        void clamp(float maxLength);
         void normalize();
         void reset();
         float getSquaredLength();

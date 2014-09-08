@@ -23,6 +23,14 @@ namespace Zep {
         return &this->components[0];
     }
     
+    void Vector2::clamp(float maxLength) {
+        float actualLength = getLength();
+        if(actualLength > maxLength) {
+            normalize();
+            operator*=(maxLength);
+        }
+    }
+    
     float& Vector2::operator[](const int index) {
         return getComponentsPointer()[index];
     }
