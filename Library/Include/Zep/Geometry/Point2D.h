@@ -24,6 +24,8 @@ namespace Zep {
         Point2D operator-(Vector2 displacement);
         operator Vector2();
         static Point2D origin();
+        Point2D& operator*=(float factor);
+        Point2D operator*(float factor);
     };
 }
 

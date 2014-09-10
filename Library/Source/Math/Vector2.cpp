@@ -60,15 +60,15 @@ namespace Zep {
         return *this;
     }
     
-    float Vector2::getDotProduct(const Vector2 vector) const {
-        float dotProduct = components[0]*vector[0] + components[1]*vector[1];
-        return dotProduct;
-    }
-    
     Vector2 Vector2::operator*(float factor) {
         Vector2 result = *this;
         result *= factor;
         return result;
+    }
+    
+    float Vector2::getDotProduct(const Vector2 vector) const {
+        float dotProduct = components[0]*vector[0] + components[1]*vector[1];
+        return dotProduct;
     }
     
     Vector2& Vector2::operator+=(Vector2 vector) {

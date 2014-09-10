@@ -23,6 +23,17 @@ namespace Zep {
         return vector;
     }
     
+    Point2D& Point2D::operator*=(float factor) {
+        vector *= factor;
+        return *this;
+    }
+    
+    Point2D Point2D::operator*(float factor) {
+        Point2D result = *this;
+        result *= factor;
+        return result;
+    }
+    
     float& Point2D::operator[](const int index) {
         return vector[index];
     }
