@@ -26,6 +26,7 @@ namespace Zep {
         static Point2D origin();
         Point2D& operator*=(float factor);
         Point2D operator*(float factor);
+        void reset();
     };
 }
 

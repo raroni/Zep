@@ -27,6 +27,10 @@ namespace Zep {
         vector *= factor;
         return *this;
     }
+
+    void Point2D::reset() {
+        vector.reset();
+    }
     
     Point2D Point2D::operator*(float factor) {
         Point2D result = *this;
