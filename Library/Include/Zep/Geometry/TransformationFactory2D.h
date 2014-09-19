@@ -16,6 +16,8 @@ namespace Zep {
     namespace TransformationFactory2D {
         Matrix3 scaling(float x, float y);
         Matrix3 scaling(float factor);
+        Matrix3 rotation(float angle);
+        Matrix3 translation(float x, float y);
     }
 }
 
