@@ -14,8 +14,8 @@
 namespace Zep {
     class Vector2 {
     protected:
-        float components[2] = {0, 0};
     public:
+        float components[2] = {0, 0};
         Vector2(float x = 0, float y = 0);
         float* getComponentsPointer();
         const float* getComponentsPointer() const;
