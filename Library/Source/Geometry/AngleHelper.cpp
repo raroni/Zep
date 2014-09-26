@@ -17,6 +17,7 @@ namespace Zep {
     }
 
     float AngleHelper::normalizeDifference(float difference) {
-        return fmod(difference+M_PI, M_PI*2) - M_PI;
+        float x = std::round(difference/(M_PI*2))*M_PI*2;
+        return difference-x;
     }
 }
