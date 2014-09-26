@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Tickleworks. All rights reserved.
 //
 
-#include "Point3D.h"
+#include "Zep/Geometry/Point3D.h"
 #include "Zep/Math/Quaternion.h"
 
 namespace Zep {

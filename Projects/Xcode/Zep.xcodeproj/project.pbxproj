@@ -26,6 +26,7 @@
 		3A6D4C2F189BD41E00D1065B /* EntityIDDestruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */; };
 		3A6D4C30189BD4FE00D1065B /* EntityIDDestruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */; };
 		3A7044881897D4760076E9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7044871897D4760076E9C2 /* Foundation.framework */; };
+		3A738CE119D49CC900E04ACB /* AngleHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A738CDF19D49CC900E04ACB /* AngleHelper.cpp */; };
 		3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF881897F1A5004BFA7F /* Point2D.cpp */; };
 		3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BEF901897F4DC004BFA7F /* Vector2.cpp */; };
 		3A8CEA2818ADFDF1007CF591 /* EntityChange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CEA2618ADFDF1007CF591 /* EntityChange.cpp */; };
@@ -112,6 +113,8 @@
 		3A6D4C2D189BD41E00D1065B /* EntityIDDestruction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityIDDestruction.cpp; sourceTree = "<group>"; };
 		3A7044841897D4760076E9C2 /* libZep-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libZep-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7044871897D4760076E9C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A738CDF19D49CC900E04ACB /* AngleHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AngleHelper.cpp; sourceTree = "<group>"; };
+		3A738CE019D49CC900E04ACB /* AngleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngleHelper.h; sourceTree = "<group>"; };
 		3A7BEF861897F19B004BFA7F /* Point2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point2D.h; sourceTree = "<group>"; };
 		3A7BEF881897F1A5004BFA7F /* Point2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point2D.cpp; sourceTree = "<group>"; };
 		3A7BEF8E1897F4D3004BFA7F /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
@@ -350,6 +353,7 @@
 				3AF4ED0119655A32001A1F4A /* TransformationFactory3D.cpp */,
 				3A7BEF881897F1A5004BFA7F /* Point2D.cpp */,
 				3A68F91C19B9BC59008640E0 /* TransformationFactory2D.cpp */,
+				3A738CDF19D49CC900E04ACB /* AngleHelper.cpp */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -358,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				3A68F91D19B9BC59008640E0 /* TransformationFactory2D.h */,
+				3A738CE019D49CC900E04ACB /* AngleHelper.h */,
 				3A7BEF861897F19B004BFA7F /* Point2D.h */,
 				3AF4ECFF19654F9B001A1F4A /* Point3D.h */,
 				3AF4ED0219655A32001A1F4A /* TransformationFactory3D.h */,
@@ -590,6 +595,7 @@
 				3A6C8BBB18A771DC009F118E /* EventSignal.cpp in Sources */,
 				3A8CEA2818ADFDF1007CF591 /* EntityChange.cpp in Sources */,
 				3A68F91E19B9BC59008640E0 /* TransformationFactory2D.cpp in Sources */,
+				3A738CE119D49CC900E04ACB /* AngleHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
