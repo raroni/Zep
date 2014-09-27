@@ -37,6 +37,7 @@
 		3AD0DA6D189A6B6A0050DF44 /* EventBus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA6B189A6B6A0050DF44 /* EventBus.cpp */; };
 		3AD0DA76189A71DD0050DF44 /* EntityIDAddition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA74189A71DD0050DF44 /* EntityIDAddition.cpp */; };
 		3AD0DA79189A71EB0050DF44 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0DA77189A71EB0050DF44 /* Event.cpp */; };
+		3AD324CB19D70CAD004D644F /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD324C919D70CAD004D644F /* Vector4.cpp */; };
 		3AD4F4791965A05F009C80FF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4F4771965A05F009C80FF /* Quaternion.cpp */; };
 		3AD4F47A1965A531009C80FF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4F4771965A05F009C80FF /* Quaternion.cpp */; };
 		3AF4ECF619654D60001A1F4A /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4ECF419654D60001A1F4A /* Matrix4.cpp */; };
@@ -140,6 +141,8 @@
 		3AD0DA77189A71EB0050DF44 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
 		3AD0DA7B189A71F70050DF44 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		3AD0DA84189A81B60050DF44 /* EventSignalCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignalCallback.h; sourceTree = "<group>"; };
+		3AD324C919D70CAD004D644F /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4.cpp; sourceTree = "<group>"; };
+		3AD324CA19D70CAD004D644F /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector4.h; sourceTree = "<group>"; };
 		3AD4F4721965929F009C80FF /* AspectListTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectListTestCase.h; sourceTree = "<group>"; };
 		3AD4F4771965A05F009C80FF /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quaternion.cpp; sourceTree = "<group>"; };
 		3AD4F4781965A05F009C80FF /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
@@ -373,6 +376,7 @@
 		3A7BEF8B1897F448004BFA7F /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				3AD324CA19D70CAD004D644F /* Vector4.h */,
 				3A68F92019B9BD26008640E0 /* Matrix3.h */,
 				3A7BEF8E1897F4D3004BFA7F /* Vector2.h */,
 				3AD4F4781965A05F009C80FF /* Quaternion.h */,
@@ -390,6 +394,7 @@
 				3A7BEF901897F4DC004BFA7F /* Vector2.cpp */,
 				3AD4F4771965A05F009C80FF /* Quaternion.cpp */,
 				3A68F91F19B9BD26008640E0 /* Matrix3.cpp */,
+				3AD324C919D70CAD004D644F /* Vector4.cpp */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				3AF4ECFD19654F91001A1F4A /* Vector3.cpp in Sources */,
 				3AF4ED0019654F9B001A1F4A /* Point3D.cpp in Sources */,
 				3AF4ED0319655A32001A1F4A /* TransformationFactory3D.cpp in Sources */,
+				3AD324CB19D70CAD004D644F /* Vector4.cpp in Sources */,
 				3A7BEF8A1897F1A5004BFA7F /* Point2D.cpp in Sources */,
 				3A7BEF921897F4DC004BFA7F /* Vector2.cpp in Sources */,
 				3ABDD861196303430040E661 /* EntityObserver.cpp in Sources */,
